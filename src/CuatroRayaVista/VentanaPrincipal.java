@@ -13,12 +13,12 @@ import javax.swing.JFrame;
  *
  * @author Lucas
  */
-public class MiVentana extends JFrame{
+public class VentanaPrincipal extends JFrame{
     private PanelFotos fotos;
     private PanelBotones botones;
     private Puntuacion puntos;
     
-    public MiVentana(){
+    public VentanaPrincipal(){
         
         setLayout(new BorderLayout ());
         fotos = new PanelFotos();

@@ -7,7 +7,7 @@ package cuatroenraya;
 
 import CuatroRayaControlador.Controlador;
 import CuatroRayaModelo.Modelo;
-import CuatroRayaVista.MiVentana;
+import CuatroRayaVista.VentanaPrincipal;
 
 /**
  *
@@ -19,11 +19,11 @@ public class CuatroEnRaya {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        MiVentana v = new MiVentana();
+        VentanaPrincipal v = new VentanaPrincipal();
         Modelo m = new Modelo();
         Controlador c = new Controlador(m, v);
         v.setVisible(true);
-        v.setSize(700,750);
+        v.setSize(1100,900);
         v.setTitle("CUATRO EN RAYA");
     }
     

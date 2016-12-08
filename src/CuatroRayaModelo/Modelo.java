@@ -5,7 +5,7 @@
  */
 package CuatroRayaModelo;
 
-import CuatroRayaVista.MiVentana;
+import CuatroRayaVista.VentanaPrincipal;
 
 /**
  *

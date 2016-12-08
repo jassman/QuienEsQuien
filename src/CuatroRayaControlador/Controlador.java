@@ -6,7 +6,7 @@
 package CuatroRayaControlador;
 
 import CuatroRayaModelo.Modelo;
-import CuatroRayaVista.MiVentana;
+import CuatroRayaVista.VentanaPrincipal;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,6 +14,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import static java.awt.event.MouseEvent.BUTTON1;
 import static java.awt.event.MouseEvent.BUTTON3;
+import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.event.ChangeEvent;
@@ -27,10 +28,10 @@ import javax.swing.event.ChangeListener;
 
 public class Controlador {
 
-    private MiVentana vista;
+    private VentanaPrincipal vista;
     private Modelo modelo;
     
-    public Controlador(Modelo modelo, MiVentana vista){
+    public Controlador(Modelo modelo, VentanaPrincipal vista){
         this.vista = vista;
         this.modelo = modelo;
         
@@ -47,10 +48,11 @@ public class Controlador {
     class WindowListener extends WindowAdapter {
     
         public void windowClosing(WindowEvent e) {
-        System.out.println( " PhotoEditorController : Cerrar ventana.");
-        System.exit(0);
+            System.out.println( " PhotoEditorController : Cerrar ventana.");
+            System.exit(0);
         }
     } 
+    
     
     class Comprobacion implements ActionListener{
          public void actionPerformed(ActionEvent a){

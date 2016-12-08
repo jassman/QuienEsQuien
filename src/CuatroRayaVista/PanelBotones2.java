@@ -5,6 +5,7 @@
  */
 package CuatroRayaVista;
 
+import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -43,6 +44,8 @@ public class PanelBotones2 extends JPanel{
         "NoBigote"};
     
     public PanelBotones2(){
+        
+        setPreferredSize( new Dimension(900, 100) );
         
         for(int i = 0; i < 23; i++){
             botones[i] = new JButton(subopciones[i]);  

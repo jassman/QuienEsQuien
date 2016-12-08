@@ -26,7 +26,7 @@ public class PanelFotos extends JPanel{
     private String [] nombres = {"Alex", "Alfred", "Anita", "Anne", "Bernard", "Bill", "Charles", "Claire", "David", "Eric", "Frans", "George", "Herman", "Joe", "Maria", "Max", "Paul", "Peter", "Philip", "Richard", "Robert", "Sam", "Susan", "Tom"};
     public  PanelFotos(){
         
-        setLayout(new GridLayout(4,7));
+        setLayout(new GridLayout(3,8));
         
         for(int i = 0; i < 24; i++){
             botones[i] = new JButton(); 
@@ -43,6 +43,8 @@ public class PanelFotos extends JPanel{
             botones[i].addActionListener(a);   
         }
     }
+    
+    
     
     
     
