@@ -5,9 +5,11 @@
  */
 package CuatroRayaVista;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -29,10 +31,11 @@ public class PanelFotos extends JPanel{
         setLayout(new GridLayout(3,8));
         
         for(int i = 0; i < 24; i++){
-            botones[i] = new JButton(); 
+            botones[i] = new BotonPersonalizado(); 
             ImageIcon face = new ImageIcon("cara" + (i+1) + ".gif");
             botones[i].setIcon(face);
             botones[i].setActionCommand(nombres[i]);
+           
             add(botones[i]);
         }
 
@@ -43,6 +46,39 @@ public class PanelFotos extends JPanel{
             botones[i].addActionListener(a);   
         }
     }
+    
+    class BotonPersonalizado extends JButton {
+
+        public BotonPersonalizado() {
+            this(null);
+        }
+
+        public BotonPersonalizado(String text) {
+            super(text);
+            super.setContentAreaFilled(false);
+        }
+
+        @Override
+        protected void paintComponent(Graphics g) {
+            if (getModel().isPressed()) {
+                g.setColor(Color.BLACK);
+            } else if (getModel().isRollover()) {
+                g.setColor(Color.DARK_GRAY);
+            } else {
+                g.setColor(getBackground());
+            }
+            g.fillRect(0, 0, getWidth(), getHeight());
+            super.paintComponent(g);
+        }
+
+        @Override
+        public void setContentAreaFilled(boolean b) {
+        }
+        
+    }
+    
+    
+    
     
     
     

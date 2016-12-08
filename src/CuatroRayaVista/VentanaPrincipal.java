@@ -7,6 +7,7 @@ package CuatroRayaVista;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import javax.swing.JFrame;
 
 /**
@@ -41,7 +42,7 @@ public class VentanaPrincipal extends JFrame{
     public void setActionListenerBotones2(ActionListener a){
         botones.setActionListenerPanel2(a);
     }
-    
+            
     public void opSexo(){
         botones.opSexo();
     }
