@@ -12,7 +12,16 @@ package CuatroRayaModelo;
 public class Persona {
     private boolean bigote, sombrero, gafas;
     private String sexo, pelo, ojos, nariz, boca, nombre;
-    public Persona(String nombre, String sexo, String pelo, String ojos, String nariz, String boca, boolean gafas, boolean sombrero, boolean bigote){
+    public Persona(
+            String nombre, 
+            String sexo, 
+            String pelo, 
+            String ojos, 
+            String nariz, 
+            String boca, 
+            boolean gafas, 
+            boolean sombrero, 
+            boolean bigote){
         
         this.nombre = nombre;
         this.sexo = sexo;

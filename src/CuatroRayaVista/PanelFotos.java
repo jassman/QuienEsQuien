@@ -27,6 +27,7 @@ public class PanelFotos extends JPanel{
     public  PanelFotos(){
         
         setLayout(new GridLayout(4,7));
+        
         for(int i = 0; i < 24; i++){
             botones[i] = new JButton(); 
             ImageIcon face = new ImageIcon("cara" + (i+1) + ".gif");
@@ -42,6 +43,8 @@ public class PanelFotos extends JPanel{
             botones[i].addActionListener(a);   
         }
     }
+    
+    
     
     
     

@@ -17,47 +17,36 @@ import javax.swing.JPanel;
 public class PanelBotones2 extends JPanel{
     private JButton [] botones = new JButton [23];
     //private ButtonGroup [] opciones = new ButtonGroup [8];
-    private String [] subopciones = {"Chico", "Chica", "Rubio", "Moreno", "Castaño", "Pelirrojo", "Canoso", "Calvo", "Azules", "Verdes", "Marrones", "NGrande", "NMediana", "NPequeña", "BGrande", "BMediana", "BPequeña", "SiGafas", "NoGafas", "SiSombrero", "NoSombrero", "SiBigote", "NoBigote"};
+    private String [] subopciones = {
+        "Chico", 
+        "Chica", 
+        "Rubio", 
+        "Moreno", 
+        "Castaño", 
+        "Pelirrojo", 
+        "Canoso", 
+        "Calvo", 
+        "Azules", 
+        "Verdes", 
+        "Marrones", 
+        "NGrande", 
+        "NMediana", 
+        "NPequeña", 
+        "BGrande", 
+        "BMediana", 
+        "BPequeña", 
+        "SiGafas", 
+        "NoGafas", 
+        "SiSombrero", 
+        "NoSombrero", 
+        "SiBigote", 
+        "NoBigote"};
+    
     public PanelBotones2(){
         
         for(int i = 0; i < 23; i++){
-            botones[i] = new JButton(subopciones[i]);
-            
-            
+            botones[i] = new JButton(subopciones[i]);  
         }
-        /*
-        for(int i = 0; i < 2; i++){
-            opciones[0].add(botones[i]);
-        }
-        
-        for(int i = 2; i < 8; i++){
-            opciones[1].add(botones[i]);
-        }
-        
-        for(int i = 8; i < 11; i++){
-            opciones[2].add(botones[i]);
-        }
-        
-        for(int i = 11; i < 14; i++){
-            opciones[3].add(botones[i]);
-        }
-        
-        for(int i = 14; i < 17; i++){
-            opciones[4].add(botones[i]);
-        }
-        
-        for(int i = 17; i < 19; i++){
-            opciones[5].add(botones[i]);
-        }
-        
-        for(int i = 19; i < 21; i++){
-            opciones[6].add(botones[i]);
-        }
-        
-        for(int i = 21; i < 23; i++){
-            opciones[7].add(botones[i]);
-        }
-        */
         for(int i = 0; i < 23; i++){
             botones[i].setVisible(false);
             add(botones[i]);

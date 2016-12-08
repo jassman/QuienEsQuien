@@ -50,7 +50,6 @@ public class Modelo{
         
         i = (int) (Math.random()*23);
         
-        
         sospechoso = personas[i];
         
         System.out.println(sospechoso.getSexo());
@@ -64,10 +63,8 @@ public class Modelo{
     }
     
     public void Comprobar(String s){
-        if(s == sospechoso.getNombre())
+        if(s.equalsIgnoreCase(sospechoso.getNombre()))
             System.out.println("HAS ACERTADO! GANASTE");
-        
-        
         else
             System.out.println("FALLASTE! PERDISTE");
         

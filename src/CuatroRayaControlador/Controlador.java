@@ -131,6 +131,7 @@ public class Controlador {
             switch(opcion){
                 case "Chico":
                     System.out.println("DFSFASFAS");
+                    vista.opBigote();
                     break;
                 
                 case "Chica":
