@@ -18,6 +18,7 @@ public class VentanaPrincipal extends JFrame{
     private PanelFotos fotos;
     private PanelBotones botones;
     private Puntuacion puntos;
+    private MenuDificultad menu;
     
     public VentanaPrincipal(){
         
@@ -25,10 +26,12 @@ public class VentanaPrincipal extends JFrame{
         fotos = new PanelFotos();
         botones = new PanelBotones();
         puntos = new Puntuacion();
+        menu = new MenuDificultad();
         
         add(puntos, BorderLayout.NORTH);
         add(fotos, BorderLayout.CENTER);
         add(botones, BorderLayout.SOUTH);
+        this.setJMenuBar(menu);
     }
     
     public void setActionListenerAsesino(ActionListener a){
@@ -41,6 +44,10 @@ public class VentanaPrincipal extends JFrame{
     
     public void setActionListenerBotones2(ActionListener a){
         botones.setActionListenerPanel2(a);
+    }
+    
+    public void setActionListenerMenu(ActionListener a){
+        menu.setActionListener(a);
     }
     
     public void eliminaSospechosos(int[] s){
@@ -80,6 +87,8 @@ public class VentanaPrincipal extends JFrame{
         botones.opBigote();
     }
     
-    
+    public void setText(int s){
+        puntos.setPuntos(s);
+    }
     
 }

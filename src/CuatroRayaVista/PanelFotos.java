@@ -49,7 +49,9 @@ public class PanelFotos extends JPanel{
     
     public void eliminaSospechosos(int[] s){
         for(int i = 0; i < s.length; i++){
-            botones[s[i]].setVisible(false);
+            //botones[s[i]].setVisible(false);
+            ImageIcon face = new ImageIcon("reverso.gif");
+            botones[s[i]].setIcon(face);
             botones[s[i]].setEnabled(false);
         }
     }
@@ -64,7 +66,7 @@ public class PanelFotos extends JPanel{
             super(text);
             super.setContentAreaFilled(false);
         }
-
+/*
         @Override
         protected void paintComponent(Graphics g) {
             if (getModel().isPressed()) {
@@ -81,7 +83,7 @@ public class PanelFotos extends JPanel{
         @Override
         public void setContentAreaFilled(boolean b) {
         }
-        
+        */
     }
     
     

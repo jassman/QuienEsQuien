@@ -14,19 +14,21 @@ import javax.swing.JMenuItem;
  *
  * @author Lucas
  */
-public class Menu extends JMenuBar{
+public class MenuDificultad extends JMenuBar{
     private JMenu menu;
-    private JMenuItem item, item2, item3;
+    private JMenuItem item, item2, item3, item4;
     
-    public Menu(){
-        menu = new JMenu("Configuracion");
-        item = new JMenuItem("Cambiar nivel");
-        item2 = new JMenuItem("Nivel personalizado");
-        item3 = new JMenuItem("Salir");
+    public MenuDificultad(){
+        menu = new JMenu("Dificultad");
+        item = new JMenuItem("Facil");
+        item2 = new JMenuItem("Media");
+        item3 = new JMenuItem("Dificil");
+        item4 = new JMenuItem("Dificultad personalizada");
         
         menu.add(item);
         menu.add(item2);
         menu.add(item3);
+        menu.add(item4);
         add(menu);
     }
     
@@ -34,5 +36,6 @@ public class Menu extends JMenuBar{
         item.addActionListener(actionListener);
         item2.addActionListener(actionListener);
         item3.addActionListener(actionListener);
+        item4.addActionListener(actionListener);
     }
 }

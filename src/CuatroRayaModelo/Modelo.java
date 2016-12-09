@@ -6,6 +6,7 @@
 package CuatroRayaModelo;
 
 import CuatroRayaVista.VentanaPrincipal;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,7 +15,7 @@ import CuatroRayaVista.VentanaPrincipal;
 public class Modelo {
 
     private Persona personas[] = new Persona[24];
-    private int i_sospechoso;
+    private int i_sospechoso, puntosIniciales, puntosRestar;
     private Persona sospechoso;
     boolean partida;
 
@@ -172,6 +173,36 @@ public class Modelo {
 
     public boolean getPartida() {
         return partida;
+    }
+    
+    public void partidaFacil(){
+        puntosIniciales = 20;
+        puntosRestar = 1;
+    }
+    
+    public void partidaMedia(){
+        puntosIniciales = 20;
+        puntosRestar = 3;
+    }
+    
+    public void partidaDificil(){
+        puntosIniciales = 20;
+        puntosRestar = 1;
+    }
+    
+    public int restarPuntos(){
+        puntosIniciales = puntosIniciales - puntosRestar;
+        
+        return puntosIniciales;
+    }
+    
+    public void partidaPersonalizada(){
+        puntosIniciales = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos con los que quieres empezar " ));
+        puntosRestar = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos que quieres que reste cada pregunta " ));
+    }
+    
+    public int getPuntos(){
+        return puntosIniciales;
     }
 
 }

@@ -20,4 +20,10 @@ public class Puntuacion extends JPanel{
         
         add(puntos);
     }
+    
+    public void setPuntos(int i){
+        String s = String.valueOf(i);
+        
+        puntos.setText("Puntos: " + s);
+    }
 }

@@ -17,6 +17,7 @@ import static java.awt.event.MouseEvent.BUTTON3;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -30,7 +31,7 @@ public class Controlador {
 
     private VentanaPrincipal vista;
     private Modelo modelo;
-    
+    private int puntos, ok;
     public Controlador(Modelo modelo, VentanaPrincipal vista){
         this.vista = vista;
         this.modelo = modelo;
@@ -40,7 +41,7 @@ public class Controlador {
         vista.setActionListenerBotones1(new Opciones());
         vista.setActionListenerBotones2(new SubOpciones());
         vista.addWindowListener(new WindowListener());
-       // vista.setActionListenerMenu(new Menu());
+        vista.setActionListenerMenu(new Menu());
        
         
     }
@@ -57,7 +58,9 @@ public class Controlador {
     class Comprobacion implements ActionListener{
          public void actionPerformed(ActionEvent a){
             String opcion = a.getActionCommand();
+            ok = JOptionPane.showConfirmDialog(null,"Estas seguro que esta es tu respuesta final?",  "Seleccione la opcion deseada",JOptionPane.YES_NO_OPTION);
             
+            if(ok == 0)
             modelo.Comprobar(opcion);
          }
     }
@@ -107,20 +110,31 @@ public class Controlador {
             String opcion = a.getActionCommand();
             
             switch(opcion){
-                case "Guardar":
-                    System.out.println("GUARDAR");
+                case "Facil":
+                    modelo.partidaFacil();
+                    puntos = modelo.getPuntos();
+                    vista.setText(puntos);
                     
                     
                     break;
                     
-                case "Cargar":
-                    System.out.println("CARGAR");
+                case "Media":
+                    modelo.partidaMedia();
+                    puntos = modelo.getPuntos();
+                    vista.setText(puntos);
                     
-                    vista.repaint();
                     break;
                     
-                case "Salir":
-                    System.exit(0);
+                case "Dificil":
+                    modelo.partidaDificil();
+                    puntos = modelo.getPuntos();
+                    vista.setText(puntos);
+                    break;
+                    
+                case "Dificultad personalizada":
+                    modelo.partidaPersonalizada();
+                    puntos = modelo.getPuntos();
+                    vista.setText(puntos);
                     break;
             }
         }
@@ -133,6 +147,8 @@ public class Controlador {
             switch(opcion){
                 case "Chico":
                 case "Chica":
+                    puntos = modelo.restarPuntos();
+                    vista.setText(puntos);
                     eliminados = modelo.eliminar("sexo", opcion);
                     vista.eliminaSospechosos(eliminados);
                     break;
@@ -143,6 +159,8 @@ public class Controlador {
                 case "Pelirrojo":
                 case "Canoso":
                 case "Calvo":
+                    puntos = modelo.restarPuntos();
+                    vista.setText(puntos);
                     eliminados = modelo.eliminar("pelo", opcion);
                     vista.eliminaSospechosos(eliminados);
                     break;
@@ -150,6 +168,8 @@ public class Controlador {
                 case "Azules":
                 case "Verdes":
                 case "Marrones":
+                    puntos = modelo.restarPuntos();
+                    vista.setText(puntos);
                     eliminados = modelo.eliminar("ojos", opcion);
                     vista.eliminaSospechosos(eliminados);
                     break;
@@ -157,6 +177,8 @@ public class Controlador {
                 case "NGrande":
                 case "NMediana":
                 case "NPequeña":
+                    puntos = modelo.restarPuntos();
+                    vista.setText(puntos);
                     eliminados = modelo.eliminar("nariz", opcion);
                     vista.eliminaSospechosos(eliminados);
                     break;
@@ -164,24 +186,32 @@ public class Controlador {
                 case "BGrande":
                 case "BMediana":
                 case "Bpequeña":
+                    puntos = modelo.restarPuntos();
+                    vista.setText(puntos);
                     eliminados = modelo.eliminar("boca", opcion);
                     vista.eliminaSospechosos(eliminados);
                     break;
                     
                 case "SiGafas":
                 case "NoGafas":
+                    puntos = modelo.restarPuntos();
+                    vista.setText(puntos);
                     eliminados = modelo.eliminar("gafas", opcion);
                     vista.eliminaSospechosos(eliminados);
                     break;
                     
                 case "SiSombrero":
                 case "NoSombrero":
+                    puntos = modelo.restarPuntos();
+                    vista.setText(puntos);
                     eliminados = modelo.eliminar("sombrero", opcion);
                     vista.eliminaSospechosos(eliminados);
                     break;
                     
                 case "SiBigote":
                 case "NoBigote":
+                    puntos = modelo.restarPuntos();
+                    vista.setText(puntos);
                     eliminados = modelo.eliminar("bigote", opcion);
                     vista.eliminaSospechosos(eliminados);
                     break;
