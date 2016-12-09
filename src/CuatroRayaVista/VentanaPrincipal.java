@@ -42,6 +42,11 @@ public class VentanaPrincipal extends JFrame{
     public void setActionListenerBotones2(ActionListener a){
         botones.setActionListenerPanel2(a);
     }
+    
+    public void eliminaSospechosos(int[] s){
+        fotos.eliminaSospechosos(s);
+    }
+    
             
     public void opSexo(){
         botones.opSexo();

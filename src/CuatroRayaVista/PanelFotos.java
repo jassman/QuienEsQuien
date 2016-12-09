@@ -47,6 +47,13 @@ public class PanelFotos extends JPanel{
         }
     }
     
+    public void eliminaSospechosos(int[] s){
+        for(int i = 0; i < s.length; i++){
+            botones[s[i]].setVisible(false);
+            botones[s[i]].setEnabled(false);
+        }
+    }
+    
     class BotonPersonalizado extends JButton {
 
         public BotonPersonalizado() {

@@ -129,99 +129,61 @@ public class Controlador {
     class SubOpciones implements ActionListener{
          public void actionPerformed(ActionEvent a){
             String opcion = a.getActionCommand();
-            
+            int [] eliminados;
             switch(opcion){
                 case "Chico":
-                    System.out.println("DFSFASFAS");
-                    vista.opBigote();
-                    break;
-                
                 case "Chica":
-                    
+                    eliminados = modelo.eliminar("sexo", opcion);
+                    vista.eliminaSospechosos(eliminados);
                     break;
                     
                 case "Rubio":
-                    
-                    break;
-                
                 case "Moreno":
-                    
-                    break;
-                    
                 case "Castaño":
-                    
-                    break;
-                
                 case "Pelirrojo":
-                    
-                    break;
-                    
                 case "Canoso":
-                    
-                    break;
-                
                 case "Calvo":
-                    
+                    eliminados = modelo.eliminar("pelo", opcion);
+                    vista.eliminaSospechosos(eliminados);
                     break;
                     
                 case "Azules":
-                    
-                    break;
-                    
                 case "Verdes":
-                    
-                    break;
-                    
                 case "Marrones":
-                    
+                    eliminados = modelo.eliminar("ojos", opcion);
+                    vista.eliminaSospechosos(eliminados);
                     break;
                     
                 case "NGrande":
-                    
-                    break;
-                    
                 case "NMediana":
-                    
-                    break;
-                    
                 case "NPequeña":
-                    
+                    eliminados = modelo.eliminar("nariz", opcion);
+                    vista.eliminaSospechosos(eliminados);
                     break;
                     
                 case "BGrande":
-                    
-                    break;
-                    
                 case "BMediana":
-                    
-                    break;
-                    
                 case "Bpequeña":
-                    
+                    eliminados = modelo.eliminar("boca", opcion);
+                    vista.eliminaSospechosos(eliminados);
                     break;
                     
                 case "SiGafas":
-                    
-                    break;
-                    
                 case "NoGafas":
-                    
+                    eliminados = modelo.eliminar("gafas", opcion);
+                    vista.eliminaSospechosos(eliminados);
                     break;
                     
                 case "SiSombrero":
-                    
-                    break;
-                    
                 case "NoSombrero":
-                    
+                    eliminados = modelo.eliminar("sombrero", opcion);
+                    vista.eliminaSospechosos(eliminados);
                     break;
                     
                 case "SiBigote":
-                    
-                    break;
-                    
                 case "NoBigote":
-                    
+                    eliminados = modelo.eliminar("bigote", opcion);
+                    vista.eliminaSospechosos(eliminados);
                     break;
             }
          }
