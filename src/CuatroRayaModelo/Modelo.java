@@ -14,7 +14,7 @@ import CuatroRayaVista.VentanaPrincipal;
 public class Modelo {
 
     private Persona personas[] = new Persona[24];
-    private int i;
+    private int i_sospechoso;
     private Persona sospechoso;
     boolean partida;
 
@@ -49,9 +49,9 @@ public class Modelo {
         personas[22] = new Persona("Susan", "Chica", "Canoso", "Marrones", "Pequeña", "Grande", false, false, false);
         personas[23] = new Persona("Tom", "Chico", "Calvo", "Marrones", "Mediana", "Pequeña", true, false, false);
 
-        i = (int) (Math.random() * 23);
+        i_sospechoso = (int) (Math.random() * 23);
 
-        sospechoso = personas[i];
+        sospechoso = personas[i_sospechoso];
 
         System.out.println(sospechoso.getSexo());
         System.out.println(sospechoso.getPelo());
@@ -80,7 +80,7 @@ public class Modelo {
         switch (tipo) {
             case "sexo":
                 for (int i = 0; i < 24; i++) {
-                    if (s.equalsIgnoreCase(personas[i].getSexo())) {
+                    if (s.equalsIgnoreCase(personas[i].getSexo()) && (i != i_sospechoso)) {
                         a[j] = i;
                         j++;
                     }
@@ -89,7 +89,7 @@ public class Modelo {
 
             case "pelo":
                 for (int i = 0; i < 24; i++) {
-                    if (s.equalsIgnoreCase(personas[i].getPelo())) {
+                    if (s.equalsIgnoreCase(personas[i].getPelo())&& (i != i_sospechoso)) {
                         a[j] = i;
                         j++;
                     }
@@ -98,7 +98,7 @@ public class Modelo {
 
             case "ojos":
                 for (int i = 0; i < 24; i++) {
-                    if (s.equalsIgnoreCase(personas[i].getOjos())) {
+                    if (s.equalsIgnoreCase(personas[i].getOjos())&& (i != i_sospechoso)) {
                         a[j] = i;
                         j++;
                     }
@@ -107,7 +107,7 @@ public class Modelo {
                 
             case "boca":
                 for (int i = 0; i < 24; i++) {
-                    if (s.equalsIgnoreCase(personas[i].getBoca())) {
+                    if (s.equalsIgnoreCase(personas[i].getBoca())&& (i != i_sospechoso)) {
                         a[j] = i;
                         j++;
                     }
@@ -116,7 +116,7 @@ public class Modelo {
                 
             case "nariz":
                 for (int i = 0; i < 24; i++) {
-                    if (s.equalsIgnoreCase(personas[i].getNariz())) {
+                    if (s.equalsIgnoreCase(personas[i].getNariz())&& (i != i_sospechoso)) {
                         a[j] = i;
                         j++;
                     }
@@ -128,7 +128,7 @@ public class Modelo {
                     sBoleano = true;
                 }
                 for (int i = 0; i < 24; i++) {
-                    if (sBoleano == (personas[i].getGafas())) {
+                    if (sBoleano == (personas[i].getGafas()) && (personas[i] != personas[i_sospechoso])) {
                         a[j] = i;
                         j++;
                     }
@@ -140,7 +140,7 @@ public class Modelo {
                     sBoleano = true;
                 }
                 for (int i = 0; i < 24; i++) {
-                    if (sBoleano == (personas[i].getSombrero())) {
+                    if (sBoleano == (personas[i].getSombrero()) && (personas[i] != personas[i_sospechoso])) {
                         a[j] = i;
                         j++;
                     }
@@ -152,7 +152,7 @@ public class Modelo {
                     sBoleano = true;
                 }
                 for (int i = 0; i < 24; i++) {
-                    if (sBoleano == (personas[i].getBigote())) {
+                    if (sBoleano == (personas[i].getBigote()) && (personas[i] != personas[i_sospechoso])) {
                         a[j] = i;
                         j++;
                     }

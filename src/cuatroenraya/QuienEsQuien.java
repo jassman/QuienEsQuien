@@ -13,7 +13,7 @@ import CuatroRayaVista.VentanaPrincipal;
  *
  * @author Lucas
  */
-public class CuatroEnRaya {
+public class QuienEsQuien {
 
     /**
      * @param args the command line arguments
