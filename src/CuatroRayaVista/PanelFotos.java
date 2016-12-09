@@ -66,7 +66,7 @@ public class PanelFotos extends JPanel{
             super(text);
             super.setContentAreaFilled(false);
         }
-/*
+
         @Override
         protected void paintComponent(Graphics g) {
             if (getModel().isPressed()) {
@@ -83,7 +83,7 @@ public class PanelFotos extends JPanel{
         @Override
         public void setContentAreaFilled(boolean b) {
         }
-        */
+        
     }
     
     
