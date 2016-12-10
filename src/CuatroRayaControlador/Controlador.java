@@ -7,6 +7,7 @@ package CuatroRayaControlador;
 
 import CuatroRayaModelo.Modelo;
 import CuatroRayaVista.VentanaPrincipal;
+import CuatroRayaVista.VistaInicio;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -32,17 +33,18 @@ public class Controlador {
     private VentanaPrincipal vista;
     private Modelo modelo;
     private int puntos, ok;
-    public Controlador(Modelo modelo, VentanaPrincipal vista){
+    private VistaInicio inicio;
+    public Controlador(Modelo modelo, VentanaPrincipal vista, VistaInicio inicio){
         this.vista = vista;
         this.modelo = modelo;
-        
+        this.inicio = inicio;
         
         vista.setActionListenerAsesino(new Comprobacion());
         vista.setActionListenerBotones1(new Opciones());
         vista.setActionListenerBotones2(new SubOpciones());
         vista.addWindowListener(new WindowListener());
         vista.setActionListenerMenu(new Menu());
-       
+        inicio.setActionListenerPrincipal(new Principal());
         
     }
     
@@ -219,6 +221,44 @@ public class Controlador {
          }
     }
     
+    class Principal implements ActionListener{
+         public void actionPerformed(ActionEvent a){
+            String opcion = a.getActionCommand();
+            switch(opcion){
+                case "Facil":
+                    modelo.partidaFacil();
+                    puntos = modelo.getPuntos();
+                    vista.setText(puntos);
+                    
+                    
+                    break;
+                    
+                case "Media":
+                    modelo.partidaMedia();
+                    puntos = modelo.getPuntos();
+                    vista.setText(puntos);
+                    
+                    break;
+                    
+                case "Dificil":
+                    modelo.partidaDificil();
+                    puntos = modelo.getPuntos();
+                    vista.setText(puntos);
+                    break;
+                    
+                case "Dificultad personalizada":
+                    modelo.partidaPersonalizada();
+                    puntos = modelo.getPuntos();
+                    vista.setText(puntos);
+                    break;
+                    
+                case "JUGAR":
+                    vista.setVisible(true);
+                    inicio.setVisible(false);
+                    break;
+            }
+         }
+    }
     
       
 }

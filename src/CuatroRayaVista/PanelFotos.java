@@ -49,7 +49,6 @@ public class PanelFotos extends JPanel{
     
     public void eliminaSospechosos(int[] s){
         for(int i = 0; i < s.length; i++){
-            //botones[s[i]].setVisible(false);
             ImageIcon face = new ImageIcon("reverso.gif");
             botones[s[i]].setIcon(face);
             botones[s[i]].setEnabled(false);
