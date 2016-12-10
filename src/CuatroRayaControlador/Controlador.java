@@ -161,7 +161,8 @@ public class Controlador {
                     vista.setText(puntos);
                     eliminados = modelo.eliminar("sexo", opcion);
                     vista.eliminaSospechosos(eliminados);
-                    vista.bloquearBoton(opcion);
+                    vista.bloquearBoton("Chico");
+                    vista.bloquearBoton("Chica");
                     break;
                     
                 case "Rubio":
