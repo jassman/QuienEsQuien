@@ -26,29 +26,29 @@ public class Modelo {
 
         partida = true;
         personas[0] = new Persona("Alex", "Chico", "Negro", "Marrones", "Pequeña", "Grande", false, false, true);
-        personas[1] = new Persona("Alfred", "Chico", "Pelirrojo", "Marrones", "Pequeña", "Pequeña", false, false, true);
-        personas[2] = new Persona("Anita", "Chica", "Rubio", "Marrones", "Pequeña", "Pequeña", false, false, false);
+        personas[1] = new Persona("Alfred", "Chico", "Pelirrojo", "Azules", "Pequeña", "Pequeña", false, false, true);
+        personas[2] = new Persona("Anita", "Chica", "Rubio", "Azules", "Pequeña", "Pequeña", false, false, false);
         personas[3] = new Persona("Anne", "Chica", "Negro", "Marrones", "Mediana", "Pequeña", false, false, false);
         personas[4] = new Persona("Bernard", "Chico", "Moreno", "Marrones", "Grande", "Mediana", false, true, false);
         personas[5] = new Persona("Bill", "Chico", "Calvo", "Marrones", "Pequeña", "Mediana", false, false, false);
-        personas[6] = new Persona("Charles", "Chico", "Rubio", "Marrones", "Pequeña", "Grande", false, false, true);
+        personas[6] = new Persona("Charles", "Chico", "Rubio", "Verdes", "Pequeña", "Grande", false, false, true);
         personas[7] = new Persona("Claire", "Chica", "Negro", "Marrones", "Pequeña", "Pequeña", true, true, false);
-        personas[8] = new Persona("David", "Chico", "Rubio", "Marrones", "Pequeña", "Mediana", false, false, false);
-        personas[9] = new Persona("Eric", "Chico", "Rubio", "Marrones", "Pequeña", "Grande", false, true, false);
+        personas[8] = new Persona("David", "Chico", "Rubio", "Verdes", "Pequeña", "Mediana", false, false, false);
+        personas[9] = new Persona("Eric", "Chico", "Rubio", "Verdes", "Pequeña", "Grande", false, true, false);
         personas[10] = new Persona("Frans", "Chico", "Pelirrojo", "Marrones", "Pequeña", "Pequeña", false, false, false);
         personas[11] = new Persona("George", "Chico", "Canoso", "Marrones", "Pequeña", "Mediana", false, true, false);
-        personas[12] = new Persona("Herman", "Chico", "Calvo", "Marrones", "Grande", "Mediana", false, false, false);
-        personas[13] = new Persona("Joe", "Chico", "Rubio", "Marrones", "Mediana", "Pequeña", true, false, false);
+        personas[12] = new Persona("Herman", "Chico", "Calvo", "Verdes", "Grande", "Mediana", false, false, false);
+        personas[13] = new Persona("Joe", "Chico", "Rubio", "Azules", "Mediana", "Pequeña", true, false, false);
         personas[14] = new Persona("Maria", "Chica", "Moreno", "Marrones", "Pequeña", "Mediana", false, false, false);
         personas[15] = new Persona("Max", "Chico", "Negro", "Marrones", "Grande", "Grande", false, false, true);
-        personas[16] = new Persona("Paul", "Chico", "Canoso", "Marrones", "Pequeña", "Mediana", true, false, false);
-        personas[17] = new Persona("Peter", "Chico", "Canoso", "Marrones", "Grande", "Grande", false, false, false);
-        personas[18] = new Persona("Philip", "Chico", "Negro", "Marrones", "Pequeña", "Mediana", false, false, false);
+        personas[16] = new Persona("Paul", "Chico", "Canoso", "Verdes", "Pequeña", "Mediana", true, false, false);
+        personas[17] = new Persona("Peter", "Chico", "Canoso", "Azules", "Grande", "Grande", false, false, false);
+        personas[18] = new Persona("Philip", "Chico", "Negro", "Verdes", "Pequeña", "Mediana", false, false, false);
         personas[19] = new Persona("Richard", "Chico", "Calvo", "Marrones", "Pequeña", "Mediana", false, false, true);
-        personas[20] = new Persona("Robert", "Chico", "Castanyo", "Marrones", "Grande", "Grande", false, false, false);
-        personas[21] = new Persona("Sam", "Chico", "Calvo", "Marrones", "Pequeña", "Pequeña", true, false, false);
-        personas[22] = new Persona("Susan", "Chica", "Canoso", "Marrones", "Pequeña", "Grande", false, false, false);
-        personas[23] = new Persona("Tom", "Chico", "Calvo", "Marrones", "Mediana", "Pequeña", true, false, false);
+        personas[20] = new Persona("Robert", "Chico", "Castanyo", "Azules", "Grande", "Grande", false, false, false);
+        personas[21] = new Persona("Sam", "Chico", "Calvo", "Verdes", "Pequeña", "Pequeña", true, false, false);
+        personas[22] = new Persona("Susan", "Chica", "Canoso", "Verdes", "Pequeña", "Grande", false, false, false);
+        personas[23] = new Persona("Tom", "Chico", "Calvo", "Azules", "Mediana", "Pequeña", true, false, false);
 
         i_sospechoso = (int) (Math.random() * 23);
 
@@ -80,82 +80,147 @@ public class Modelo {
         Boolean sBoleano = false;
         switch (tipo) {
             case "sexo":
-                for (int i = 0; i < 24; i++) {
-                    if (s.equalsIgnoreCase(personas[i].getSexo()) && (i != i_sospechoso)) {
-                        a[j] = i;
-                        j++;
+                if (s.equalsIgnoreCase(personas[i_sospechoso].getSexo())){
+                    for (int i = 0; i < 24; i++) {
+                        if (!s.equalsIgnoreCase(personas[i].getSexo())) {
+                            a[j] = i;
+                            j++;
+                        }
+                    }
+                }else{
+                    for (int i = 0; i < 24; i++) {
+                        if (s.equalsIgnoreCase(personas[i].getSexo())) {
+                            a[j] = i;
+                            j++;
+                        }
                     }
                 }
                 break;
 
             case "pelo":
-                for (int i = 0; i < 24; i++) {
-                    if (s.equalsIgnoreCase(personas[i].getPelo())&& (i != i_sospechoso)) {
-                        a[j] = i;
-                        j++;
+                if (s.equalsIgnoreCase(personas[i_sospechoso].getPelo())){
+                    for (int i = 0; i < 24; i++) {
+                        if (!s.equalsIgnoreCase(personas[i].getPelo())) {
+                            a[j] = i;
+                            j++;
+                        }
+                    }
+                }else{
+                    for (int i = 0; i < 24; i++) {
+                        if (s.equalsIgnoreCase(personas[i].getPelo())) {
+                            a[j] = i;
+                            j++;
+                        }
                     }
                 }
                 break;
 
             case "ojos":
-                for (int i = 0; i < 24; i++) {
-                    if (s.equalsIgnoreCase(personas[i].getOjos())&& (i != i_sospechoso)) {
-                        a[j] = i;
-                        j++;
+                if (s.equalsIgnoreCase(personas[i_sospechoso].getOjos())){
+                    for (int i = 0; i < 24; i++) {
+                        if (!s.equalsIgnoreCase(personas[i].getOjos())) {
+                            a[j] = i;
+                            j++;
+                        }
+                    }
+                }else{
+                    for (int i = 0; i < 24; i++) {
+                        if (s.equalsIgnoreCase(personas[i].getOjos())) {
+                            a[j] = i;
+                            j++;
+                        }
                     }
                 }
                 break;
                 
             case "boca":
-                for (int i = 0; i < 24; i++) {
-                    if (s.equalsIgnoreCase(personas[i].getBoca())&& (i != i_sospechoso)) {
-                        a[j] = i;
-                        j++;
+                s = s.substring(1);
+                if (s.equalsIgnoreCase(personas[i_sospechoso].getBoca())){
+                    for (int i = 0; i < 24; i++) {
+                        if (!s.equalsIgnoreCase(personas[i].getBoca())) {
+                            a[j] = i;
+                            j++;
+                        }
+                    }
+                }else{
+                    for (int i = 0; i < 24; i++) {
+                        if (s.equalsIgnoreCase(personas[i].getBoca())) {
+                            a[j] = i;
+                            j++;
+                        }
                     }
                 }
                 break;
                 
             case "nariz":
-                for (int i = 0; i < 24; i++) {
-                    if (s.equalsIgnoreCase(personas[i].getNariz())&& (i != i_sospechoso)) {
-                        a[j] = i;
-                        j++;
+                s = s.substring(1);
+                if (s.equalsIgnoreCase(personas[i_sospechoso].getNariz())){
+                    for (int i = 0; i < 24; i++) {
+                        if (!s.equalsIgnoreCase(personas[i].getNariz())) {
+                            a[j] = i;
+                            j++;
+                        }
+                    }
+                }else{
+                    for (int i = 0; i < 24; i++) {
+                        if (s.equalsIgnoreCase(personas[i].getNariz())){
+                            a[j] = i;
+                            j++;
+                        }
                     }
                 }
                 break;
                 
             case "gafas":
-                if(s.equalsIgnoreCase("SiGafas")){
-                    sBoleano = true;
-                }
-                for (int i = 0; i < 24; i++) {
-                    if (sBoleano == (personas[i].getGafas()) && (personas[i] != personas[i_sospechoso])) {
-                        a[j] = i;
-                        j++;
+                if (personas[i_sospechoso].getGafas()){
+                    for (int i = 0; i < 24; i++) {
+                        if (!personas[i].getGafas()) {
+                            a[j] = i;
+                            j++;
+                        }
+                    }
+                }else{
+                    for (int i = 0; i < 24; i++) {
+                        if (personas[i].getGafas()){
+                            a[j] = i;
+                            j++;
+                        }
                     }
                 }
                 break;
                 
             case "sombrero":
-                if(s.equalsIgnoreCase("SiSombrero")){
-                    sBoleano = true;
-                }
-                for (int i = 0; i < 24; i++) {
-                    if (sBoleano == (personas[i].getSombrero()) && (personas[i] != personas[i_sospechoso])) {
-                        a[j] = i;
-                        j++;
+                 if (personas[i_sospechoso].getSombrero()){
+                    for (int i = 0; i < 24; i++) {
+                        if (!personas[i].getSombrero()) {
+                            a[j] = i;
+                            j++;
+                        }
+                    }
+                }else{
+                    for (int i = 0; i < 24; i++) {
+                        if (personas[i].getSombrero()){
+                            a[j] = i;
+                            j++;
+                        }
                     }
                 }
                 break;
                 
             case "bigote":
-                if(s.equalsIgnoreCase("SiBigote")){
-                    sBoleano = true;
-                }
-                for (int i = 0; i < 24; i++) {
-                    if (sBoleano == (personas[i].getBigote()) && (personas[i] != personas[i_sospechoso])) {
-                        a[j] = i;
-                        j++;
+                if (personas[i_sospechoso].getBigote()){
+                    for (int i = 0; i < 24; i++) {
+                        if (!personas[i].getBigote()) {
+                            a[j] = i;
+                            j++;
+                        }
+                    }
+                }else{
+                    for (int i = 0; i < 24; i++) {
+                        if (personas[i].getBigote()){
+                            a[j] = i;
+                            j++;
+                        }
                     }
                 }
                 break;
