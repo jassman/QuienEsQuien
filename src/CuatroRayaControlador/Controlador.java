@@ -195,7 +195,7 @@ public class Controlador {
                     
                 case "BGrande":
                 case "BMediana":
-                case "Bpequeña":
+                case "BPequeña":
                     puntos = modelo.restarPuntos();
                     vista.setText(puntos);
                     eliminados = modelo.eliminar("boca", opcion);
