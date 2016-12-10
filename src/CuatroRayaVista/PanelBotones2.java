@@ -45,7 +45,7 @@ public class PanelBotones2 extends JPanel{
     
     public PanelBotones2(){
         
-        setPreferredSize( new Dimension(900, 100) );
+        setPreferredSize( new Dimension(900, 50) );
         
         for(int i = 0; i < 23; i++){
             botones[i] = new JButton(subopciones[i]);  

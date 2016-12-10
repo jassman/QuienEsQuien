@@ -5,6 +5,7 @@
  */
 package CuatroRayaVista;
 
+import java.awt.Color;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
@@ -15,6 +16,9 @@ import javax.swing.JFrame;
 public class VistaInicio extends JFrame{
     private BotonesInicio botones;
     public VistaInicio(){
+        setBackground(Color.BLACK);
+        pack();
+        setResizable(false);
         botones = new BotonesInicio();
         add(botones);
     }

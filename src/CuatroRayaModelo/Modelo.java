@@ -74,20 +74,87 @@ public class Modelo {
         partida = false;
     }
 
+    public boolean respuesta(String tipo, String s) {
+
+        boolean estado = false;
+        boolean aux = false;
+
+        switch (tipo) {
+            case "sexo":
+                if (s.equalsIgnoreCase(personas[i_sospechoso].getSexo())) {
+                    estado = true;
+                }
+                break;
+
+            case "pelo":
+                if (s.equalsIgnoreCase(personas[i_sospechoso].getPelo())) {
+                    estado = true;
+                }
+                break;
+
+            case "ojos":
+                if (s.equalsIgnoreCase(personas[i_sospechoso].getOjos())) {
+                    estado = true;
+                }
+                break;
+
+            case "boca":
+                s = s.substring(1);
+                if (s.equalsIgnoreCase(personas[i_sospechoso].getBoca())) {
+                    estado = true;
+                }
+                break;
+
+            case "nariz":
+                s = s.substring(1);
+                if (s.equalsIgnoreCase(personas[i_sospechoso].getNariz())) {
+                    estado = true;
+                }
+                break;
+
+            case "gafas":
+                if (s.equalsIgnoreCase("SiGafas")) {
+                    aux = true;
+                }
+                if (aux == personas[i_sospechoso].getGafas()) {
+                    estado = true;
+                }
+                break;
+
+            case "sombrero":
+                if (s.equalsIgnoreCase("SiSombrero")) {
+                    aux = true;
+                }
+                if (aux == personas[i_sospechoso].getSombrero()) {
+                    estado = true;
+                }
+                break;
+
+            case "bigote":
+                if (s.equalsIgnoreCase("SiBigote")) {
+                    aux = true;
+                }
+                if (aux == personas[i_sospechoso].getBigote()) {
+                    estado = true;
+                }
+                break;
+        }
+        return estado;
+    }
+
     public int[] eliminar(String tipo, String s) {
         int a[] = new int[24];
         int j = 0;
-        Boolean sBoleano = false;
         switch (tipo) {
             case "sexo":
-                if (s.equalsIgnoreCase(personas[i_sospechoso].getSexo())){
+                if (s.equalsIgnoreCase(personas[i_sospechoso].getSexo())) {
                     for (int i = 0; i < 24; i++) {
                         if (!s.equalsIgnoreCase(personas[i].getSexo())) {
                             a[j] = i;
                             j++;
                         }
                     }
-                }else{
+                } else {
                     for (int i = 0; i < 24; i++) {
                         if (s.equalsIgnoreCase(personas[i].getSexo())) {
                             a[j] = i;
@@ -98,14 +165,14 @@ public class Modelo {
                 break;
 
             case "pelo":
-                if (s.equalsIgnoreCase(personas[i_sospechoso].getPelo())){
+                if (s.equalsIgnoreCase(personas[i_sospechoso].getPelo())) {
                     for (int i = 0; i < 24; i++) {
                         if (!s.equalsIgnoreCase(personas[i].getPelo())) {
                             a[j] = i;
                             j++;
                         }
                     }
-                }else{
+                } else {
                     for (int i = 0; i < 24; i++) {
                         if (s.equalsIgnoreCase(personas[i].getPelo())) {
                             a[j] = i;
@@ -116,14 +183,14 @@ public class Modelo {
                 break;
 
             case "ojos":
-                if (s.equalsIgnoreCase(personas[i_sospechoso].getOjos())){
+                if (s.equalsIgnoreCase(personas[i_sospechoso].getOjos())) {
                     for (int i = 0; i < 24; i++) {
                         if (!s.equalsIgnoreCase(personas[i].getOjos())) {
                             a[j] = i;
                             j++;
                         }
                     }
-                }else{
+                } else {
                     for (int i = 0; i < 24; i++) {
                         if (s.equalsIgnoreCase(personas[i].getOjos())) {
                             a[j] = i;
@@ -132,17 +199,17 @@ public class Modelo {
                     }
                 }
                 break;
-                
+
             case "boca":
                 s = s.substring(1);
-                if (s.equalsIgnoreCase(personas[i_sospechoso].getBoca())){
+                if (s.equalsIgnoreCase(personas[i_sospechoso].getBoca())) {
                     for (int i = 0; i < 24; i++) {
                         if (!s.equalsIgnoreCase(personas[i].getBoca())) {
                             a[j] = i;
                             j++;
                         }
                     }
-                }else{
+                } else {
                     for (int i = 0; i < 24; i++) {
                         if (s.equalsIgnoreCase(personas[i].getBoca())) {
                             a[j] = i;
@@ -151,122 +218,121 @@ public class Modelo {
                     }
                 }
                 break;
-                
+
             case "nariz":
                 s = s.substring(1);
-                if (s.equalsIgnoreCase(personas[i_sospechoso].getNariz())){
+                if (s.equalsIgnoreCase(personas[i_sospechoso].getNariz())) {
                     for (int i = 0; i < 24; i++) {
                         if (!s.equalsIgnoreCase(personas[i].getNariz())) {
                             a[j] = i;
                             j++;
                         }
                     }
-                }else{
+                } else {
                     for (int i = 0; i < 24; i++) {
-                        if (s.equalsIgnoreCase(personas[i].getNariz())){
+                        if (s.equalsIgnoreCase(personas[i].getNariz())) {
                             a[j] = i;
                             j++;
                         }
                     }
                 }
                 break;
-                
+
             case "gafas":
-                if (personas[i_sospechoso].getGafas()){
+                if (personas[i_sospechoso].getGafas()) {
                     for (int i = 0; i < 24; i++) {
                         if (!personas[i].getGafas()) {
                             a[j] = i;
                             j++;
                         }
                     }
-                }else{
+                } else {
                     for (int i = 0; i < 24; i++) {
-                        if (personas[i].getGafas()){
+                        if (personas[i].getGafas()) {
                             a[j] = i;
                             j++;
                         }
                     }
                 }
                 break;
-                
+
             case "sombrero":
-                 if (personas[i_sospechoso].getSombrero()){
+                if (personas[i_sospechoso].getSombrero()) {
                     for (int i = 0; i < 24; i++) {
                         if (!personas[i].getSombrero()) {
                             a[j] = i;
                             j++;
                         }
                     }
-                }else{
+                } else {
                     for (int i = 0; i < 24; i++) {
-                        if (personas[i].getSombrero()){
+                        if (personas[i].getSombrero()) {
                             a[j] = i;
                             j++;
                         }
                     }
                 }
                 break;
-                
+
             case "bigote":
-                if (personas[i_sospechoso].getBigote()){
+                if (personas[i_sospechoso].getBigote()) {
                     for (int i = 0; i < 24; i++) {
                         if (!personas[i].getBigote()) {
                             a[j] = i;
                             j++;
                         }
                     }
-                }else{
+                } else {
                     for (int i = 0; i < 24; i++) {
-                        if (personas[i].getBigote()){
+                        if (personas[i].getBigote()) {
                             a[j] = i;
                             j++;
                         }
                     }
                 }
                 break;
-                
-                
+
         }
-        
+
         int z[] = new int[j];
-        for(int y=0; y<j; y++){
+        for (int y = 0; y < j; y++) {
             z[y] = a[y];
         }
-        
+
         return z;
     }
 
     public boolean getPartida() {
         return partida;
     }
-    
-    public void partidaFacil(){
+
+    public void partidaFacil() {
         puntosIniciales = 20;
         puntosRestar = 1;
     }
-    
-    public void partidaMedia(){
+
+    public void partidaMedia() {
         puntosIniciales = 20;
         puntosRestar = 3;
     }
-    
-    public void partidaDificil(){
+
+    public void partidaDificil() {
         puntosIniciales = 20;
         puntosRestar = 5;
     }
-    
-    public int restarPuntos(){
+
+    public int restarPuntos() {
         puntosIniciales = puntosIniciales - puntosRestar;
-        
+
         return puntosIniciales;
     }
-    
-    public void partidaPersonalizada(){
-        puntosIniciales = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos con los que quieres empezar " ));
-        puntosRestar = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos que quieres que reste cada pregunta " ));
+
+    public void partidaPersonalizada() {
+        puntosIniciales = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos con los que quieres empezar "));
+        puntosRestar = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos que quieres que reste cada pregunta "));
     }
-    
-    public int getPuntos(){
+
+    public int getPuntos() {
         return puntosIniciales;
     }
 

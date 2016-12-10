@@ -16,14 +16,17 @@ import javax.swing.JPanel;
 public class PanelBotones extends JPanel{
     private PanelBotones1 botones1;
     private PanelBotones2 botones2;
+    private PanelBotones3 botones3;
     
     public PanelBotones(){
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         botones1 = new PanelBotones1();
         botones2 = new PanelBotones2();
+        botones3 = new PanelBotones3();
         
         add(botones1);
         add(botones2);
+        add(botones3);
     }
     
     public void setActionListenerPanel1(ActionListener a){
@@ -33,6 +36,11 @@ public class PanelBotones extends JPanel{
     public void setActionListenerPanel2(ActionListener a){
         botones2.setActionListener(a);
     }
+    
+    public void respuesta(boolean estado){
+        botones3.respuesta(estado);
+    }
+    
     
     public void opSexo(){
         botones2.opSexo();

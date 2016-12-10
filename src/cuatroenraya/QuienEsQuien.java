@@ -27,7 +27,7 @@ public class QuienEsQuien {
         inicio.setVisible(true);
         inicio.setSize(1100, 900);
         v.setVisible(false);
-        v.setSize(1100,900);
+        v.setSize(1200,900);
         v.setTitle("CUATRO EN RAYA");
     }
     

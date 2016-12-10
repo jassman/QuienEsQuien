@@ -54,6 +54,9 @@ public class VentanaPrincipal extends JFrame{
         fotos.eliminaSospechosos(s);
     }
     
+    public void respuesta(boolean estado){
+        botones.respuesta(estado);
+    }
             
     public void opSexo(){
         botones.opSexo();

@@ -68,7 +68,10 @@ public class Controlador {
     class Comprobacion implements ActionListener{
          public void actionPerformed(ActionEvent a){
             String opcion = a.getActionCommand();
-            ok = JOptionPane.showConfirmDialog(null,"Estas seguro que esta es tu respuesta final?",  "Seleccione la opcion deseada",JOptionPane.YES_NO_OPTION);
+            ok = JOptionPane.showConfirmDialog(null,
+                    "Estas seguro que esta es tu respuesta final?",  
+                    "Seleccione la opcion deseada",
+                    JOptionPane.YES_NO_OPTION);
             
             if(ok == 0)
             modelo.Comprobar(opcion);
@@ -159,8 +162,8 @@ public class Controlador {
                 case "Chica":
                     puntos = modelo.restarPuntos();
                     vista.setText(puntos);
-                    eliminados = modelo.eliminar("sexo", opcion);
-                    vista.eliminaSospechosos(eliminados);
+                    vista.respuesta(modelo.respuesta("sexo", opcion));
+                    vista.eliminaSospechosos(modelo.eliminar("sexo", opcion));
                     vista.bloquearBoton(opcion);
                     break;
                     
@@ -172,8 +175,8 @@ public class Controlador {
                 case "Calvo":
                     puntos = modelo.restarPuntos();
                     vista.setText(puntos);
-                    eliminados = modelo.eliminar("pelo", opcion);
-                    vista.eliminaSospechosos(eliminados);
+                    vista.respuesta(modelo.respuesta("pelo", opcion));
+                    vista.eliminaSospechosos(modelo.eliminar("pelo", opcion));
                     vista.bloquearBoton(opcion);
                     break;
                     
@@ -182,8 +185,8 @@ public class Controlador {
                 case "Marrones":
                     puntos = modelo.restarPuntos();
                     vista.setText(puntos);
-                    eliminados = modelo.eliminar("ojos", opcion);
-                    vista.eliminaSospechosos(eliminados);
+                    vista.respuesta(modelo.respuesta("ojos", opcion));
+                    vista.eliminaSospechosos(modelo.eliminar("ojos", opcion));
                     vista.bloquearBoton(opcion);
                     break;
                     
@@ -192,8 +195,8 @@ public class Controlador {
                 case "NPequeña":
                     puntos = modelo.restarPuntos();
                     vista.setText(puntos);
-                    eliminados = modelo.eliminar("nariz", opcion);
-                    vista.eliminaSospechosos(eliminados);
+                    vista.respuesta(modelo.respuesta("nariz", opcion));       
+                    vista.eliminaSospechosos(modelo.eliminar("nariz", opcion));
                     vista.bloquearBoton(opcion);
                     break;
                     
@@ -202,8 +205,8 @@ public class Controlador {
                 case "BPequeña":
                     puntos = modelo.restarPuntos();
                     vista.setText(puntos);
-                    eliminados = modelo.eliminar("boca", opcion);
-                    vista.eliminaSospechosos(eliminados);
+                    vista.respuesta(modelo.respuesta("boca", opcion));
+                    vista.eliminaSospechosos(modelo.eliminar("boca", opcion));
                     vista.bloquearBoton(opcion);
                     break;
                     
@@ -211,8 +214,8 @@ public class Controlador {
                 case "NoGafas":
                     puntos = modelo.restarPuntos();
                     vista.setText(puntos);
-                    eliminados = modelo.eliminar("gafas", opcion);
-                    vista.eliminaSospechosos(eliminados);
+                    vista.respuesta(modelo.respuesta("gafas", opcion));
+                    vista.eliminaSospechosos(modelo.eliminar("gafas", opcion));
                     vista.bloquearBoton("SiGafas");
                     vista.bloquearBoton("NoGafas");
                     break;
@@ -221,8 +224,8 @@ public class Controlador {
                 case "NoSombrero":
                     puntos = modelo.restarPuntos();
                     vista.setText(puntos);
-                    eliminados = modelo.eliminar("sombrero", opcion);
-                    vista.eliminaSospechosos(eliminados);
+                    vista.respuesta(modelo.respuesta("sombrero", opcion));
+                    vista.eliminaSospechosos(modelo.eliminar("sombrero", opcion));
                     vista.bloquearBoton("SiSombrero");
                     vista.bloquearBoton("NoSombrero");
                     break;
@@ -231,8 +234,8 @@ public class Controlador {
                 case "NoBigote":
                     puntos = modelo.restarPuntos();
                     vista.setText(puntos);
-                    eliminados = modelo.eliminar("bigote", opcion);
-                    vista.eliminaSospechosos(eliminados);
+                    vista.respuesta(modelo.respuesta("bigote", opcion));
+                    vista.eliminaSospechosos(modelo.eliminar("bigote", opcion));
                     vista.bloquearBoton("SiBigote");
                     vista.bloquearBoton("NoBigote");
                     break;
