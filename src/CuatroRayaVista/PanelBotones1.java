@@ -34,5 +34,13 @@ public class PanelBotones1 extends JPanel{
             botones[i].addActionListener(a);
         }
     }
-    
+    /*
+    public void bloquearBotones1(String s){
+        for(int i = 0; i < 8; i++){
+            if (botones[i].getActionCommand() == s){
+                botones[i].setEnabled(false);
+            }
+        }
+    }
+    */
 }

@@ -91,4 +91,7 @@ public class VentanaPrincipal extends JFrame{
         puntos.setPuntos(s);
     }
     
+    public void bloquearBoton(String s){
+        botones.bloquearBoton(s);
+    }
 }

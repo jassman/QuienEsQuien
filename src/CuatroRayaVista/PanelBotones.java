@@ -65,4 +65,13 @@ public class PanelBotones extends JPanel{
     public void opBigote(){
         botones2.opBigote();
     }
+    
+    public void bloquearBoton(String s){
+        botones2.bloquearBoton(s);
+    }
+    /*
+    public void bloquearBotones1(String s){
+        botones1.bloquearBotones1(s);
+    }
+*/
 }

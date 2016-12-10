@@ -161,6 +161,7 @@ public class Controlador {
                     vista.setText(puntos);
                     eliminados = modelo.eliminar("sexo", opcion);
                     vista.eliminaSospechosos(eliminados);
+                    vista.bloquearBoton(opcion);
                     break;
                     
                 case "Rubio":
@@ -173,6 +174,7 @@ public class Controlador {
                     vista.setText(puntos);
                     eliminados = modelo.eliminar("pelo", opcion);
                     vista.eliminaSospechosos(eliminados);
+                    vista.bloquearBoton(opcion);
                     break;
                     
                 case "Azules":
@@ -182,6 +184,7 @@ public class Controlador {
                     vista.setText(puntos);
                     eliminados = modelo.eliminar("ojos", opcion);
                     vista.eliminaSospechosos(eliminados);
+                    vista.bloquearBoton(opcion);
                     break;
                     
                 case "NGrande":
@@ -191,6 +194,7 @@ public class Controlador {
                     vista.setText(puntos);
                     eliminados = modelo.eliminar("nariz", opcion);
                     vista.eliminaSospechosos(eliminados);
+                    vista.bloquearBoton(opcion);
                     break;
                     
                 case "BGrande":
@@ -200,6 +204,7 @@ public class Controlador {
                     vista.setText(puntos);
                     eliminados = modelo.eliminar("boca", opcion);
                     vista.eliminaSospechosos(eliminados);
+                    vista.bloquearBoton(opcion);
                     break;
                     
                 case "SiGafas":
@@ -208,6 +213,8 @@ public class Controlador {
                     vista.setText(puntos);
                     eliminados = modelo.eliminar("gafas", opcion);
                     vista.eliminaSospechosos(eliminados);
+                    vista.bloquearBoton("SiGafas");
+                    vista.bloquearBoton("NoGafas");
                     break;
                     
                 case "SiSombrero":
@@ -216,6 +223,8 @@ public class Controlador {
                     vista.setText(puntos);
                     eliminados = modelo.eliminar("sombrero", opcion);
                     vista.eliminaSospechosos(eliminados);
+                    vista.bloquearBoton("SiSombrero");
+                    vista.bloquearBoton("NoSombrero");
                     break;
                     
                 case "SiBigote":
@@ -224,6 +233,8 @@ public class Controlador {
                     vista.setText(puntos);
                     eliminados = modelo.eliminar("bigote", opcion);
                     vista.eliminaSospechosos(eliminados);
+                    vista.bloquearBoton("SiBigote");
+                    vista.bloquearBoton("NoBigote");
                     break;
             }
          }
@@ -237,15 +248,12 @@ public class Controlador {
                     modelo.partidaFacil();
                     puntos = modelo.getPuntos();
                     vista.setText(puntos);
-                    
-                    
                     break;
                     
                 case "Media":
                     modelo.partidaMedia();
                     puntos = modelo.getPuntos();
                     vista.setText(puntos);
-                    
                     break;
                     
                 case "Dificil":
