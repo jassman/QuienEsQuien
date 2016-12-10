@@ -187,7 +187,7 @@ public class Modelo {
     
     public void partidaDificil(){
         puntosIniciales = 20;
-        puntosRestar = 1;
+        puntosRestar = 5;
     }
     
     public int restarPuntos(){

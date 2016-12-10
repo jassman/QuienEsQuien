@@ -45,8 +45,16 @@ public class Controlador {
         vista.addWindowListener(new WindowListener());
         vista.setActionListenerMenu(new Menu());
         inicio.setActionListenerPrincipal(new Principal());
+        inicio.addWindowListener(new WindowListenerInicio());
         
     }
+    class WindowListenerInicio extends WindowAdapter {
+    
+        public void windowClosing(WindowEvent e) {
+            System.out.println( " PhotoEditorController : Cerrar ventana.");
+            System.exit(0);
+        }
+    } 
     
     class WindowListener extends WindowAdapter {
     
