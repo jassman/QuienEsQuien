@@ -39,7 +39,7 @@ public class Modelo {
         personas[11] = new Persona("George", "Chico", "Canoso", "Marrones", "Pequeña", "Mediana", false, true, false);
         personas[12] = new Persona("Herman", "Chico", "Calvo", "Verdes", "Grande", "Mediana", false, false, false);
         personas[13] = new Persona("Joe", "Chico", "Rubio", "Azules", "Mediana", "Pequeña", true, false, false);
-        personas[14] = new Persona("Maria", "Chica", "Moreno", "Marrones", "Pequeña", "Mediana", false, false, false);
+        personas[14] = new Persona("Maria", "Chica", "Moreno", "Marrones", "Pequeña", "Mediana", false, true, false);
         personas[15] = new Persona("Max", "Chico", "Negro", "Marrones", "Grande", "Grande", false, false, true);
         personas[16] = new Persona("Paul", "Chico", "Canoso", "Verdes", "Pequeña", "Mediana", true, false, false);
         personas[17] = new Persona("Peter", "Chico", "Canoso", "Azules", "Grande", "Grande", false, false, false);
@@ -53,7 +53,7 @@ public class Modelo {
         i_sospechoso = (int) (Math.random() * 23);
 
         sospechoso = personas[i_sospechoso];
-
+/*
         System.out.println(sospechoso.getSexo());
         System.out.println(sospechoso.getPelo());
         System.out.println(sospechoso.getOjos());
@@ -62,6 +62,7 @@ public class Modelo {
         System.out.println(sospechoso.getGafas());
         System.out.println(sospechoso.getSombrero());
         System.out.println(sospechoso.getBigote());
+        */
     }
 
     public void Comprobar(String s) {
