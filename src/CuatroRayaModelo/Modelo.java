@@ -15,9 +15,9 @@ import javax.swing.JOptionPane;
 public class Modelo {
 
     private Persona personas[] = new Persona[24];
-    private int i_sospechoso, puntosIniciales, puntosRestar;
+    private int i_sospechoso, puntosIniciales, puntosRestar, pSexo, pOjos, pPelo, pBoca, pNariz, pSombrero, pGafas, pBigote;
     private Persona sospechoso;
-    boolean partida;
+    boolean partida, facil, medio, dificil, personalizado;
 
     /*
      ¡¡¡¡¡¡¡FALTA CAMBIAR EL COLOR DE LOS OJOS!!!!!!!
@@ -256,6 +256,7 @@ public class Modelo {
     }
     
     public int restarPuntos(){
+        
         puntosIniciales = puntosIniciales - puntosRestar;
         
         return puntosIniciales;
@@ -263,11 +264,94 @@ public class Modelo {
     
     public void partidaPersonalizada(){
         puntosIniciales = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos con los que quieres empezar " ));
-        puntosRestar = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos que quieres que reste cada pregunta " ));
+        pSexo = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos que quieres que reste la pregunta sobre el sexo " ));
+        pPelo = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos que quieres que reste la pregunta sobre el pelo " ));
+        pOjos = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos que quieres que reste la pregunta sobre los ojos " ));
+        pBoca = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos que quieres que reste la pregunta sobre la boca " ));
+        pNariz = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos que quieres que reste la pregunta sobre la nariz " ));
+        pSombrero = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos que quieres que reste la pregunta sobre el sombrero " ));
+        pGafas = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos que quieres que reste la pregunta sobre las gafas " ));
+        pBigote = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos que quieres que reste la pregunta sobre el bigote " ));
     }
     
     public int getPuntos(){
         return puntosIniciales;
     }
 
+    public void setFacil(boolean facil) {
+        this.facil = facil;
+    }
+
+    public void setMedio(boolean medio) {
+        this.medio = medio;
+    }
+
+    public void setDificil(boolean dificil) {
+        this.dificil = dificil;
+    }
+
+    public void setPersonalizado(boolean personalizado) {
+        this.personalizado = personalizado;
+    }
+    
+    public int restarPuntosSexo(){
+        
+        puntosIniciales = puntosIniciales - pSexo;
+        
+        return puntosIniciales;
+    }
+    
+    public int restarPuntosPelo(){
+        
+        puntosIniciales = puntosIniciales - pPelo;
+        
+        return puntosIniciales;
+    }
+    
+    public int restarPuntosNariz(){
+        
+        puntosIniciales = puntosIniciales - pNariz;
+        
+        return puntosIniciales;
+    }
+    
+    public int restarPuntosBoca(){
+        
+        puntosIniciales = puntosIniciales - pBoca;
+        
+        return puntosIniciales;
+    }
+    
+    public int restarPuntosGafas(){
+        
+        puntosIniciales = puntosIniciales - pGafas;
+        
+        return puntosIniciales;
+    }
+    
+    public int restarPuntosBigote(){
+        
+        puntosIniciales = puntosIniciales - pBigote;
+        
+        return puntosIniciales;
+    }
+    
+    public int restarPuntosSombrero(){
+        
+        puntosIniciales = puntosIniciales - pSombrero;
+        
+        return puntosIniciales;
+    }
+    
+    public int restarPuntosOjos(){
+        
+        puntosIniciales = puntosIniciales - pOjos;
+        
+        return puntosIniciales;
+    }
+
+    public boolean getPersonalizado() {
+        return personalizado;
+    }
+    
 }
