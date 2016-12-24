@@ -14,6 +14,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -29,6 +30,7 @@ public class PanelFotos extends JPanel{
     public  PanelFotos(){
         
         setLayout(new GridLayout(3,8));
+        setBorder(BorderFactory.createEmptyBorder(20, 50, 20, 50));
         
         for(int i = 0; i < 24; i++){
             botones[i] = new BotonPersonalizado(); 

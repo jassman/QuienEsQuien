@@ -5,7 +5,9 @@
  */
 package CuatroRayaVista;
 
+import java.awt.Image;
 import java.awt.event.ActionListener;
+import javafx.scene.paint.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -19,9 +21,13 @@ public class PanelBotones1 extends JPanel{
     private String [] etiqueta = {"Sexo", "Pelo", "Ojos", "Nariz", "Boca", "Gafas", "Sombrero", "Bigote"};
     
     public PanelBotones1(){
+
         for(int i = 0; i < 8; i++){
             botones[i] = new JButton();
             ImageIcon rasgo = new ImageIcon("boton" + (i) + ".gif");
+            Image img = rasgo.getImage() ;  
+            Image newimg = img.getScaledInstance( 50, 50,  java.awt.Image.SCALE_SMOOTH ) ;  
+            rasgo = new ImageIcon(newimg);
             botones[i].setIcon(rasgo);
             botones[i].setActionCommand(etiqueta[i]);
             add(botones[i]);
@@ -30,7 +36,6 @@ public class PanelBotones1 extends JPanel{
     
     public void setActionListener(ActionListener a){
         for(int i = 0; i < 8; i++){
-            
             botones[i].addActionListener(a);
         }
     }
