@@ -127,7 +127,10 @@ public class Controlador {
                     modelo.partidaFacil();
                     puntos = modelo.getPuntos();
                     vista.setText(puntos);
-                    
+                    modelo.setFacil(true);
+                    modelo.setMedio(false);
+                    modelo.setDificil(false);
+                    modelo.setPersonalizado(false);
                     
                     break;
                     
@@ -135,6 +138,10 @@ public class Controlador {
                     modelo.partidaMedia();
                     puntos = modelo.getPuntos();
                     vista.setText(puntos);
+                    modelo.setFacil(false);
+                    modelo.setMedio(true);
+                    modelo.setDificil(false);
+                    modelo.setPersonalizado(false);
                     
                     break;
                     
@@ -142,12 +149,20 @@ public class Controlador {
                     modelo.partidaDificil();
                     puntos = modelo.getPuntos();
                     vista.setText(puntos);
+                    modelo.setFacil(false);
+                    modelo.setMedio(false);
+                    modelo.setDificil(true);
+                    modelo.setPersonalizado(false);
                     break;
                     
                 case "Dificultad personalizada":
                     modelo.partidaPersonalizada();
                     puntos = modelo.getPuntos();
                     vista.setText(puntos);
+                    modelo.setFacil(false);
+                    modelo.setMedio(false);
+                    modelo.setDificil(false);
+                    modelo.setPersonalizado(true);
                     break;
             }
         }
@@ -165,6 +180,15 @@ public class Controlador {
                     vista.respuesta(modelo.respuesta("sexo", opcion));
                     vista.eliminaSospechosos(modelo.eliminar("sexo", opcion));
                     vista.bloquearBoton(opcion);
+                    if(modelo.getPersonalizado()){
+                        puntos = modelo.restarPuntosSexo();
+                        vista.setText(puntos);
+                    }
+                    else{
+                        puntos = modelo.restarPuntos();
+                        vista.setText(puntos);
+                    }
+                    
                     eliminados = modelo.eliminar("sexo", opcion);
                     vista.eliminaSospechosos(eliminados);
                     vista.bloquearBoton("Chico");
@@ -181,6 +205,17 @@ public class Controlador {
                     vista.setText(puntos);
                     vista.respuesta(modelo.respuesta("pelo", opcion));
                     vista.eliminaSospechosos(modelo.eliminar("pelo", opcion));
+                    if(modelo.getPersonalizado()){
+                        puntos = modelo.restarPuntosPelo();
+                        vista.setText(puntos);
+                    }
+                    else{
+                        puntos = modelo.restarPuntos();
+                        vista.setText(puntos);
+                    }
+                    
+                    eliminados = modelo.eliminar("pelo", opcion);
+                    vista.eliminaSospechosos(eliminados);
                     vista.bloquearBoton(opcion);
                     break;
                     
@@ -191,6 +226,17 @@ public class Controlador {
                     vista.setText(puntos);
                     vista.respuesta(modelo.respuesta("ojos", opcion));
                     vista.eliminaSospechosos(modelo.eliminar("ojos", opcion));
+                    if(modelo.getPersonalizado()){
+                        puntos = modelo.restarPuntosOjos();
+                        vista.setText(puntos);
+                    }
+                    else{
+                        puntos = modelo.restarPuntos();
+                        vista.setText(puntos);
+                    }
+                    
+                    eliminados = modelo.eliminar("ojos", opcion);
+                    vista.eliminaSospechosos(eliminados);
                     vista.bloquearBoton(opcion);
                     break;
                     
@@ -201,6 +247,17 @@ public class Controlador {
                     vista.setText(puntos);
                     vista.respuesta(modelo.respuesta("nariz", opcion));       
                     vista.eliminaSospechosos(modelo.eliminar("nariz", opcion));
+                    if(modelo.getPersonalizado()){
+                        puntos = modelo.restarPuntosNariz();
+                        vista.setText(puntos);
+                    }
+                    else{
+                       puntos = modelo.restarPuntos();
+                        vista.setText(puntos); 
+                    }
+                    
+                    eliminados = modelo.eliminar("nariz", opcion);
+                    vista.eliminaSospechosos(eliminados);
                     vista.bloquearBoton(opcion);
                     break;
                     
@@ -211,6 +268,17 @@ public class Controlador {
                     vista.setText(puntos);
                     vista.respuesta(modelo.respuesta("boca", opcion));
                     vista.eliminaSospechosos(modelo.eliminar("boca", opcion));
+                    if(modelo.getPersonalizado()){
+                        puntos = modelo.restarPuntosBoca();
+                        vista.setText(puntos);
+                    }
+                    else{
+                        puntos = modelo.restarPuntos();
+                        vista.setText(puntos);
+                    }
+                    
+                    eliminados = modelo.eliminar("boca", opcion);
+                    vista.eliminaSospechosos(eliminados);
                     vista.bloquearBoton(opcion);
                     break;
                     
@@ -220,6 +288,17 @@ public class Controlador {
                     vista.setText(puntos);
                     vista.respuesta(modelo.respuesta("gafas", opcion));
                     vista.eliminaSospechosos(modelo.eliminar("gafas", opcion));
+                    if(modelo.getPersonalizado()){
+                        puntos = modelo.restarPuntosGafas();
+                        vista.setText(puntos);
+                    }
+                    else{
+                        puntos = modelo.restarPuntos();
+                        vista.setText(puntos);
+                    }
+                    
+                    eliminados = modelo.eliminar("gafas", opcion);
+                    vista.eliminaSospechosos(eliminados);
                     vista.bloquearBoton("SiGafas");
                     vista.bloquearBoton("NoGafas");
                     break;
@@ -230,6 +309,17 @@ public class Controlador {
                     vista.setText(puntos);
                     vista.respuesta(modelo.respuesta("sombrero", opcion));
                     vista.eliminaSospechosos(modelo.eliminar("sombrero", opcion));
+                    if(modelo.getPersonalizado()){
+                        puntos = modelo.restarPuntosSombrero();
+                        vista.setText(puntos);
+                    }
+                    else{
+                        puntos = modelo.restarPuntos();
+                        vista.setText(puntos);
+                    }
+
+                    eliminados = modelo.eliminar("sombrero", opcion);
+                    vista.eliminaSospechosos(eliminados);
                     vista.bloquearBoton("SiSombrero");
                     vista.bloquearBoton("NoSombrero");
                     break;
@@ -240,6 +330,16 @@ public class Controlador {
                     vista.setText(puntos);
                     vista.respuesta(modelo.respuesta("bigote", opcion));
                     vista.eliminaSospechosos(modelo.eliminar("bigote", opcion));
+                    if(modelo.getPersonalizado()){
+                        puntos = modelo.restarPuntosBigote();
+                        vista.setText(puntos);
+                    }
+                    else{
+                        puntos = modelo.restarPuntos();
+                        vista.setText(puntos);
+                    }
+                    eliminados = modelo.eliminar("bigote", opcion);
+                    vista.eliminaSospechosos(eliminados);
                     vista.bloquearBoton("SiBigote");
                     vista.bloquearBoton("NoBigote");
                     break;
@@ -255,24 +355,42 @@ public class Controlador {
                     modelo.partidaFacil();
                     puntos = modelo.getPuntos();
                     vista.setText(puntos);
+                    modelo.setFacil(true);
+                    modelo.setMedio(false);
+                    modelo.setDificil(false);
+                    modelo.setPersonalizado(false);
+                    
                     break;
                     
                 case "Media":
                     modelo.partidaMedia();
                     puntos = modelo.getPuntos();
                     vista.setText(puntos);
+                    modelo.setFacil(false);
+                    modelo.setMedio(true);
+                    modelo.setDificil(false);
+                    modelo.setPersonalizado(false);
+                    
                     break;
                     
                 case "Dificil":
                     modelo.partidaDificil();
                     puntos = modelo.getPuntos();
                     vista.setText(puntos);
+                    modelo.setFacil(false);
+                    modelo.setMedio(false);
+                    modelo.setDificil(true);
+                    modelo.setPersonalizado(false);
                     break;
                     
                 case "Dificultad personalizada":
                     modelo.partidaPersonalizada();
                     puntos = modelo.getPuntos();
                     vista.setText(puntos);
+                    modelo.setFacil(false);
+                    modelo.setMedio(false);
+                    modelo.setDificil(false);
+                    modelo.setPersonalizado(true);
                     break;
                     
                 case "JUGAR":

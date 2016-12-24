@@ -5,7 +5,7 @@
  */
 package CuatroRayaVista;
 
-import java.awt.Color;
+import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
@@ -15,12 +15,17 @@ import javax.swing.JFrame;
  */
 public class VistaInicio extends JFrame{
     private BotonesInicio botones;
+    private ImagenInicio imagen;
     public VistaInicio(){
+        setLayout(new BorderLayout());
         setBackground(Color.BLACK);
         pack();
         setResizable(false);
         botones = new BotonesInicio();
-        add(botones);
+        imagen = new ImagenInicio();
+        
+        add(imagen, BorderLayout.CENTER);
+        add(botones, BorderLayout.SOUTH);
     }
     
     public void setActionListenerPrincipal(ActionListener a){
