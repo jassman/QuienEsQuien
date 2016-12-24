@@ -165,6 +165,10 @@ public class Controlador {
                     vista.respuesta(modelo.respuesta("sexo", opcion));
                     vista.eliminaSospechosos(modelo.eliminar("sexo", opcion));
                     vista.bloquearBoton(opcion);
+                    eliminados = modelo.eliminar("sexo", opcion);
+                    vista.eliminaSospechosos(eliminados);
+                    vista.bloquearBoton("Chico");
+                    vista.bloquearBoton("Chica");
                     break;
                     
                 case "Rubio":
