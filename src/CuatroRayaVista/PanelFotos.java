@@ -36,6 +36,7 @@ public class PanelFotos extends JPanel{
             botones[i] = new BotonPersonalizado(); 
             ImageIcon face = new ImageIcon("cara" + (i+1) + ".gif");
             botones[i].setIcon(face);
+            botones[i].setBorder(BorderFactory.createEmptyBorder(30, 10, 30, 10));
             botones[i].setActionCommand(nombres[i]);
            
             add(botones[i]);

@@ -24,7 +24,6 @@ public class VistaInicio extends JFrame{
         setResizable(false);
         botones = new BotonesInicio();
         imagen = new ImagenInicio();
-        
         add(imagen, BorderLayout.CENTER);
         add(botones, BorderLayout.SOUTH);
     }

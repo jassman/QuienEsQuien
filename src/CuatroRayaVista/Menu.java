@@ -15,24 +15,19 @@ import javax.swing.JMenuItem;
  * @author Lucas
  */
 public class Menu extends JMenuBar{
-    private JMenu menu;
-    private JMenuItem item, item2, item3;
+    private MenuDificultad menuDificultad;
+    private MenuConfiguracion menuConfiguracion;
     
     public Menu(){
-        menu = new JMenu("Configuracion");
-        item = new JMenuItem("Cambiar nivel");
-        item2 = new JMenuItem("Nivel personalizado");
-        item3 = new JMenuItem("Salir");
-        
-        menu.add(item);
-        menu.add(item2);
-        menu.add(item3);
-        add(menu);
+        menuConfiguracion = new MenuConfiguracion();
+        //menuDificultad = new MenuDificultad();
+
+        add(menuConfiguracion);
+        //add(menuDificultad);
     }
     
     public void setActionListener(ActionListener actionListener) {
-        item.addActionListener(actionListener);
-        item2.addActionListener(actionListener);
-        item3.addActionListener(actionListener);
+        menuConfiguracion.setActionListener(actionListener);
+        //menuDificultad.setActionListener(actionListener);
     }
 }

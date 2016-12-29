@@ -7,28 +7,26 @@ package CuatroRayaVista;
 
 import java.awt.event.ActionListener;
 import javax.swing.JMenu;
-import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 /**
  *
- * @author Lucas
+ * @author Javier
  */
-public class MenuDificultad extends JMenu{
+public class MenuConfiguracion extends JMenu{
     private JMenu menu;
-    private JMenuItem item, item2, item3, item4;
+    private final JMenuItem item, item2, item3;
     
-    public MenuDificultad(){
-        super("Dificultad");
-        item = new JMenuItem("Facil");
-        item2 = new JMenuItem("Media");
-        item3 = new JMenuItem("Dificil");
-        item4 = new JMenuItem("Dificultad personalizada");
-        
+    public MenuConfiguracion(){
+        super("Configuracion");
+        item = new JMenuItem("Volver a empezar");
+        //item = new JMenuItem("Volver a empezar");
+        item2 = new JMenuItem("Instrucciones");
+        item3 = new JMenuItem("Salir");
+
         add(item);
         add(item2);
         add(item3);
-        add(item4);
 
     }
     
@@ -36,6 +34,5 @@ public class MenuDificultad extends JMenu{
         item.addActionListener(actionListener);
         item2.addActionListener(actionListener);
         item3.addActionListener(actionListener);
-        item4.addActionListener(actionListener);
     }
 }

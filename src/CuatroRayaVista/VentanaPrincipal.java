@@ -18,7 +18,7 @@ public class VentanaPrincipal extends JFrame{
     private PanelFotos fotos;
     private PanelBotones botones;
     private Puntuacion puntos;
-    private MenuDificultad menu;
+    private Menu menu;
     
     public VentanaPrincipal(){
         
@@ -26,12 +26,12 @@ public class VentanaPrincipal extends JFrame{
         fotos = new PanelFotos();
         botones = new PanelBotones();
         puntos = new Puntuacion();
-        menu = new MenuDificultad();
+        menu = new Menu();
         
         add(puntos, BorderLayout.NORTH);
         add(fotos, BorderLayout.CENTER);
         add(botones, BorderLayout.SOUTH);
-        this.setJMenuBar(menu);
+        setJMenuBar(menu);
     }
     
     public void setActionListenerAsesino(ActionListener a){

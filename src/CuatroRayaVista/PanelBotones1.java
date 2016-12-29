@@ -7,7 +7,7 @@ package CuatroRayaVista;
 
 import java.awt.Image;
 import java.awt.event.ActionListener;
-import javafx.scene.paint.Color;
+import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -30,6 +30,8 @@ public class PanelBotones1 extends JPanel{
             rasgo = new ImageIcon(newimg);
             botones[i].setIcon(rasgo);
             botones[i].setActionCommand(etiqueta[i]);
+            botones[i].setBackground(Color.WHITE);
+            botones[i].setForeground(Color.BLACK);
             add(botones[i]);
         }
     }
@@ -39,6 +41,7 @@ public class PanelBotones1 extends JPanel{
             botones[i].addActionListener(a);
         }
     }
+    
     /*
     public void bloquearBotones1(String s){
         for(int i = 0; i < 8; i++){
