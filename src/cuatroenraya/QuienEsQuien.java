@@ -33,7 +33,7 @@ public class QuienEsQuien {
         d.setSize(200, 300);
         v.setVisible(false);
         v.setSize(1200,800);
-        v.setTitle("CUATRO EN RAYA");
+        v.setTitle("QUIEN ES QUIEN");
     }
     
 }

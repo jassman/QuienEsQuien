@@ -23,7 +23,7 @@ public class ImagenInicio extends JPanel{
     public void paintComponent(Graphics g){
        super.paintComponent(g);
         try {
-            imagenFileName = "quienesquien.gif";
+            imagenFileName = "quien-es-quien-logo.jpg";
             imagen = ImageIO.read(new File(imagenFileName));
         }
         catch (IOException e) {
@@ -31,6 +31,6 @@ public class ImagenInicio extends JPanel{
             System.out.println("Motivo: " + e.getLocalizedMessage());
         }
         
-        g.drawImage(imagen, 200, 200, 1000, 750, this);
+        g.drawImage(imagen, 0, 0, 1000, 700, this);
     }
 }

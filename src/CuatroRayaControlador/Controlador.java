@@ -9,7 +9,9 @@ import CuatroRayaModelo.Modelo;
 import CuatroRayaVista.ElegirColor;
 import CuatroRayaVista.VentanaPrincipal;
 import CuatroRayaVista.VistaDificultad;
+import CuatroRayaVista.VistaGanar;
 import CuatroRayaVista.VistaInicio;
+import CuatroRayaVista.VistaPerder;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -37,6 +39,8 @@ public class Controlador {
     private int puntos, ok;
     private VistaInicio inicio;
     private VistaDificultad d;
+    private VistaGanar v_ganar;
+    private VistaPerder v_perder;
     private ElegirColor color;
     private Color c, g;
     private VistaDificultad person;
@@ -46,6 +50,9 @@ public class Controlador {
         this.modelo = modelo;
         this.inicio = inicio;
         this.d = d;
+        v_ganar =  new VistaGanar();
+        v_perder = new VistaPerder();
+        
         
         
         vista.setActionListenerAsesino(new Comprobacion());
@@ -58,6 +65,15 @@ public class Controlador {
         d.setActionListener(new Dificultad());
         d.addWindowListener(new WindowListener());
         
+    }
+    /*
+    ***Devuelve true si los puntos son mayor que 0
+    */
+    public void validaPartida(){
+         if(puntos<=0){
+            vista.setVisible(false);
+            v_perder.setVisible(true);
+         }
     }
     
     class WindowListener extends WindowAdapter {
@@ -208,6 +224,8 @@ public class Controlador {
                     vista.eliminaSospechosos(eliminados);
                     vista.bloquearBoton("Chico");
                     vista.bloquearBoton("Chica");
+                    validaPartida();
+                    
                     break;
                     
                 case "Rubio":
@@ -227,10 +245,10 @@ public class Controlador {
                         puntos = modelo.restarPuntos();
                         vista.setText(puntos);
                     }
-                    
                     eliminados = modelo.eliminar("pelo", opcion);
                     vista.eliminaSospechosos(eliminados);
                     vista.bloquearBoton(opcion);
+                    validaPartida();
                     break;
                     
                 case "Azules":
@@ -251,6 +269,8 @@ public class Controlador {
                     eliminados = modelo.eliminar("ojos", opcion);
                     vista.eliminaSospechosos(eliminados);
                     vista.bloquearBoton(opcion);
+                    validaPartida();
+                    
                     break;
                     
                 case "NGrande":
@@ -265,12 +285,13 @@ public class Controlador {
                     }
                     else{
                        puntos = modelo.restarPuntos();
-                        vista.setText(puntos); 
+                       vista.setText(puntos); 
                     }
                     
                     eliminados = modelo.eliminar("nariz", opcion);
                     vista.eliminaSospechosos(eliminados);
                     vista.bloquearBoton(opcion);
+                    validaPartida();
                     break;
                     
                 case "BGrande":
@@ -291,6 +312,7 @@ public class Controlador {
                     eliminados = modelo.eliminar("boca", opcion);
                     vista.eliminaSospechosos(eliminados);
                     vista.bloquearBoton(opcion);
+                    validaPartida();
                     break;
                     
                 case "SiGafas":
@@ -311,6 +333,7 @@ public class Controlador {
                     vista.eliminaSospechosos(eliminados);
                     vista.bloquearBoton("SiGafas");
                     vista.bloquearBoton("NoGafas");
+                    validaPartida();
                     break;
                     
                 case "SiSombrero":
@@ -331,6 +354,7 @@ public class Controlador {
                     vista.eliminaSospechosos(eliminados);
                     vista.bloquearBoton("SiSombrero");
                     vista.bloquearBoton("NoSombrero");
+                    validaPartida();
                     break;
                     
                 case "SiBigote":
@@ -349,6 +373,7 @@ public class Controlador {
                     vista.eliminaSospechosos(eliminados);
                     vista.bloquearBoton("SiBigote");
                     vista.bloquearBoton("NoBigote");
+                    validaPartida();
                     break;
             }
          }
