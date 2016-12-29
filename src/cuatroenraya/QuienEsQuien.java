@@ -25,7 +25,7 @@ public class QuienEsQuien {
         Modelo m = new Modelo();
         Controlador c = new Controlador(m, v, inicio);
         inicio.setVisible(true);
-        inicio.setSize(1000, 600);
+        inicio.setSize(1000, 700);
         v.setVisible(false);
         v.setSize(1200,800);
         v.setTitle("CUATRO EN RAYA");
