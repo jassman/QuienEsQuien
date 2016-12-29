@@ -8,6 +8,7 @@ package cuatroenraya;
 import CuatroRayaControlador.Controlador;
 import CuatroRayaModelo.Modelo;
 import CuatroRayaVista.VentanaPrincipal;
+import CuatroRayaVista.VistaDificultad;
 import CuatroRayaVista.VistaInicio;
 
 /**
@@ -21,11 +22,15 @@ public class QuienEsQuien {
      */
     public static void main(String[] args) {
         VentanaPrincipal v = new VentanaPrincipal();
+        VistaDificultad d = new VistaDificultad();
         VistaInicio inicio = new VistaInicio();
         Modelo m = new Modelo();
-        Controlador c = new Controlador(m, v, inicio);
+        Controlador c = new Controlador(m, v, inicio, d);
         inicio.setVisible(true);
         inicio.setSize(1000, 700);
+        d.setVisible(false);
+        d.setTitle("Dificultad");
+        d.setSize(200, 300);
         v.setVisible(false);
         v.setSize(1200,800);
         v.setTitle("CUATRO EN RAYA");

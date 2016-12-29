@@ -6,6 +6,7 @@
 package CuatroRayaVista;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import javax.swing.JFrame;
@@ -18,7 +19,8 @@ public class VentanaPrincipal extends JFrame{
     private PanelFotos fotos;
     private PanelBotones botones;
     private Puntuacion puntos;
-    private Menu menu;
+    private MenuConfiguracion menu;
+    private ElegirColor color;
     
     public VentanaPrincipal(){
         
@@ -26,12 +28,13 @@ public class VentanaPrincipal extends JFrame{
         fotos = new PanelFotos();
         botones = new PanelBotones();
         puntos = new Puntuacion();
-        menu = new Menu();
+        menu = new MenuConfiguracion();
         
         add(puntos, BorderLayout.NORTH);
         add(fotos, BorderLayout.CENTER);
         add(botones, BorderLayout.SOUTH);
         setJMenuBar(menu);
+        
     }
     
     public void setActionListenerAsesino(ActionListener a){
@@ -96,5 +99,15 @@ public class VentanaPrincipal extends JFrame{
     
     public void bloquearBoton(String s){
         botones.bloquearBoton(s);
+    }
+    
+    public void setColorFondo(Color c){
+        botones.setColor(c);
+        fotos.setColorFondo(c);
+        puntos.setColor(c);
+    }
+    
+    public void setColorFoco(Color c){
+        fotos.setColorFoco(c);
     }
 }

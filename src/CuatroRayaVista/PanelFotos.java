@@ -82,19 +82,23 @@ public class PanelFotos extends JPanel{
             super.paintComponent(g);
         }
 
-        @Override
-        public void setContentAreaFilled(boolean b) {
-        }
-        
+       
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    public void setColorFondo(Color c){
+            this.setBackground(c);
+    }
+     
+     public void setColorFoco(Color c){
+         
+     }
+     
 }
+       
+
+
+     
+    
+
+  
+

@@ -7,32 +7,43 @@ package CuatroRayaVista;
 
 import java.awt.event.ActionListener;
 import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 /**
  *
  * @author Javier
  */
-public class MenuConfiguracion extends JMenu{
-    private JMenu menu;
-    private final JMenuItem item, item2, item3;
+public class MenuConfiguracion extends JMenuBar{
+    private JMenu menu, ayuda;
+    private final JMenuItem item, item3, item4, item5, ayuda1;
     
     public MenuConfiguracion(){
-        super("Configuracion");
+        
+        menu = new JMenu("Configuracion");
+        ayuda = new JMenu("Ayuda");
         item = new JMenuItem("Volver a empezar");
-        //item = new JMenuItem("Volver a empezar");
-        item2 = new JMenuItem("Instrucciones");
         item3 = new JMenuItem("Salir");
-
-        add(item);
-        add(item2);
-        add(item3);
+        item4 = new JMenuItem("Cambiar color de fondo");
+        item5 = new JMenuItem("Cambiar color de foco");
+        ayuda1 = new JMenuItem("Ayuda");
+        
+        ayuda.add(ayuda1);
+        menu.add(item);
+        menu.add(item4);
+        menu.add(item5);
+        menu.add(item3);
+        
+        add(menu);
+        add(ayuda);
 
     }
     
     public void setActionListener(ActionListener actionListener) {
         item.addActionListener(actionListener);
-        item2.addActionListener(actionListener);
         item3.addActionListener(actionListener);
+        item4.addActionListener(actionListener);
+        item5.addActionListener(actionListener);
+        ayuda1.addActionListener(actionListener);
     }
 }

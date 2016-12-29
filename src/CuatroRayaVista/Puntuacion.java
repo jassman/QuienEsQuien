@@ -5,6 +5,7 @@
  */
 package CuatroRayaVista;
 
+import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -25,5 +26,10 @@ public class Puntuacion extends JPanel{
         String s = String.valueOf(i);
         
         puntos.setText("Puntos: " + s);
+    }
+    
+    public void setColor(Color c){
+        this.setBackground(c);
+        
     }
 }

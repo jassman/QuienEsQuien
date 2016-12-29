@@ -19,31 +19,28 @@ public class Modelo {
     private Persona sospechoso;
     boolean partida, facil, medio, dificil, personalizado;
 
-    /*
-     ¡¡¡¡¡¡¡FALTA CAMBIAR EL COLOR DE LOS OJOS!!!!!!!
-     */
     public Modelo() {
 
         partida = true;
-        personas[0] = new Persona("Alex", "Chico", "Negro", "Marrones", "Pequeña", "Grande", false, false, true);
+        personas[0] = new Persona("Alex", "Chico", "Moreno", "Marrones", "Pequeña", "Grande", false, false, true);
         personas[1] = new Persona("Alfred", "Chico", "Pelirrojo", "Azules", "Pequeña", "Pequeña", false, false, true);
         personas[2] = new Persona("Anita", "Chica", "Rubio", "Azules", "Pequeña", "Pequeña", false, false, false);
-        personas[3] = new Persona("Anne", "Chica", "Negro", "Marrones", "Mediana", "Pequeña", false, false, false);
-        personas[4] = new Persona("Bernard", "Chico", "Moreno", "Marrones", "Grande", "Mediana", false, true, false);
+        personas[3] = new Persona("Anne", "Chica", "Moreno", "Marrones", "Mediana", "Pequeña", false, false, false);
+        personas[4] = new Persona("Bernard", "Chico", "Castanyo", "Marrones", "Grande", "Mediana", false, true, false);
         personas[5] = new Persona("Bill", "Chico", "Calvo", "Marrones", "Pequeña", "Mediana", false, false, false);
         personas[6] = new Persona("Charles", "Chico", "Rubio", "Verdes", "Pequeña", "Grande", false, false, true);
-        personas[7] = new Persona("Claire", "Chica", "Negro", "Marrones", "Pequeña", "Pequeña", true, true, false);
+        personas[7] = new Persona("Claire", "Chica", "Moreno", "Marrones", "Pequeña", "Pequeña", true, true, false);
         personas[8] = new Persona("David", "Chico", "Rubio", "Verdes", "Pequeña", "Mediana", false, false, false);
         personas[9] = new Persona("Eric", "Chico", "Rubio", "Verdes", "Pequeña", "Grande", false, true, false);
         personas[10] = new Persona("Frans", "Chico", "Pelirrojo", "Marrones", "Pequeña", "Pequeña", false, false, false);
         personas[11] = new Persona("George", "Chico", "Canoso", "Marrones", "Pequeña", "Mediana", false, true, false);
         personas[12] = new Persona("Herman", "Chico", "Calvo", "Verdes", "Grande", "Mediana", false, false, false);
         personas[13] = new Persona("Joe", "Chico", "Rubio", "Azules", "Mediana", "Pequeña", true, false, false);
-        personas[14] = new Persona("Maria", "Chica", "Moreno", "Marrones", "Pequeña", "Mediana", false, true, false);
-        personas[15] = new Persona("Max", "Chico", "Negro", "Marrones", "Grande", "Grande", false, false, true);
+        personas[14] = new Persona("Maria", "Chica", "Castanyo", "Marrones", "Pequeña", "Mediana", false, true, false);
+        personas[15] = new Persona("Max", "Chico", "Moreno", "Marrones", "Grande", "Grande", false, false, true);
         personas[16] = new Persona("Paul", "Chico", "Canoso", "Verdes", "Pequeña", "Mediana", true, false, false);
         personas[17] = new Persona("Peter", "Chico", "Canoso", "Azules", "Grande", "Grande", false, false, false);
-        personas[18] = new Persona("Philip", "Chico", "Negro", "Verdes", "Pequeña", "Mediana", false, false, false);
+        personas[18] = new Persona("Philip", "Chico", "Moreno", "Verdes", "Pequeña", "Mediana", false, false, false);
         personas[19] = new Persona("Richard", "Chico", "Calvo", "Marrones", "Pequeña", "Mediana", false, false, true);
         personas[20] = new Persona("Robert", "Chico", "Castanyo", "Azules", "Grande", "Grande", false, false, false);
         personas[21] = new Persona("Sam", "Chico", "Calvo", "Verdes", "Pequeña", "Pequeña", true, false, false);
@@ -328,6 +325,7 @@ public class Modelo {
     }
 
     public void partidaPersonalizada(){
+        /*
         puntosIniciales = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos con los que quieres empezar " ));
         pSexo = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos que quieres que reste la pregunta sobre el sexo " ));
         pPelo = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos que quieres que reste la pregunta sobre el pelo " ));
@@ -337,6 +335,9 @@ public class Modelo {
         pSombrero = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos que quieres que reste la pregunta sobre el sombrero " ));
         pGafas = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos que quieres que reste la pregunta sobre las gafas " ));
         pBigote = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos que quieres que reste la pregunta sobre el bigote " ));
+*/
+        
+        
     }
 
     public int getPuntos() {

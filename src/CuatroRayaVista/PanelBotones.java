@@ -5,6 +5,7 @@
  */
 package CuatroRayaVista;
 
+import java.awt.Color;
 import java.awt.event.ActionListener;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
@@ -82,4 +83,10 @@ public class PanelBotones extends JPanel{
         botones1.bloquearBotones1(s);
     }
 */
+    public void setColor(Color c){
+        botones1.setColor(c);
+        botones2.setColor(c);
+        botones3.setColor(c);
+        
+    }
 }

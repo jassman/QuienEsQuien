@@ -21,21 +21,17 @@ import javax.swing.JPanel;
  * @author Lucas
  */
 public class BotonesInicio extends JPanel{
-    private JButton [] botones = new JButton [5];
-    private String [] etiqueta = {"Facil", "Media", "Dificil", "Dificultad personalizada", "JUGAR"};
-
+    private JButton  botones ;
+   
     public BotonesInicio(){
-        for(int i = 0; i < 5; i++){
-            botones[i] = new JButton(etiqueta[i]);
-            add(botones[i]);
-        }
+        
+            botones = new JButton("JUGAR");
+            add(botones);
+        
     }
-    
-    
-    
+
     public void setActionListener(ActionListener a){
-        for(int i = 0; i < 5; i++){
-            botones[i].addActionListener(a);
-        }
+            botones.addActionListener(a);
+       
     }
 }

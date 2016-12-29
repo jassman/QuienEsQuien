@@ -5,6 +5,7 @@
  */
 package CuatroRayaVista;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import javax.swing.ButtonGroup;
@@ -149,5 +150,9 @@ public class PanelBotones2 extends JPanel{
                 botones[i].setEnabled(false);
             }
         }
+    }
+    
+    public void setColor(Color c){
+        this.setBackground(c);
     }
 }

@@ -42,6 +42,9 @@ public class PanelBotones1 extends JPanel{
         }
     }
     
+    public void setColor(Color c){
+        this.setBackground(c);
+    }
     /*
     public void bloquearBotones1(String s){
         for(int i = 0; i < 8; i++){
