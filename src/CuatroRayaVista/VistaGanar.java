@@ -56,6 +56,7 @@ public class VistaGanar extends JFrame {
 
         public ImagenGameOver(){
             setLayout(new FlowLayout());
+            setBackground(Color.black);
             
             botones = new JButton [3];
             emptyBorder = BorderFactory.createEmptyBorder();

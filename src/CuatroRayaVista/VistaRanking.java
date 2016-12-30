@@ -34,7 +34,7 @@ import javax.swing.border.Border;
 public class VistaRanking extends JFrame {
    
    //private final ImagenGameOver image;
-   private JPanel contenedor;
+   private final JPanel contenedor;
    private final JLabel l1,l2,l3;
     
     public VistaRanking() {
@@ -47,7 +47,7 @@ public class VistaRanking extends JFrame {
         
         contenedor = new JPanel();
         //contenedor.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-        
+
         l1 = new JLabel("hola");
         l2 = new JLabel("hola");
         l3 = new JLabel("hola");
