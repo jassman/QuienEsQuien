@@ -15,7 +15,8 @@ import javax.swing.JOptionPane;
 public class Modelo {
 
     private Persona personas[] = new Persona[24];
-    private  int i_sospechoso, puntosIniciales, puntosRestar, pSexo, pOjos, pPelo, pBoca, pNariz, pSombrero, pGafas, pBigote;
+    private  int i_sospechoso, puntosIniciales, puntosRestar, 
+            pSexo, pOjos, pPelo, pBoca, pNariz, pSombrero, pGafas, pBigote;
     private Persona sospechoso;
     boolean partida, facil, medio, dificil, personalizado;
 

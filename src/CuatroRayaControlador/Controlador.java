@@ -5,6 +5,7 @@
  */
 package CuatroRayaControlador;
 
+import CuatroRayaModelo.Jugador;
 import CuatroRayaModelo.Modelo;
 import CuatroRayaVista.ElegirColor;
 import CuatroRayaVista.VentanaPrincipal;
@@ -38,7 +39,7 @@ public class Controlador {
     private final VistaPerder v_perder;
     private final VistaRanking v_ranking;
     private ElegirColor color;
-    private Color c, g;;
+    private Color c, g;
     
     public Controlador(Modelo modelo, VentanaPrincipal vista, VistaInicio inicio, VistaDificultad d){
         this.vista = vista;
@@ -229,6 +230,7 @@ public class Controlador {
     }
     
     class SubOpciones implements ActionListener{
+         @Override
          public void actionPerformed(ActionEvent a){
             String opcion = a.getActionCommand();
             int [] eliminados;
@@ -408,6 +410,7 @@ public class Controlador {
     }
     
     class Principal implements ActionListener{
+         @Override
          public void actionPerformed(ActionEvent a){
             String opcion = a.getActionCommand();
             switch(opcion){
@@ -422,6 +425,7 @@ public class Controlador {
     }
     
     class Menu implements ActionListener{
+        @Override
         public void actionPerformed(ActionEvent a){
             String opcion = a.getActionCommand();
             
