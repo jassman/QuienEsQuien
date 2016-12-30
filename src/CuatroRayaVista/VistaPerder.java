@@ -11,17 +11,24 @@ package CuatroRayaVista;
  */
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.GridBagLayout;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
+import javax.swing.border.Border;
 
 public class VistaPerder extends JFrame {
 
@@ -29,6 +36,7 @@ public class VistaPerder extends JFrame {
     private ImagenGameOver image;
     
     public VistaPerder() {
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
         setBackground(Color.BLACK);
         pack();
@@ -46,7 +54,7 @@ public class VistaPerder extends JFrame {
 
         private BufferedImage imagen;
         private String imagenFileName = "";
-        private JButton b_jugar,b_salir,b_ranking;
+        private final JButton [] botones = new JButton [3];
 
         @Override
         public void paintComponent(Graphics g) {
@@ -64,14 +72,22 @@ public class VistaPerder extends JFrame {
         
         public ImagenGameOver(){
             this.setLayout(new FlowLayout());
-
-            b_jugar = new JButton("Volver a jugar");
-            b_ranking = new JButton("Ver Ranking");
-            b_salir = new JButton("Salir");
+            Border emptyBorder = BorderFactory.createEmptyBorder();
             
-            add(b_jugar);
-            add(b_ranking);
-            add(b_salir);
+            botones[0] = new JButton("Volver a jugar");
+            botones[1] = new JButton("Ver Ranking");
+            botones[2] = new JButton("Salir");
+            
+            for (JButton b: botones) {
+                b.setBackground(Color.black);
+                b.setPreferredSize(new Dimension(250, 100));
+                b.setFont(new Font("Colibri", Font.BOLD, 18));
+                b.setForeground(Color.WHITE);
+                b.setBorder(emptyBorder);
+                b.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                add(b);
+            }
+
         }
         
     }
