@@ -46,6 +46,9 @@ public class VistaPerder extends JFrame {
         image.setActionListener(a);
     }
 
+    /*
+    * Clase enbebida para generar el panel que lo contiene
+    */
     class ImagenGameOver extends JPanel {
 
         private BufferedImage imagen;

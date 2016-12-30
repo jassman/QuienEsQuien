@@ -12,6 +12,7 @@ import CuatroRayaVista.VistaDificultad;
 import CuatroRayaVista.VistaGanar;
 import CuatroRayaVista.VistaInicio;
 import CuatroRayaVista.VistaPerder;
+import CuatroRayaVista.VistaRanking;
 import cuatroenraya.QuienEsQuien;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -35,6 +36,7 @@ public class Controlador {
     private VistaDificultad d;
     private final VistaGanar v_ganar;
     private final VistaPerder v_perder;
+    private final VistaRanking v_ranking;
     private ElegirColor color;
     private Color c, g;
     private VistaDificultad person;
@@ -46,6 +48,7 @@ public class Controlador {
         this.d = d;
         v_ganar =  new VistaGanar();
         v_perder = new VistaPerder();
+        v_ranking = new VistaRanking();
         
         
         v_perder.setActionListener(new ListenerVistaPerder());
@@ -90,6 +93,8 @@ public class Controlador {
                     QuienEsQuien q = new QuienEsQuien();
                     break;
                 case "Ver Ranking":
+                    v_perder.setVisible(false);
+                    v_ranking.setVisible(true);
                     break;
                 case "Salir":
                     System.exit(0);
