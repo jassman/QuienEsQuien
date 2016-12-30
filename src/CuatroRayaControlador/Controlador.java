@@ -61,7 +61,7 @@ public class Controlador {
         
     }
     /*
-    ***Devuelve true si los puntos son mayor que 0
+    * Devuelve true si los puntos son mayor que 0
     */
     public void validaPartida(){
          if(puntos<=0){
@@ -77,15 +77,17 @@ public class Controlador {
             System.exit(0);
         }
     } 
-    
+    /*
+    * Listeners para la vista Perder
+    */
     class ListenerVistaPerder implements ActionListener{
          @Override
          public void actionPerformed(ActionEvent a){
             String opcion = a.getActionCommand();
             switch(opcion){
                 case "Volver a jugar":
-                    QuienEsQuien q = new QuienEsQuien();
                     v_perder.setVisible(false);
+                    QuienEsQuien q = new QuienEsQuien();
                     break;
                 case "Ver Ranking":
                     break;
@@ -99,6 +101,7 @@ public class Controlador {
  
     
     class Comprobacion implements ActionListener{
+         @Override
          public void actionPerformed(ActionEvent a){
             String opcion = a.getActionCommand();
             ok = JOptionPane.showConfirmDialog(null,
@@ -106,12 +109,19 @@ public class Controlador {
                     "Seleccione la opcion deseada",
                     JOptionPane.YES_NO_OPTION);
             
-            if(ok == 0)
-            modelo.Comprobar(opcion);
+            if(ok == 0){
+                vista.setVisible(false);
+                if(modelo.Comprobar(opcion))
+                    v_ganar.setVisible(true);
+                else
+                    v_perder.setVisible(true);
+                
+            }
          }
     }
     
     class Opciones implements ActionListener{
+         @Override
          public void actionPerformed(ActionEvent a){
             String opcion = a.getActionCommand();
             
@@ -152,6 +162,7 @@ public class Controlador {
     }
     
     class Dificultad implements ActionListener{
+        @Override
         public void actionPerformed(ActionEvent a){
             String opcion = a.getActionCommand();
             

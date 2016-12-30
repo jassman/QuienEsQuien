@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class Modelo {
 
     private Persona personas[] = new Persona[24];
-    private int i_sospechoso, puntosIniciales, puntosRestar, pSexo, pOjos, pPelo, pBoca, pNariz, pSombrero, pGafas, pBigote;
+    private  int i_sospechoso, puntosIniciales, puntosRestar, pSexo, pOjos, pPelo, pBoca, pNariz, pSombrero, pGafas, pBigote;
     private Persona sospechoso;
     boolean partida, facil, medio, dificil, personalizado;
 
@@ -50,26 +50,11 @@ public class Modelo {
         i_sospechoso = (int) (Math.random() * 23);
 
         sospechoso = personas[i_sospechoso];
-/*
-        System.out.println(sospechoso.getSexo());
-        System.out.println(sospechoso.getPelo());
-        System.out.println(sospechoso.getOjos());
-        System.out.println(sospechoso.getNariz());
-        System.out.println(sospechoso.getBoca());
-        System.out.println(sospechoso.getGafas());
-        System.out.println(sospechoso.getSombrero());
-        System.out.println(sospechoso.getBigote());
-        */
     }
 
-    public void Comprobar(String s) {
-        if (s.equalsIgnoreCase(sospechoso.getNombre())) {
-            System.out.println("HAS ACERTADO! GANASTE");
-        } else {
-            System.out.println("FALLASTE! PERDISTE");
-        }
-
+    public boolean Comprobar(String s) {
         partida = false;
+        return s.equalsIgnoreCase(sospechoso.getNombre());
     }
 
     public boolean respuesta(String tipo, String s) {

@@ -16,7 +16,6 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.GridBagLayout;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -25,13 +24,12 @@ import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 import javax.swing.border.Border;
 
 public class VistaPerder extends JFrame {
-    private ImagenGameOver image;
+    private final ImagenGameOver image;
     
     public VistaPerder() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -65,7 +63,7 @@ public class VistaPerder extends JFrame {
             botones[1] = new JButton("Ver Ranking");
             botones[2] = new JButton("Salir");
             
-            for (JButton b: botones) {
+            for (JButton b: botones){
                 b.setBackground(Color.black);
                 b.setPreferredSize(new Dimension(250, 100));
                 b.setFont(new Font("Colibri", Font.BOLD, 18));
@@ -87,7 +85,6 @@ public class VistaPerder extends JFrame {
                 System.out.println("Problemas leyendo la imagen '" + this.imagenFileName + "'.");
                 System.out.println("Motivo: " + e.getLocalizedMessage());
             }
-
             g.drawImage(imagen, 0, 0, 1000, 700, this);
         }
         
