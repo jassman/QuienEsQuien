@@ -31,8 +31,6 @@ import javax.swing.WindowConstants;
 import javax.swing.border.Border;
 
 public class VistaPerder extends JFrame {
-
-    private BotonesDificultad botones;
     private ImagenGameOver image;
     
     public VistaPerder() {
@@ -47,15 +45,38 @@ public class VistaPerder extends JFrame {
     }
 
     public void setActionListener(ActionListener a) {
-        botones.setActionListener(a);
+        image.setActionListener(a);
     }
 
     class ImagenGameOver extends JPanel {
 
         private BufferedImage imagen;
         private String imagenFileName = "";
-        private final JButton [] botones = new JButton [3];
+        private final JButton [] botones;
+        private final Border emptyBorder;
 
+        public ImagenGameOver(){
+            setLayout(new FlowLayout());
+            
+            botones = new JButton [3];
+            emptyBorder = BorderFactory.createEmptyBorder();
+            
+            botones[0] = new JButton("Volver a jugar");
+            botones[1] = new JButton("Ver Ranking");
+            botones[2] = new JButton("Salir");
+            
+            for (JButton b: botones) {
+                b.setBackground(Color.black);
+                b.setPreferredSize(new Dimension(250, 100));
+                b.setFont(new Font("Colibri", Font.BOLD, 18));
+                b.setForeground(Color.WHITE);
+                b.setFocusPainted(false);
+                b.setBorder(emptyBorder);
+                b.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                add(b);
+            }
+        }
+        
         @Override
         public void paintComponent(Graphics g) {
             super.paintComponent(g);
@@ -70,24 +91,10 @@ public class VistaPerder extends JFrame {
             g.drawImage(imagen, 0, 0, 1000, 700, this);
         }
         
-        public ImagenGameOver(){
-            this.setLayout(new FlowLayout());
-            Border emptyBorder = BorderFactory.createEmptyBorder();
-            
-            botones[0] = new JButton("Volver a jugar");
-            botones[1] = new JButton("Ver Ranking");
-            botones[2] = new JButton("Salir");
-            
+        public void setActionListener(ActionListener a){
             for (JButton b: botones) {
-                b.setBackground(Color.black);
-                b.setPreferredSize(new Dimension(250, 100));
-                b.setFont(new Font("Colibri", Font.BOLD, 18));
-                b.setForeground(Color.WHITE);
-                b.setBorder(emptyBorder);
-                b.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-                add(b);
+                b.addActionListener(a);
             }
-
         }
         
     }

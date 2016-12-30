@@ -12,19 +12,13 @@ import CuatroRayaVista.VistaDificultad;
 import CuatroRayaVista.VistaGanar;
 import CuatroRayaVista.VistaInicio;
 import CuatroRayaVista.VistaPerder;
+import cuatroenraya.QuienEsQuien;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import static java.awt.event.MouseEvent.BUTTON1;
-import static java.awt.event.MouseEvent.BUTTON3;
-import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 /**
  *
@@ -39,8 +33,8 @@ public class Controlador {
     private int puntos, ok;
     private VistaInicio inicio;
     private VistaDificultad d;
-    private VistaGanar v_ganar;
-    private VistaPerder v_perder;
+    private final VistaGanar v_ganar;
+    private final VistaPerder v_perder;
     private ElegirColor color;
     private Color c, g;
     private VistaDificultad person;
@@ -54,7 +48,7 @@ public class Controlador {
         v_perder = new VistaPerder();
         
         
-        
+        v_perder.setActionListener(new ListenerVistaPerder());
         vista.setActionListenerAsesino(new Comprobacion());
         vista.setActionListenerBotones1(new Opciones());
         vista.setActionListenerBotones2(new SubOpciones());
@@ -77,12 +71,31 @@ public class Controlador {
     }
     
     class WindowListener extends WindowAdapter {
-    
+        @Override
         public void windowClosing(WindowEvent e) {
             System.out.println( " PhotoEditorController : Cerrar ventana.");
             System.exit(0);
         }
     } 
+    
+    class ListenerVistaPerder implements ActionListener{
+         @Override
+         public void actionPerformed(ActionEvent a){
+            String opcion = a.getActionCommand();
+            switch(opcion){
+                case "Volver a jugar":
+                    QuienEsQuien q = new QuienEsQuien();
+                    v_perder.setVisible(false);
+                    break;
+                case "Ver Ranking":
+                    break;
+                case "Salir":
+                    System.exit(0);
+                    break;
+            }
+                    
+         }
+    }
  
     
     class Comprobacion implements ActionListener{

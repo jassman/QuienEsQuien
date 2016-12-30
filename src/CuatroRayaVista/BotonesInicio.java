@@ -32,6 +32,5 @@ public class BotonesInicio extends JPanel{
 
     public void setActionListener(ActionListener a){
             botones.addActionListener(a);
-       
     }
 }

@@ -16,6 +16,22 @@ import CuatroRayaVista.VistaInicio;
  * @author Lucas
  */
 public class QuienEsQuien {
+    
+    public QuienEsQuien(){
+        VentanaPrincipal v = new VentanaPrincipal();
+        VistaDificultad d = new VistaDificultad();
+        VistaInicio inicio = new VistaInicio();
+        Modelo m = new Modelo();
+        Controlador c = new Controlador(m, v, inicio, d);
+        inicio.setVisible(true);
+        inicio.setSize(1000, 700);
+        d.setVisible(false);
+        d.setTitle("Dificultad");
+        d.setSize(200, 300);
+        v.setVisible(false);
+        v.setSize(1200,800);
+        v.setTitle("QUIEN ES QUIEN");
+    }
 
     /**
      * @param args the command line arguments
@@ -35,5 +51,6 @@ public class QuienEsQuien {
         v.setSize(1200,800);
         v.setTitle("QUIEN ES QUIEN");
     }
+    
     
 }
