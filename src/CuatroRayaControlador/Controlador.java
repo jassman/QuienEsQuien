@@ -13,6 +13,7 @@ import CuatroRayaVista.VistaDificultad;
 import CuatroRayaVista.VistaGanar;
 import CuatroRayaVista.VistaInicio;
 import CuatroRayaVista.VistaPerder;
+import CuatroRayaVista.VistaPersonalizado;
 import CuatroRayaVista.VistaRanking;
 import cuatroenraya.QuienEsQuien;
 import java.awt.Color;
@@ -41,13 +42,15 @@ public class Controlador {
     private final VistaRanking v_ranking;
     private ElegirColor color;
     private Color c, g;
+    private VistaPersonalizado personalizado;
     
-    public Controlador(Modelo modelo, VentanaPrincipal vista, VistaInicio inicio, VistaDificultad d, Jugador j){
+    public Controlador(Modelo modelo, VentanaPrincipal vista, VistaInicio inicio, VistaDificultad d, Jugador j, VistaPersonalizado personalizado){
         this.vista = vista;
         this.modelo = modelo;
         this.inicio = inicio;
         this.d = d;
         this.j = j;
+        this.personalizado = personalizado;
         
         v_ganar =  new VistaGanar();
         v_perder = new VistaPerder();
@@ -66,7 +69,8 @@ public class Controlador {
         inicio.addWindowListener(new WindowListener());
         d.setActionListener(new Dificultad());
         d.addWindowListener(new WindowListener());
-        
+        personalizado.setActionListener(new Personalizado());
+        personalizado.addWindowListener(new WindowListener());
     }
     /*
     * Devuelve true si los puntos son mayor que 0
@@ -222,15 +226,14 @@ public class Controlador {
                     
                 case "Personalizada":
                     
-                    modelo.partidaPersonalizada();
-                    puntos = modelo.getPuntos();
-                    vista.setText(puntos);
+                    personalizado.setVisible(true);
+                    d.setVisible(false);
                     modelo.setFacil(false);
                     modelo.setMedio(false);
                     modelo.setDificil(false);
                     modelo.setPersonalizado(true);
                     d.setVisible(false);
-                    vista.setVisible(true);
+                    
                     
                     break;
 
@@ -476,6 +479,33 @@ public class Controlador {
             }
         }
     }
+    
+    class Personalizado implements ActionListener{
+         @Override
+         public void actionPerformed(ActionEvent a){
+            String opcion = a.getActionCommand();
+            
+            switch(opcion){
+                case "Aceptar":
+                    int iniciales = personalizado.getPIniciales();
+                    int sexo = personalizado.getPSexo();
+                    int pelo = personalizado.getPPelo();
+                    int nariz = personalizado.getPNariz();
+                    int boca = personalizado.getPBoca();
+                    int gafas = personalizado.getPGafas();
+                    int bigote = personalizado.getPBigote();
+                    int sombrero = personalizado.getPSombrero();
+                    int ojos = personalizado.getPOjos();
+                    modelo.puntuaciones(iniciales, sexo, pelo, nariz, boca, gafas, bigote, sombrero, ojos);
+                    puntos = modelo.getPuntos();
+                    vista.setText(puntos);
+                    personalizado.setVisible(false);
+                    vista.setVisible(true);
+                    break;
+            }
+         }
+    }
+    
     
       
 }

@@ -27,11 +27,13 @@ import javax.swing.JPanel;
 public class PanelFotos extends JPanel{
     private JButton [] botones = new JButton [24];
     private String [] nombres = {"Alex", "Alfred", "Anita", "Anne", "Bernard", "Bill", "Charles", "Claire", "David", "Eric", "Frans", "George", "Herman", "Joe", "Maria", "Max", "Paul", "Peter", "Philip", "Richard", "Robert", "Sam", "Susan", "Tom"};
+    private Color sinPulsar, pulsado;
     public  PanelFotos(){
         
         setLayout(new GridLayout(3,8));
         setBorder(BorderFactory.createEmptyBorder(20, 50, 20, 50));
-        
+        sinPulsar = Color.DARK_GRAY;
+        pulsado = Color.BLACK;
         for(int i = 0; i < 24; i++){
             botones[i] = new BotonPersonalizado(); 
             ImageIcon face = new ImageIcon("cara" + (i+1) + ".gif");
@@ -72,9 +74,9 @@ public class PanelFotos extends JPanel{
         @Override
         protected void paintComponent(Graphics g) {
             if (getModel().isPressed()) {
-                g.setColor(Color.BLACK);
+                g.setColor(pulsado);
             } else if (getModel().isRollover()) {
-                g.setColor(Color.DARK_GRAY);
+                g.setColor(sinPulsar);
             } else {
                 g.setColor(getBackground());
             }
@@ -86,13 +88,14 @@ public class PanelFotos extends JPanel{
     }
     
     public void setColorFondo(Color c){
-            this.setBackground(c);
+        this.setBackground(c);
     }
      
      public void setColorFoco(Color c){
-         
+        //pulsado = c;
+        sinPulsar = c;
      }
-     
+            
 }
        
 

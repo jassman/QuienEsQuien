@@ -406,4 +406,16 @@ public class Modelo {
         return personalizado;
     }
     
+    public void puntuaciones(int i, int s, int p, int n, int b, int g, int bi, int som, int o){
+        puntosIniciales = i;
+        pSexo = s;
+        pPelo = p;
+        pNariz = n;
+        pBoca = b;
+        pGafas = g;
+        pBigote = bi;
+        pSombrero = som;
+        pOjos = o;
+    }
+    
 }
