@@ -10,25 +10,17 @@ package CuatroRayaModelo;
  * @author Javier
  */
 public class Jugador {
-    private int puntos, num_partidas;
-    private double media;
-    private String nombre;
-    
-    public Jugador(String nombre,int puntos, int num_partidas){
-        this.nombre = nombre;
+    private int puntos, num_partidas,num_victorias;
+
+    public Jugador(int puntos, int num_partidas,int num_victorias){
         this.puntos = puntos;
         this.num_partidas = num_partidas;
-        this.media = puntos/num_partidas;
     }
 
     public double getMedia() {
-        return media;
+        return puntos/num_partidas;
     }
-
-    public void setMedia(double media) {
-        this.media = media;
-    }
-
+    
     public int getPuntos() {
         return puntos;
     }
@@ -44,13 +36,14 @@ public class Jugador {
     public void setNum_partidas(int num_partidas) {
         this.num_partidas = num_partidas;
     }
-
-    public String getNombre() {
-        return nombre;
+    public int getNum_victorias() {
+        return num_victorias;
+    }
+    public void setNum_victorias(int num_victorias) {
+        this.num_victorias = num_victorias;
+    }
+    public double getMedia_victorias() {
+        return num_victorias/num_partidas;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-    
 }

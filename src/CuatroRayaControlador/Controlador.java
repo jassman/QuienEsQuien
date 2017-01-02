@@ -32,6 +32,7 @@ public class Controlador {
 
     private VentanaPrincipal vista;
     private Modelo modelo;
+    private Jugador j;
     private int puntos, ok;
     private VistaInicio inicio;
     private VistaDificultad d;
@@ -41,16 +42,20 @@ public class Controlador {
     private ElegirColor color;
     private Color c, g;
     
-    public Controlador(Modelo modelo, VentanaPrincipal vista, VistaInicio inicio, VistaDificultad d){
+    public Controlador(Modelo modelo, VentanaPrincipal vista, VistaInicio inicio, VistaDificultad d, Jugador j){
         this.vista = vista;
         this.modelo = modelo;
         this.inicio = inicio;
         this.d = d;
+        this.j = j;
+        
         v_ganar =  new VistaGanar();
         v_perder = new VistaPerder();
-        v_ranking = new VistaRanking();
+        v_ranking = new VistaRanking(j);
         
         
+        v_ranking.setActionListener(new ListenerVistaPerder());
+        v_ganar.setActionListener(new ListenerVistaPerder());
         v_perder.setActionListener(new ListenerVistaPerder());
         vista.setActionListenerAsesino(new Comprobacion());
         vista.setActionListenerBotones1(new Opciones());
@@ -89,8 +94,9 @@ public class Controlador {
             String opcion = a.getActionCommand();
             switch(opcion){
                 case "Volver a jugar":
+                    j.setNum_partidas(j.getNum_partidas()+1);
                     v_perder.setVisible(false);
-                    QuienEsQuien q = new QuienEsQuien();
+                    QuienEsQuien q = new QuienEsQuien(j);
                     break;
                 case "Ver Ranking":
                     v_perder.setVisible(false);
@@ -103,7 +109,6 @@ public class Controlador {
                     
          }
     }
- 
     
     class Comprobacion implements ActionListener{
          @Override
@@ -116,10 +121,14 @@ public class Controlador {
             
             if(ok == 0){
                 vista.setVisible(false);
-                if(modelo.Comprobar(opcion))
+                if(modelo.Comprobar(opcion)){
+                    j.setNum_victorias(j.getNum_victorias()+1);
+                    j.setPuntos(j.getPuntos() + puntos);
                     v_ganar.setVisible(true);
-                else
+                }else{
                     v_perder.setVisible(true);
+                }
+                    
                 
             }
          }
@@ -269,10 +278,12 @@ public class Controlador {
                     vista.eliminaSospechosos(modelo.eliminar("pelo", opcion));
                     if(modelo.getPersonalizado()){
                         puntos = modelo.restarPuntosPelo();
+                        j.setPuntos(puntos);
                         vista.setText(puntos);
                     }
                     else{
                         puntos = modelo.restarPuntos();
+                        j.setPuntos(puntos);
                         vista.setText(puntos);
                     }
                     eliminados = modelo.eliminar("pelo", opcion);

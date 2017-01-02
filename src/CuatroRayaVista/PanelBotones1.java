@@ -21,7 +21,6 @@ public class PanelBotones1 extends JPanel{
     private String [] etiqueta = {"Sexo", "Pelo", "Ojos", "Nariz", "Boca", "Gafas", "Sombrero", "Bigote"};
     
     public PanelBotones1(){
-
         for(int i = 0; i < 8; i++){
             botones[i] = new JButton();
             ImageIcon rasgo = new ImageIcon("boton" + (i) + ".gif");
