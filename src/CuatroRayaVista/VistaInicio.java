@@ -18,6 +18,7 @@ import javax.swing.JFrame;
 public class VistaInicio extends JFrame{
     private BotonesInicio botones;
     private ImagenInicio imagen;
+    
     public VistaInicio(){
         setLayout(new BorderLayout());
         setBackground(Color.BLACK);
@@ -25,8 +26,8 @@ public class VistaInicio extends JFrame{
         setResizable(false);
         botones = new BotonesInicio();
         imagen = new ImagenInicio();
+        imagen.add(botones);
         add(imagen, BorderLayout.CENTER);
-        add(botones, BorderLayout.SOUTH);
         
         ImageIcon face = new ImageIcon("signo-logo.png");
         setIconImage(face.getImage());

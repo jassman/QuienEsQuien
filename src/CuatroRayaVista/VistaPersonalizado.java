@@ -20,15 +20,16 @@ public class VistaPersonalizado extends JFrame{
     private JButton boton;
     public VistaPersonalizado(){
         setLayout(new BorderLayout());
+        setVisible(false);
+        pack();
+        setSize(400,400);
+        setTitle("Nivel personalizado");
+        
         botones = new BotonesPersonalizado();
         boton = new JButton("Aceptar");
         
         add(botones, BorderLayout.CENTER);
         add(boton, BorderLayout.SOUTH);
-        
-        this.setVisible(false);
-        this.setSize(400,400);
-        this.setTitle("Nivel personalizado");
         
         ImageIcon face = new ImageIcon("signo-logo.png");
         setIconImage(face.getImage());

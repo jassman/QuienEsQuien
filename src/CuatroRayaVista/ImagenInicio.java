@@ -20,6 +20,7 @@ import javax.swing.JPanel;
 public class ImagenInicio extends JPanel{
     private BufferedImage imagen;
     private String imagenFileName = "";
+    @Override
     public void paintComponent(Graphics g){
        super.paintComponent(g);
         try {
