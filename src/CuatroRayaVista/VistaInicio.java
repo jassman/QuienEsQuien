@@ -8,6 +8,7 @@ package CuatroRayaVista;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
@@ -26,6 +27,9 @@ public class VistaInicio extends JFrame{
         imagen = new ImagenInicio();
         add(imagen, BorderLayout.CENTER);
         add(botones, BorderLayout.SOUTH);
+        
+        ImageIcon face = new ImageIcon("signo-logo.png");
+        setIconImage(face.getImage());
     }
     
     public void setActionListenerPrincipal(ActionListener a){

@@ -22,6 +22,7 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -40,6 +41,9 @@ public class VistaPerder extends JFrame {
         setResizable(false);
         image = new ImagenGameOver();
         add(image);
+        
+        ImageIcon face = new ImageIcon("signo-logo.png");
+        setIconImage(face.getImage());
     }
 
     public void setActionListener(ActionListener a) {

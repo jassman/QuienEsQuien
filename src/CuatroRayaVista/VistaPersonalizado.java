@@ -7,6 +7,7 @@ package CuatroRayaVista;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
@@ -28,6 +29,9 @@ public class VistaPersonalizado extends JFrame{
         this.setVisible(false);
         this.setSize(400,400);
         this.setTitle("Nivel personalizado");
+        
+        ImageIcon face = new ImageIcon("signo-logo.png");
+        setIconImage(face.getImage());
     }
     
     public void setActionListener(ActionListener a){

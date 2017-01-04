@@ -25,6 +25,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -102,6 +103,10 @@ public class VistaRanking extends JFrame {
         add(titulo, BorderLayout.NORTH);
         add(contenedor, BorderLayout.CENTER);
         add(contenedor_b, BorderLayout.SOUTH);
+        
+        
+        ImageIcon face = new ImageIcon("signo-logo.png");
+        setIconImage(face.getImage());
     }
 
     public void setActionListener(ActionListener a) {
