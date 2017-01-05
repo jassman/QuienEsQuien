@@ -62,7 +62,7 @@ public class VistaPerder extends JFrame {
 
         public ImagenGameOver(){
             setLayout(new FlowLayout());
-            
+            setLocationRelativeTo(null);
             botones = new JButton [3];
             emptyBorder = BorderFactory.createEmptyBorder();
             

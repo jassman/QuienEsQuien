@@ -12,7 +12,7 @@ package CuatroRayaModelo;
 public class Jugador {
     private int puntos, num_partidas,num_victorias;
 
-    public Jugador(int puntos, int num_partidas,int num_victorias){
+    public Jugador(int puntos, int num_partidas, int num_victorias){
         this.puntos = puntos;
         this.num_partidas = num_partidas;
     }

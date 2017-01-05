@@ -35,7 +35,6 @@ public class QuienEsQuien {
         person.setTitle("Nivel personalizado");
         person.setSize(400,400);
         v.setVisible(false);
-        v.setSize(1200,800);
         v.setTitle("QUIEN ES QUIEN");
     }
 
@@ -59,7 +58,6 @@ public class QuienEsQuien {
         person.setTitle("Nivel personalizado");
         person.setSize(400,400);
         v.setVisible(false);
-        v.setSize(1200,800);
         v.setTitle("QUIEN ES QUIEN");
     }
     

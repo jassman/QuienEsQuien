@@ -43,15 +43,16 @@ public class VistaRanking extends JFrame {
     private final Border emptyBorder;
     private final JLabel titulo;
     private final JButton[] botones;
+    private Jugador j;
 
     public VistaRanking(Jugador j) {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
         setBackground(Color.BLACK);
-        pack();
-        setSize(1000, 700);
         setResizable(false);
         setSize(1000, 700);
+        setLocationRelativeTo(null);
+        this.j = j;
 
         emptyBorder = BorderFactory.createEmptyBorder(20, 30, 20, 0);
         contenedor = new JPanel();
@@ -107,6 +108,15 @@ public class VistaRanking extends JFrame {
         
         ImageIcon face = new ImageIcon("signo-logo.png");
         setIconImage(face.getImage());
+    }
+    
+    public void setJugador(Jugador j){
+        this.j = j;
+        labels[0].setText("Partidas:   " + j.getNum_partidas());
+        labels[1].setText("Victorias:  " + j.getNum_victorias());
+        labels[2].setText("Media:      " + j.getMedia_victorias());
+        labels[3].setText("Puntos:     " + j.getPuntos());
+        labels[4].setText("Media:      " + j.getMedia());
     }
 
     public void setActionListener(ActionListener a) {

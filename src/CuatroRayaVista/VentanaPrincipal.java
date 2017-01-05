@@ -28,10 +28,18 @@ public class VentanaPrincipal extends JFrame {
     private Puntuacion puntos;
     private MenuConfiguracion menu;
     private ElegirColor color;
+    private int xSize;
+    private int ySize;
 
     public VentanaPrincipal() {
 
         setLayout(new BorderLayout());
+        Toolkit tk = Toolkit.getDefaultToolkit();  
+        xSize = (int) (Math.round(tk.getScreenSize().getWidth() * 0.7));  
+        ySize = (int) (Math.round(tk.getScreenSize().getHeight() * 0.9)); 
+        setSize(xSize, ySize);
+        setLocationRelativeTo(null);
+
         fotos = new PanelFotos();
         botones = new PanelBotones();
         puntos = new Puntuacion();

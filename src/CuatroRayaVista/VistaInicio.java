@@ -22,8 +22,10 @@ public class VistaInicio extends JFrame{
     public VistaInicio(){
         setLayout(new BorderLayout());
         setBackground(Color.BLACK);
-        pack();
+        setSize(1000,700);
         setResizable(false);
+        setLocationRelativeTo(null);
+        
         botones = new BotonesInicio();
         imagen = new ImagenInicio();
         imagen.add(botones);

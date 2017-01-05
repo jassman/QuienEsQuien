@@ -100,10 +100,12 @@ public class Controlador {
                 case "Volver a jugar":
                     j.setNum_partidas(j.getNum_partidas()+1);
                     v_perder.setVisible(false);
+                    v_ranking.setVisible(false);
                     QuienEsQuien q = new QuienEsQuien(j);
                     break;
                 case "Ver Ranking":
                     v_perder.setVisible(false);
+                    v_ranking.setJugador(j);
                     v_ranking.setVisible(true);
                     break;
                 case "Salir":

@@ -21,8 +21,8 @@ public class VistaPersonalizado extends JFrame{
     public VistaPersonalizado(){
         setLayout(new BorderLayout());
         setVisible(false);
-        pack();
         setSize(400,400);
+        setLocationRelativeTo(null);
         setTitle("Nivel personalizado");
         
         botones = new BotonesPersonalizado();
