@@ -6,19 +6,10 @@
 package CuatroRayaVista;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
-import javax.swing.JPanel;
 import javax.swing.border.Border;
 
 /**
@@ -31,7 +22,7 @@ public class BotonesInicio extends JButton{
     public BotonesInicio(){
         //setBackground(Color.BLACK);
         super("JUGAR");
-        emptyBorder = BorderFactory.createEmptyBorder(50,0,0,0);
+        emptyBorder = BorderFactory.createEmptyBorder(50,0,1,0);
         setOpaque(false);
         setContentAreaFilled(false);
         setBorderPainted(false);

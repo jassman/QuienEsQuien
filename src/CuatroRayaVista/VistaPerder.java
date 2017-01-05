@@ -1,13 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package CuatroRayaVista;
-
 /**
- *
- * @author Javier
+ * @author Javier Alonso y Lucas Nicolini
  */
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -30,18 +23,22 @@ import javax.swing.WindowConstants;
 import javax.swing.border.Border;
 
 public class VistaPerder extends JFrame {
-    private final ImagenGameOver image;
     
+    private final ImagenGameOver image;
+     /**
+     * Constructor de la vista de Perder
+     */
     public VistaPerder() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
         setBackground(Color.BLACK);
-        pack();
         setSize(1000,700);
         setResizable(false);
+        /* Creacion del panel */
         image = new ImagenGameOver();
+        /* Añade el panel a la vista */
         add(image);
-        
+        /* Crea icono para la vista */
         ImageIcon face = new ImageIcon("signo-logo.png");
         setIconImage(face.getImage());
     }

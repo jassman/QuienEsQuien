@@ -1,17 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package CuatroRayaModelo;
 
 /**
  *
- * @author Lucas
+ * @author Javier Alonso y Lucas Nicolini
  */
 public class Persona {
-    private boolean bigote, sombrero, gafas;
-    private String sexo, pelo, ojos, nariz, boca, nombre;
+    
+    private final boolean bigote, sombrero, gafas;
+    private final String sexo, pelo, ojos, nariz, boca, nombre;
+    
     public Persona(
             String nombre, 
             String sexo, 

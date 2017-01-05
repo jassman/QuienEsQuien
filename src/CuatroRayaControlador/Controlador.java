@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package CuatroRayaControlador;
 
 import CuatroRayaModelo.Jugador;
@@ -24,39 +19,40 @@ import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Lucas
+ * @author Javier Alonso y Lucas Nicolini
  */
-
-
 public class Controlador {
 
-    private VentanaPrincipal vista;
-    private Modelo modelo;
-    private Jugador j;
+    private final VentanaPrincipal vista;
+    private final Modelo modelo;
+    private final Jugador j;
     private int puntos, ok;
-    private VistaInicio inicio;
-    private VistaDificultad d;
+    private final VistaInicio inicio;
+    private final VistaDificultad d;
     private final VistaGanar v_ganar;
     private final VistaPerder v_perder;
     private final VistaRanking v_ranking;
     private ElegirColor color;
     private Color c, g;
-    private VistaPersonalizado personalizado;
-    
-    public Controlador(Modelo modelo, VentanaPrincipal vista, VistaInicio inicio, VistaDificultad d, Jugador j, VistaPersonalizado personalizado){
+    private final VistaPersonalizado personalizado;
+
+    public Controlador(Modelo modelo, VentanaPrincipal vista, VistaInicio inicio, VistaDificultad d, Jugador j, VistaPersonalizado personalizado) {
         this.vista = vista;
         this.modelo = modelo;
         this.inicio = inicio;
         this.d = d;
         this.j = j;
         this.personalizado = personalizado;
-        
-        v_ganar =  new VistaGanar();
+        /**
+         * Crea vistas auxiliares
+         */
+        v_ganar = new VistaGanar();
         v_perder = new VistaPerder();
         v_ranking = new VistaRanking(j);
-        
-        
+
+        /**
+         * Añade listeners a las vistas
+         */
         v_ranking.setActionListener(new ListenerVistaPerder());
         v_ganar.setActionListener(new ListenerVistaPerder());
         v_perder.setActionListener(new ListenerVistaPerder());
@@ -72,33 +68,38 @@ public class Controlador {
         personalizado.setActionListener(new Personalizado());
         personalizado.addWindowListener(new WindowListener());
     }
-    /*
-    * Devuelve true si los puntos son mayor que 0
-    */
-    public void validaPartida(){
-         if(puntos<=0){
+
+    /**
+     * Validacion de los puntos de la partida, y determina si pierde (Puede ir
+     * en Jugador)
+     */
+    public void validaPartida() {
+        if (puntos <= 0) {
             vista.setVisible(false);
             v_perder.setVisible(true);
-         }
+        }
     }
-    
+
     class WindowListener extends WindowAdapter {
+
         @Override
         public void windowClosing(WindowEvent e) {
-            System.out.println( " PhotoEditorController : Cerrar ventana.");
+            System.out.println(" PhotoEditorController : Cerrar ventana.");
             System.exit(0);
         }
-    } 
+    }
+
     /*
     * Listeners para la vista Perder
-    */
-    class ListenerVistaPerder implements ActionListener{
-         @Override
-         public void actionPerformed(ActionEvent a){
+     */
+    class ListenerVistaPerder implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent a) {
             String opcion = a.getActionCommand();
-            switch(opcion){
+            switch (opcion) {
                 case "Volver a jugar":
-                    j.setNum_partidas(j.getNum_partidas()+1);
+                    j.setNum_partidas(j.getNum_partidas() + 1);
                     v_perder.setVisible(false);
                     v_ranking.setVisible(false);
                     QuienEsQuien q = new QuienEsQuien(j);
@@ -112,82 +113,84 @@ public class Controlador {
                     System.exit(0);
                     break;
             }
-                    
-         }
+
+        }
     }
-    
-    class Comprobacion implements ActionListener{
-         @Override
-         public void actionPerformed(ActionEvent a){
+
+    class Comprobacion implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent a) {
             String opcion = a.getActionCommand();
             ok = JOptionPane.showConfirmDialog(null,
-                    "Estas seguro que esta es tu respuesta final?",  
+                    "Estas seguro que esta es tu respuesta final?",
                     "Seleccione la opcion deseada",
                     JOptionPane.YES_NO_OPTION);
-            
-            if(ok == 0){
+
+            if (ok == 0) {
                 vista.setVisible(false);
-                if(modelo.Comprobar(opcion)){
-                    j.setNum_victorias(j.getNum_victorias()+1);
+                if (modelo.Comprobar(opcion)) {
+                    j.setNum_victorias(j.getNum_victorias() + 1);
                     j.setPuntos(j.getPuntos() + puntos);
                     v_ganar.setVisible(true);
-                }else{
+                } else {
                     v_perder.setVisible(true);
                 }
-                    
-                
+
             }
-         }
+        }
     }
-    
-    class Opciones implements ActionListener{
-         @Override
-         public void actionPerformed(ActionEvent a){
+
+    class Opciones implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent a) {
             String opcion = a.getActionCommand();
-            
-            switch(opcion){
+
+            switch (opcion) {
                 case "Sexo":
                     vista.opSexo();
                     break;
-                
+
                 case "Pelo":
                     vista.opPelo();
                     break;
-                    
+
                 case "Ojos":
                     vista.opOjos();
                     break;
-                
+
                 case "Nariz":
                     vista.opNariz();
                     break;
-                    
+
                 case "Boca":
                     vista.opBoca();
                     break;
-                
+
                 case "Gafas":
                     vista.opGafas();
                     break;
-                    
+
                 case "Sombrero":
                     vista.opSombrero();
                     break;
-                
+
                 case "Bigote":
                     vista.opBigote();
                     break;
             }
-         }
+        }
     }
-    
-    class Dificultad implements ActionListener{
+
+    class Dificultad implements ActionListener {
+
         @Override
-        public void actionPerformed(ActionEvent a){
+        public void actionPerformed(ActionEvent a) {
             String opcion = a.getActionCommand();
-            
-            switch(opcion){
-                
+
+            switch (opcion) {
+
                 case "Facil":
                     modelo.partidaFacil();
                     puntos = modelo.getPuntos();
@@ -198,9 +201,9 @@ public class Controlador {
                     modelo.setPersonalizado(false);
                     d.setVisible(false);
                     vista.setVisible(true);
-                    
+
                     break;
-                    
+
                 case "Media":
                     modelo.partidaMedia();
                     puntos = modelo.getPuntos();
@@ -211,9 +214,9 @@ public class Controlador {
                     modelo.setPersonalizado(false);
                     d.setVisible(false);
                     vista.setVisible(true);
-                    
+
                     break;
-                    
+
                 case "Dificil":
                     modelo.partidaDificil();
                     puntos = modelo.getPuntos();
@@ -225,9 +228,9 @@ public class Controlador {
                     d.setVisible(false);
                     vista.setVisible(true);
                     break;
-                    
+
                 case "Personalizada":
-                    
+
                     personalizado.setVisible(true);
                     d.setVisible(false);
                     modelo.setFacil(false);
@@ -235,245 +238,217 @@ public class Controlador {
                     modelo.setDificil(false);
                     modelo.setPersonalizado(true);
                     d.setVisible(false);
-                    
-                    
+
                     break;
 
             }
         }
     }
-    
-    class SubOpciones implements ActionListener{
-         @Override
-         public void actionPerformed(ActionEvent a){
+
+    /**
+     * Listener para Vista Principal de PanelBotones3 (Botones de eleccion de eliminacion de personas)
+     */
+    class SubOpciones implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent a) {
             String opcion = a.getActionCommand();
-            int [] eliminados;
-            switch(opcion){
+            int[] eliminados;
+            switch (opcion) {
                 case "Chico":
                 case "Chica":
-                    
-                    vista.respuesta(modelo.respuesta("sexo", opcion));
-                    vista.eliminaSospechosos(modelo.eliminar("sexo", opcion));
-                    vista.bloquearBoton(opcion);
-                    if(modelo.getPersonalizado()){
+                    vista.respuesta(modelo.respuesta("sexo", opcion));//Generamos un Cierto o Falso
+                    vista.eliminaSospechosos(modelo.eliminar("sexo", opcion));//Elimina sospechosos de la vista
+                    vista.bloquearBoton(opcion);//Bloquea botones que no deben ser pulsados ya
+                    /* Cargamos los puntos por defecto o personalizado */
+                    if (modelo.getPersonalizado()) {
                         puntos = modelo.restarPuntosSexo();
                         vista.setText(puntos);
-                    }
-                    else{
+                    } else {
                         puntos = modelo.restarPuntos();
                         vista.setText(puntos);
                     }
-                    
-                    eliminados = modelo.eliminar("sexo", opcion);
-                    vista.eliminaSospechosos(eliminados);
                     vista.bloquearBoton("Chico");
                     vista.bloquearBoton("Chica");
-                    validaPartida();
-                    
+                    validaPartida();//Validamos los puntos de partida
+
                     break;
-                    
+
                 case "Rubio":
                 case "Moreno":
                 case "Castaño":
                 case "Pelirrojo":
                 case "Canoso":
                 case "Calvo":
-                    
                     vista.respuesta(modelo.respuesta("pelo", opcion));
                     vista.eliminaSospechosos(modelo.eliminar("pelo", opcion));
-                    if(modelo.getPersonalizado()){
+                    if (modelo.getPersonalizado()) {
                         puntos = modelo.restarPuntosPelo();
-                        j.setPuntos(puntos);
                         vista.setText(puntos);
-                    }
-                    else{
+                    } else {
                         puntos = modelo.restarPuntos();
-                        j.setPuntos(puntos);
                         vista.setText(puntos);
                     }
-                    eliminados = modelo.eliminar("pelo", opcion);
-                    vista.eliminaSospechosos(eliminados);
                     vista.bloquearBoton(opcion);
                     validaPartida();
                     break;
-                    
+
                 case "Azules":
                 case "Verdes":
                 case "Marrones":
-                    
+
                     vista.respuesta(modelo.respuesta("ojos", opcion));
                     vista.eliminaSospechosos(modelo.eliminar("ojos", opcion));
-                    if(modelo.getPersonalizado()){
+                    if (modelo.getPersonalizado()) {
                         puntos = modelo.restarPuntosOjos();
                         vista.setText(puntos);
-                    }
-                    else{
+                    } else {
                         puntos = modelo.restarPuntos();
                         vista.setText(puntos);
                     }
-                    
-                    eliminados = modelo.eliminar("ojos", opcion);
-                    vista.eliminaSospechosos(eliminados);
                     vista.bloquearBoton(opcion);
                     validaPartida();
-                    
+
                     break;
-                    
+
                 case "NGrande":
                 case "NMediana":
                 case "NPequeña":
-                    
-                    vista.respuesta(modelo.respuesta("nariz", opcion));       
+
+                    vista.respuesta(modelo.respuesta("nariz", opcion));
                     vista.eliminaSospechosos(modelo.eliminar("nariz", opcion));
-                    if(modelo.getPersonalizado()){
+                    if (modelo.getPersonalizado()) {
                         puntos = modelo.restarPuntosNariz();
                         vista.setText(puntos);
-                    }
-                    else{
-                       puntos = modelo.restarPuntos();
-                       vista.setText(puntos); 
-                    }
-                    
-                    eliminados = modelo.eliminar("nariz", opcion);
-                    vista.eliminaSospechosos(eliminados);
-                    vista.bloquearBoton(opcion);
-                    validaPartida();
-                    break;
-                    
-                case "BGrande":
-                case "BMediana":
-                case "BPequeña":
-                    
-                    vista.respuesta(modelo.respuesta("boca", opcion));
-                    vista.eliminaSospechosos(modelo.eliminar("boca", opcion));
-                    if(modelo.getPersonalizado()){
-                        puntos = modelo.restarPuntosBoca();
-                        vista.setText(puntos);
-                    }
-                    else{
-                        puntos = modelo.restarPuntos();
-                        vista.setText(puntos);
-                    }
-                    
-                    eliminados = modelo.eliminar("boca", opcion);
-                    vista.eliminaSospechosos(eliminados);
-                    vista.bloquearBoton(opcion);
-                    validaPartida();
-                    break;
-                    
-                case "SiGafas":
-                case "NoGafas":
-                    
-                    vista.respuesta(modelo.respuesta("gafas", opcion));
-                    vista.eliminaSospechosos(modelo.eliminar("gafas", opcion));
-                    if(modelo.getPersonalizado()){
-                        puntos = modelo.restarPuntosGafas();
-                        vista.setText(puntos);
-                    }
-                    else{
-                        puntos = modelo.restarPuntos();
-                        vista.setText(puntos);
-                    }
-                    
-                    eliminados = modelo.eliminar("gafas", opcion);
-                    vista.eliminaSospechosos(eliminados);
-                    vista.bloquearBoton("SiGafas");
-                    vista.bloquearBoton("NoGafas");
-                    validaPartida();
-                    break;
-                    
-                case "SiSombrero":
-                case "NoSombrero":
-                    
-                    vista.respuesta(modelo.respuesta("sombrero", opcion));
-                    vista.eliminaSospechosos(modelo.eliminar("sombrero", opcion));
-                    if(modelo.getPersonalizado()){
-                        puntos = modelo.restarPuntosSombrero();
-                        vista.setText(puntos);
-                    }
-                    else{
+                    } else {
                         puntos = modelo.restarPuntos();
                         vista.setText(puntos);
                     }
 
-                    eliminados = modelo.eliminar("sombrero", opcion);
-                    vista.eliminaSospechosos(eliminados);
+                    vista.bloquearBoton(opcion);
+                    validaPartida();
+                    break;
+
+                case "BGrande":
+                case "BMediana":
+                case "BPequeña":
+
+                    vista.respuesta(modelo.respuesta("boca", opcion));
+                    vista.eliminaSospechosos(modelo.eliminar("boca", opcion));
+                    if (modelo.getPersonalizado()) {
+                        puntos = modelo.restarPuntosBoca();
+                        vista.setText(puntos);
+                    } else {
+                        puntos = modelo.restarPuntos();
+                        vista.setText(puntos);
+                    }
+
+                    vista.bloquearBoton(opcion);
+                    validaPartida();
+                    break;
+
+                case "SiGafas":
+                case "NoGafas":
+
+                    vista.respuesta(modelo.respuesta("gafas", opcion));
+                    vista.eliminaSospechosos(modelo.eliminar("gafas", opcion));
+                    if (modelo.getPersonalizado()) {
+                        puntos = modelo.restarPuntosGafas();
+                        vista.setText(puntos);
+                    } else {
+                        puntos = modelo.restarPuntos();
+                        vista.setText(puntos);
+                    }
+                    vista.bloquearBoton("SiGafas");
+                    vista.bloquearBoton("NoGafas");
+                    validaPartida();
+                    break;
+
+                case "SiSombrero":
+                case "NoSombrero":
+
+                    vista.respuesta(modelo.respuesta("sombrero", opcion));
+                    vista.eliminaSospechosos(modelo.eliminar("sombrero", opcion));
+                    if (modelo.getPersonalizado()) {
+                        puntos = modelo.restarPuntosSombrero();
+                        vista.setText(puntos);
+                    } else {
+                        puntos = modelo.restarPuntos();
+                        vista.setText(puntos);
+                    }
                     vista.bloquearBoton("SiSombrero");
                     vista.bloquearBoton("NoSombrero");
                     validaPartida();
                     break;
-                    
+
                 case "SiBigote":
                 case "NoBigote":
                     vista.respuesta(modelo.respuesta("bigote", opcion));
                     vista.eliminaSospechosos(modelo.eliminar("bigote", opcion));
-                    if(modelo.getPersonalizado()){
+                    if (modelo.getPersonalizado()) {
                         puntos = modelo.restarPuntosBigote();
                         vista.setText(puntos);
-                    }
-                    else{
+                    } else {
                         puntos = modelo.restarPuntos();
                         vista.setText(puntos);
                     }
-                    eliminados = modelo.eliminar("bigote", opcion);
-                    vista.eliminaSospechosos(eliminados);
                     vista.bloquearBoton("SiBigote");
                     vista.bloquearBoton("NoBigote");
                     validaPartida();
                     break;
             }
-         }
+        }
     }
-    
-    class Principal implements ActionListener{
-         @Override
-         public void actionPerformed(ActionEvent a){
+
+    class Principal implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent a) {
             String opcion = a.getActionCommand();
-            switch(opcion){
-               
+            switch (opcion) {
+
                 case "JUGAR":
                     vista.setVisible(false);
                     d.setVisible(true);
                     inicio.setVisible(false);
                     break;
             }
-         }
+        }
     }
-    
-    class Menu implements ActionListener{
+
+    class Menu implements ActionListener {
+
         @Override
-        public void actionPerformed(ActionEvent a){
+        public void actionPerformed(ActionEvent a) {
             String opcion = a.getActionCommand();
-            
-            switch(opcion){
+
+            switch (opcion) {
                 case "Ayuda":
-                    JOptionPane.showMessageDialog(null, "-El usuario debe jugar el rol de detective, haciendo preguntas al sistema sobre " +
-"los rasgos físicos del asesino. \n" + "-Cada pregunta que haga el usuario será respondida por un SI o un NO por " +
-"el sistema. \n" + "-Conforme el sistema va " +
-"respondiendo las preguntas, se van eliminando automáticamente los sospechosos que no concuerdan con " +
-"los rasgos del asesino.\n" + "-Cada pregunta que haga el usuario implica un descuento de puntos. \n" + "-El jugador solo " +
-"gana si descubre al asesino con más de 0 puntos en su cuenta. \n");
+                    JOptionPane.showMessageDialog(null, "-El usuario debe jugar el rol de detective, haciendo preguntas al sistema sobre "
+                            + "los rasgos físicos del asesino. \n" + "-Cada pregunta que haga el usuario será respondida por un SI o un NO por "
+                            + "el sistema. \n" + "-Conforme el sistema va "
+                            + "respondiendo las preguntas, se van eliminando automáticamente los sospechosos que no concuerdan con "
+                            + "los rasgos del asesino.\n" + "-Cada pregunta que haga el usuario implica un descuento de puntos. \n" + "-El jugador solo "
+                            + "gana si descubre al asesino con más de 0 puntos en su cuenta. \n");
 
                     break;
-                    
+
                 case "Volver a empezar":
-                    
-                    
+
                     break;
-                    
-                    
+
                 case "Cambiar color de fondo":
                     color = new ElegirColor();
                     c = color.getColor();
                     vista.setColorFondo(c);
                     break;
-                    
+
                 case "Cambiar color de foco":
                     color = new ElegirColor();
                     g = color.getColor();
                     vista.setColorFoco(g);
                     break;
-                    
+
                 case "Salir":
                     System.exit(0);
                     break;
@@ -481,13 +456,14 @@ public class Controlador {
             }
         }
     }
-    
-    class Personalizado implements ActionListener{
-         @Override
-         public void actionPerformed(ActionEvent a){
+
+    class Personalizado implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent a) {
             String opcion = a.getActionCommand();
-            
-            switch(opcion){
+
+            switch (opcion) {
                 case "Aceptar":
                     int iniciales = personalizado.getPIniciales();
                     int sexo = personalizado.getPSexo();
@@ -505,11 +481,7 @@ public class Controlador {
                     vista.setVisible(true);
                     break;
             }
-         }
+        }
     }
-    
-    
-      
+
 }
-       
-      

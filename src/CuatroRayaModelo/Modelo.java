@@ -1,27 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package CuatroRayaModelo;
-
-import CuatroRayaVista.VentanaPrincipal;
-import javax.swing.JOptionPane;
-
 /**
  *
- * @author Lucas
+ * @author Javier Alonso y Lucas Nicolini
  */
 public class Modelo {
 
-    private Persona personas[] = new Persona[24];
-    private  int i_sospechoso, puntosIniciales, puntosRestar, 
+    private final Persona personas[] = new Persona[24];//Contiene las personas de las fotos
+    private final int i_sospechoso; //Numero del sospechoso
+    private  int puntosIniciales, puntosRestar, 
             pSexo, pOjos, pPelo, pBoca, pNariz, pSombrero, pGafas, pBigote;
-    private Persona sospechoso;
+    private final Persona sospechoso;
     boolean partida, facil, medio, dificil, personalizado;
 
     public Modelo() {
-
         partida = true;
         personas[0] = new Persona("Alex", "Chico", "Moreno", "Marrones", "Pequeña", "Grande", false, false, true);
         personas[1] = new Persona("Alfred", "Chico", "Pelirrojo", "Azules", "Pequeña", "Pequeña", false, false, true);
@@ -48,16 +39,20 @@ public class Modelo {
         personas[22] = new Persona("Susan", "Chica", "Canoso", "Verdes", "Pequeña", "Grande", false, false, false);
         personas[23] = new Persona("Tom", "Chico", "Calvo", "Azules", "Mediana", "Pequeña", true, false, false);
 
-        i_sospechoso = (int) (Math.random() * 23);
+        i_sospechoso = (int) (Math.random() * 23);//Genera un sospechoso aleatorio
 
-        sospechoso = personas[i_sospechoso];
+        sospechoso = personas[i_sospechoso]; //Guardamos al sospechoso principal
     }
 
     public boolean Comprobar(String s) {
         partida = false;
         return s.equalsIgnoreCase(sospechoso.getNombre());
     }
-
+    /**
+     * @param tipo de pregunta
+     * @param s valor de la presgunta
+     * @return Acierto o error en la pregunta
+     */
     public boolean respuesta(String tipo, String s) {
 
         boolean estado = false;
@@ -125,7 +120,11 @@ public class Modelo {
         }
         return estado;
     }
-
+    /**
+     * @param tipo Tipo de pregunta
+     * @param s Valor de la pregunta
+     * @return Array con el numero de sospechosos actuales
+     */
     public int[] eliminar(String tipo, String s) {
         int a[] = new int[24];
         int j = 0;
@@ -278,10 +277,8 @@ public class Modelo {
 
         }
 
-        int z[] = new int[j];
-        for (int y = 0; y < j; y++) {
-            z[y] = a[y];
-        }
+        int z[] = new int[j];//Generamos un array con el numero de valores resultante
+        System.arraycopy(a, 0, z, 0, j);//Copiamos el array generado
 
         return z;
     }

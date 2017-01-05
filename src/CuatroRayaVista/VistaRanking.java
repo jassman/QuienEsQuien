@@ -14,15 +14,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.GridLayout;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -35,7 +28,6 @@ import javax.swing.border.Border;
 
 public class VistaRanking extends JFrame {
 
-    //private final ImagenGameOver image;
     private final JPanel contenedor;
     private final JPanel contenedor_b;
     private final JPanel contenedor_c;
@@ -43,8 +35,11 @@ public class VistaRanking extends JFrame {
     private final Border emptyBorder;
     private final JLabel titulo;
     private final JButton[] botones;
-    private Jugador j;
-
+    /**
+     * Constructor de la vista Ranking (Estadisticas)
+     *
+     * @param j Jugador. Se utiliza para guardar los datos.
+     */
     public VistaRanking(Jugador j) {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
@@ -52,7 +47,6 @@ public class VistaRanking extends JFrame {
         setResizable(false);
         setSize(1000, 700);
         setLocationRelativeTo(null);
-        this.j = j;
 
         emptyBorder = BorderFactory.createEmptyBorder(20, 30, 20, 0);
         contenedor = new JPanel();
@@ -109,9 +103,12 @@ public class VistaRanking extends JFrame {
         ImageIcon face = new ImageIcon("signo-logo.png");
         setIconImage(face.getImage());
     }
-    
+    /**
+     * Pone en la vista los datos de las estadisticas
+     *
+     * @param j Jugador. Se utiliza para guardar los datos.
+     */
     public void setJugador(Jugador j){
-        this.j = j;
         labels[0].setText("Partidas:   " + j.getNum_partidas());
         labels[1].setText("Victorias:  " + j.getNum_victorias());
         labels[2].setText("Media:      " + j.getMedia_victorias());

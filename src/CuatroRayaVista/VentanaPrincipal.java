@@ -1,59 +1,50 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package CuatroRayaVista;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
- *
- * @author Lucas
+ * @author Javier Alonso y Lucas Nicolini
  */
 public class VentanaPrincipal extends JFrame {
 
-    private PanelFotos fotos;
-    private PanelBotones botones;
-    private Puntuacion puntos;
-    private MenuConfiguracion menu;
-    private ElegirColor color;
-    private int xSize;
-    private int ySize;
+    private final PanelFotos fotos;
+    private final PanelBotones botones;
+    private final Puntuacion puntos;
+    private final MenuConfiguracion menu;
+    private final int xSize;
+    private final int ySize;
 
+    /**
+     * Constructor del la Ventana Principal
+     */
     public VentanaPrincipal() {
-
         setLayout(new BorderLayout());
-        Toolkit tk = Toolkit.getDefaultToolkit();  
-        xSize = (int) (Math.round(tk.getScreenSize().getWidth() * 0.7));  
-        ySize = (int) (Math.round(tk.getScreenSize().getHeight() * 0.9)); 
+        /* Tamaño de la ventana segun el tamaño de pantalla */
+        Toolkit tk = Toolkit.getDefaultToolkit();
+        xSize = (int) (Math.round(tk.getScreenSize().getWidth() * 0.7));
+        ySize = (int) (Math.round(tk.getScreenSize().getHeight() * 0.9));
         setSize(xSize, ySize);
-        setLocationRelativeTo(null);
-
+        setLocationRelativeTo(null);//Centrar la ventana
+        /* Genera los paneles */
         fotos = new PanelFotos();
         botones = new PanelBotones();
         puntos = new Puntuacion();
         menu = new MenuConfiguracion();
-
+        /* Añade los paneles al frame */
         add(puntos, BorderLayout.NORTH);
         add(fotos, BorderLayout.CENTER);
         add(botones, BorderLayout.SOUTH);
         setJMenuBar(menu);
         
+        /* Icono de la ventana*/
         ImageIcon face = new ImageIcon("signo-logo.png");
         setIconImage(face.getImage());
     }
-    
 
     public void setActionListenerAsesino(ActionListener a) {
         fotos.setActionListener(a);
