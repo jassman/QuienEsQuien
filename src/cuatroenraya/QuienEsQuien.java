@@ -30,7 +30,7 @@ public class QuienEsQuien {
         inicio.setSize(1000, 700);
         d.setVisible(false);
         d.setTitle("Dificultad");
-        d.setSize(200, 300);
+        d.setSize(400, 500);
         person.setVisible(false);
         person.setTitle("Nivel personalizado");
         person.setSize(400, 400);
@@ -53,7 +53,7 @@ public class QuienEsQuien {
         inicio.setSize(1000, 700);
         d.setVisible(false);
         d.setTitle("Dificultad");
-        d.setSize(200, 300);
+        d.setSize(400, 500);
         person.setVisible(false);
         person.setTitle("Nivel personalizado");
         person.setSize(400, 400);

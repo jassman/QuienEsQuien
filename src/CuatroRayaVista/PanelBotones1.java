@@ -22,35 +22,33 @@ public class PanelBotones1 extends JPanel{
     
     public PanelBotones1(){
         for(int i = 0; i < 8; i++){
-            botones[i] = new JButton();
-            ImageIcon rasgo = new ImageIcon("boton" + (i) + ".gif");
-            Image img = rasgo.getImage() ;  
-            Image newimg = img.getScaledInstance( 50, 50,  java.awt.Image.SCALE_SMOOTH ) ;  
-            rasgo = new ImageIcon(newimg);
-            botones[i].setIcon(rasgo);
-            botones[i].setActionCommand(etiqueta[i]);
-            botones[i].setBackground(Color.WHITE);
+            botones[i] = new JButton(); //Creacion de un JButton
+            ImageIcon rasgo = new ImageIcon("boton" + (i) + ".gif"); //Cargamos la imagen para poner en el boton
+            Image img = rasgo.getImage() ;  //Guardamos la imagen en una variable 
+            Image newimg = img.getScaledInstance( 50, 50,  java.awt.Image.SCALE_SMOOTH ) ;  //Le damos un tamaño a la imagen 
+            rasgo = new ImageIcon(newimg); //Guardamos la imagen con el tamaño que queremos en una variable
+            botones[i].setIcon(rasgo); //Añadimos la imagen a un boton
+            botones[i].setActionCommand(etiqueta[i]); //Le damos un nombre al JButton del vector etiqueta
+            botones[i].setBackground(Color.WHITE); //Le damos al fondo del boton el color blanco
             botones[i].setForeground(Color.BLACK);
-            add(botones[i]);
+            add(botones[i]); //Añadimos el JButton
         }
     }
     
+    /**
+     * @param ActionListener 
+     */
     public void setActionListener(ActionListener a){
         for(int i = 0; i < 8; i++){
             botones[i].addActionListener(a);
         }
     }
     
+    /**
+     * @param Color color del que queremos que sea el fondo del tablero 
+     */
     public void setColor(Color c){
         this.setBackground(c);
     }
-    /*
-    public void bloquearBotones1(String s){
-        for(int i = 0; i < 8; i++){
-            if (botones[i].getActionCommand() == s){
-                botones[i].setEnabled(false);
-            }
-        }
-    }
-    */
+    
 }

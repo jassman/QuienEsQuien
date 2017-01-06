@@ -13,12 +13,14 @@ public class VistaPersonalizado extends JFrame {
 
     private final BotonesPersonalizado botones;
     private final JButton boton;
+    private BotonPuntos puntos;
 
     /**
      * Contructor de la vista personalizada
      */
     public VistaPersonalizado() {
         setLayout(new BorderLayout());
+        puntos = new BotonPuntos();
         setVisible(false);
         setSize(400, 400);
         setLocationRelativeTo(null);
@@ -27,6 +29,7 @@ public class VistaPersonalizado extends JFrame {
         botones = new BotonesPersonalizado();
         boton = new JButton("Aceptar");
         /* Añade el panel a la vista */
+        add(puntos, BorderLayout.NORTH);
         add(botones, BorderLayout.CENTER);
         add(boton, BorderLayout.SOUTH);
         /* Añade icono al frame */
@@ -39,7 +42,7 @@ public class VistaPersonalizado extends JFrame {
     }
 
     public int getPIniciales() {
-        return botones.getPIniciales();
+        return puntos.getPIniciales();
     }
 
     public int getPSexo() {

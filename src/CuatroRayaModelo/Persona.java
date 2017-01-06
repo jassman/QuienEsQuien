@@ -30,39 +30,66 @@ public class Persona {
         this.sombrero = sombrero;
         this.gafas = gafas;
     }
-
+    
+    /**
+     * @return Funcion que devuelve el valor del bigote
+     */
     public boolean getBigote() {
         return bigote;
     }
-
+    
+    /**
+     * @return Funcion que devuelve el valor del sombrero
+     */
     public boolean getSombrero() {
         return sombrero;
     }
-
+    
+    /**
+     * @return Funcion que devuelve el valor de las gafas
+     */
     public boolean getGafas() {
         return gafas;
     }
-
+    
+    /**
+     * @return Funcion que devuelve el valor del sexo
+     */
     public String getSexo() {
         return sexo;
     }
-
+    
+    /**
+     * @return Funcion que devuelve el valor del pelo
+     */
     public String getPelo() {
         return pelo;
     }
-
+    
+    /**
+     * @return Funcion que devuelve el valor de los ojos
+     */
     public String getOjos() {
         return ojos;
     }
-
+    
+    /**
+     * @return Funcion que devuelve el valor de la nariz
+     */
     public String getNariz() {
         return nariz;
     }
-
+    
+    /**
+     * @return Funcion que devuelve el valor de la boca
+     */
     public String getBoca() {
         return boca;
     }
-
+    
+    /**
+     * @return Funcion que devuelve el valor del nombre
+     */
     public String getNombre() {
         return nombre;
     }

@@ -24,14 +24,14 @@ public class ImagenInicio extends JPanel{
     public void paintComponent(Graphics g){
        super.paintComponent(g);
         try {
-            imagenFileName = "quien-es-quien-logo.jpg";
-            imagen = ImageIO.read(new File(imagenFileName));
+            imagenFileName = "quien-es-quien-logo.jpg"; //Guardamos el nombre de la foto en una variable
+            imagen = ImageIO.read(new File(imagenFileName)); //Guardamos la foto en una variable
         }
         catch (IOException e) {
-            System.out.println("Problemas leyendo la imagen '" + this.imagenFileName + "'.");
-            System.out.println("Motivo: " + e.getLocalizedMessage());
+            System.out.println("Problemas leyendo la imagen '" + this.imagenFileName + "'."); //Mensaje de error
+            System.out.println("Motivo: " + e.getLocalizedMessage()); //Mensaje de error
         }
         
-        g.drawImage(imagen, 0, 0, 1000, 700, this);
+        g.drawImage(imagen, 0, 0, 1000, 700, this); //Ponemos la imagen que querermos
     }
 }

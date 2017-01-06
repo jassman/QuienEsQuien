@@ -20,25 +20,28 @@ public class MenuConfiguracion extends JMenuBar{
     
     public MenuConfiguracion(){
         
-        menu = new JMenu("Configuracion");
-        ayuda = new JMenu("Ayuda");
-        item = new JMenuItem("Volver a empezar");
-        item3 = new JMenuItem("Salir");
-        item4 = new JMenuItem("Cambiar color de fondo");
-        item5 = new JMenuItem("Cambiar color de foco");
-        ayuda1 = new JMenuItem("Ayuda");
+        menu = new JMenu("Configuracion"); //Creacion de un JMenu
+        ayuda = new JMenu("Ayuda"); //Creacion de un JMenu
+        item = new JMenuItem("Volver a empezar"); //Creacion de un JMenuItem
+        item3 = new JMenuItem("Salir"); //Creacion de un JMenuItem
+        item4 = new JMenuItem("Cambiar color de fondo"); //Creacion de un JMenuItem
+        item5 = new JMenuItem("Cambiar color de foco"); //Creacion de un JMenuItem
+        ayuda1 = new JMenuItem("Ayuda"); //Creacion de un JMenuItem
         
-        ayuda.add(ayuda1);
-        menu.add(item);
-        menu.add(item4);
-        menu.add(item5);
-        menu.add(item3);
+        ayuda.add(ayuda1); //Añadimos el JMenuItem en el JMenu
+        menu.add(item); //Añadimos el JMenuItem en el JMenu
+        menu.add(item4); //Añadimos el JMenuItem en el JMenu
+        menu.add(item5); //Añadimos el JMenuItem en el JMenu
+        menu.add(item3); //Añadimos el JMenuItem en el JMenu
         
-        add(menu);
-        add(ayuda);
+        add(menu); //Añadimos el JMenu
+        add(ayuda); //Añadimos el JMenu
 
     }
     
+    /**
+     * @param ActionListener 
+     */
     public void setActionListener(ActionListener actionListener) {
         item.addActionListener(actionListener);
         item3.addActionListener(actionListener);

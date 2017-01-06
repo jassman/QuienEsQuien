@@ -14,16 +14,16 @@ import javax.swing.border.Border;
 
 /**
  *
- * @author Lucas
+ * @author Lucas y Javier
  */
 public class BotonesInicio extends JButton{
     private final Border emptyBorder;
    
     public BotonesInicio(){
-        //setBackground(Color.BLACK);
-        super("JUGAR");
-        emptyBorder = BorderFactory.createEmptyBorder(50,0,1,0);
-        setOpaque(false);
+
+        super("JUGAR"); //Constructor
+        emptyBorder = BorderFactory.createEmptyBorder(50,0,1,0); //Creacion del borde
+        setOpaque(false); //Hacemos que no sea opaco
         setContentAreaFilled(false);
         setBorderPainted(false);
         setFont(new Font("Colibri", Font.BOLD, 18));
@@ -31,7 +31,10 @@ public class BotonesInicio extends JButton{
         setBorder(emptyBorder);
         
     }
-
+    
+    /**
+     * @param ActionListener 
+     */
     public void setActionListener(ActionListener a){
             this.addActionListener(a);
     }

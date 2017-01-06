@@ -5,6 +5,8 @@
  */
 package CuatroRayaVista;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -17,6 +19,11 @@ public class VistaDificultad extends JFrame{
     private BotonesDificultad botones;
         public VistaDificultad(){
             botones = new BotonesDificultad();
+            Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
+            int height = pantalla.height;
+            int width = pantalla.width;
+            setSize(width/2, height/2);
+            setLocationRelativeTo(null);
             add(botones);
             ImageIcon face = new ImageIcon("signo-logo.png");
             setIconImage(face.getImage());

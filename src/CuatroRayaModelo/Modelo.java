@@ -14,6 +14,9 @@ public class Modelo {
 
     public Modelo() {
         partida = true;
+        /**
+        * Creacion de los personajes
+        */
         personas[0] = new Persona("Alex", "Chico", "Moreno", "Marrones", "Pequeña", "Grande", false, false, true);
         personas[1] = new Persona("Alfred", "Chico", "Pelirrojo", "Azules", "Pequeña", "Pequeña", false, false, true);
         personas[2] = new Persona("Anita", "Chica", "Rubio", "Azules", "Pequeña", "Pequeña", false, false, false);
@@ -48,9 +51,10 @@ public class Modelo {
         partida = false;
         return s.equalsIgnoreCase(sospechoso.getNombre());
     }
+    
     /**
      * @param tipo de pregunta
-     * @param s valor de la presgunta
+     * @param s valor de la pregunta
      * @return Acierto o error en la pregunta
      */
     public boolean respuesta(String tipo, String s) {
@@ -286,63 +290,78 @@ public class Modelo {
     public boolean getPartida() {
         return partida;
     }
-
+    
+    /**
+     * FUNCION QUE PONE LA PARTIDA EN MODO FACIL
+     */
     public void partidaFacil() {
         puntosIniciales = 20;
         puntosRestar = 1;
     }
-
+    
+    
+    /**
+     * FUNCION QUE PONE LA PARTIDA EN MODO MEDIO
+     */
     public void partidaMedia() {
         puntosIniciales = 20;
         puntosRestar = 3;
     }
-
+    
+    /**
+     * FUNCION QUE PONE LA PARTIDA EN MODO DIFICIL
+     */
     public void partidaDificil() {
         puntosIniciales = 20;
         puntosRestar = 5;
     }
- 
+    
+    /**
+     * @return Valor de los puntos restados
+     */
     public int restarPuntos(){
         puntosIniciales = puntosIniciales - puntosRestar;
         return puntosIniciales;
     }
-
-    public void partidaPersonalizada(){
-        /*
-        puntosIniciales = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos con los que quieres empezar " ));
-        pSexo = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos que quieres que reste la pregunta sobre el sexo " ));
-        pPelo = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos que quieres que reste la pregunta sobre el pelo " ));
-        pOjos = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos que quieres que reste la pregunta sobre los ojos " ));
-        pBoca = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos que quieres que reste la pregunta sobre la boca " ));
-        pNariz = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos que quieres que reste la pregunta sobre la nariz " ));
-        pSombrero = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos que quieres que reste la pregunta sobre el sombrero " ));
-        pGafas = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos que quieres que reste la pregunta sobre las gafas " ));
-        pBigote = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de puntos que quieres que reste la pregunta sobre el bigote " ));
-*/
-        
-        
-    }
-
+    
+    /**
+     * @return Valor de los puntos actuales
+     */
     public int getPuntos() {
         return puntosIniciales;
     }
 
+    /**
+     * Funcion que activa el modo facil
+     */
     public void setFacil(boolean facil) {
         this.facil = facil;
     }
-
+    
+    /**
+     * Funcion que activa el modo medio
+     */
     public void setMedio(boolean medio) {
         this.medio = medio;
     }
-
+    
+    /**
+     * Funcion que activa el modo dificil
+     */
     public void setDificil(boolean dificil) {
         this.dificil = dificil;
     }
-
+    
+    /**
+     * Funcion que activa el modo personalizado
+     */
     public void setPersonalizado(boolean personalizado) {
         this.personalizado = personalizado;
     }
-    
+ 
+    /**
+     * @return Funcion que resta los puntos sobre el sexo y devuelve los puntos
+     */
     public int restarPuntosSexo(){
         
         puntosIniciales = puntosIniciales - pSexo;
@@ -350,6 +369,9 @@ public class Modelo {
         return puntosIniciales;
     }
     
+    /**
+     * @return Funcion que resta los puntos sobre el pelo y devuelve los puntos
+     */
     public int restarPuntosPelo(){
         
         puntosIniciales = puntosIniciales - pPelo;
@@ -357,6 +379,9 @@ public class Modelo {
         return puntosIniciales;
     }
     
+    /**
+     * @return Funcion que resta los puntos sobre la nariz y devuelve los puntos
+     */
     public int restarPuntosNariz(){
         
         puntosIniciales = puntosIniciales - pNariz;
@@ -364,6 +389,9 @@ public class Modelo {
         return puntosIniciales;
     }
     
+    /**
+     * @return Funcion que resta los puntos sobre la boca y devuelve los puntos
+     */
     public int restarPuntosBoca(){
         
         puntosIniciales = puntosIniciales - pBoca;
@@ -371,6 +399,9 @@ public class Modelo {
         return puntosIniciales;
     }
     
+    /**
+     * @return Funcion que resta los puntos sobre las gafas y devuelve los puntos
+     */
     public int restarPuntosGafas(){
         
         puntosIniciales = puntosIniciales - pGafas;
@@ -378,6 +409,9 @@ public class Modelo {
         return puntosIniciales;
     }
     
+    /**
+     * @return Funcion que resta los puntos sobre el bigote y devuelve los puntos
+     */
     public int restarPuntosBigote(){
         
         puntosIniciales = puntosIniciales - pBigote;
@@ -385,6 +419,9 @@ public class Modelo {
         return puntosIniciales;
     }
     
+    /**
+     * @return Funcion que resta los puntos sobre el sombrero y devuelve los puntos
+     */
     public int restarPuntosSombrero(){
         
         puntosIniciales = puntosIniciales - pSombrero;
@@ -392,6 +429,9 @@ public class Modelo {
         return puntosIniciales;
     }
     
+    /**
+     * @return Funcion que resta los puntos sobre los ojos y devuelve los puntos
+     */
     public int restarPuntosOjos(){
         
         puntosIniciales = puntosIniciales - pOjos;
@@ -403,6 +443,18 @@ public class Modelo {
         return personalizado;
     }
     
+    /**
+     * @param i Valor de los puntos iniciales
+     * @param s Valor del sexo
+     * @param p Valor del pelo
+     * @param n Valor de la nariz
+     * @param b Valor del bigote
+     * @param g Valor de las gafas
+     * @param bi Valor del bigote
+     * @param som Valor del sombrero
+     * @param o Valor de los ojos
+     * @return Guarda los valores de cada tipo de pregunta
+     */
     public void puntuaciones(int i, int s, int p, int n, int b, int g, int bi, int som, int o){
         puntosIniciales = i;
         pSexo = s;

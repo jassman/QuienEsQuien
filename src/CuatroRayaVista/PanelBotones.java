@@ -78,11 +78,7 @@ public class PanelBotones extends JPanel{
     public void bloquearBoton(String s){
         botones2.bloquearBoton(s);
     }
-    /*
-    public void bloquearBotones1(String s){
-        botones1.bloquearBotones1(s);
-    }
-*/
+    
     public void setColor(Color c){
         botones1.setColor(c);
         botones2.setColor(c);

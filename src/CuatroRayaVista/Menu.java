@@ -15,19 +15,18 @@ import javax.swing.JMenuItem;
  * @author Lucas
  */
 public class Menu extends JMenuBar{
-    private MenuDificultad menuDificultad;
     private MenuConfiguracion menuConfiguracion;
     
     public Menu(){
-        menuConfiguracion = new MenuConfiguracion();
-        //menuDificultad = new MenuDificultad();
+        menuConfiguracion = new MenuConfiguracion(); //Creacion del MenuConfiguracion 
 
-        add(menuConfiguracion);
-        //add(menuDificultad);
+        add(menuConfiguracion); //Añadimos el MenuConfiguracion
     }
     
+    /**
+     * @param ActionListener 
+     */
     public void setActionListener(ActionListener actionListener) {
         menuConfiguracion.setActionListener(actionListener);
-        //menuDificultad.setActionListener(actionListener);
     }
 }

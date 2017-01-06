@@ -434,7 +434,10 @@ public class Controlador {
                     break;
 
                 case "Volver a empezar":
-
+                    vista.setVisible(false);
+                    j.setNum_partidas(j.getNum_partidas()+1);
+                    v_perder.setVisible(false);
+                    QuienEsQuien q = new QuienEsQuien(j);
                     break;
 
                 case "Cambiar color de fondo":

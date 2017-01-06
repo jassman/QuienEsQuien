@@ -17,10 +17,13 @@ public class ElegirColor extends JFrame{
     private JColorChooser elegir;
     private Color color;
     public ElegirColor(){
-        elegir = new JColorChooser();
-        color = elegir.showDialog(null, "Seleccione un Color", Color.gray);
+        elegir = new JColorChooser(); //Creacion de la paleta de colores
+        color = elegir.showDialog(null, "Seleccione un Color", Color.gray); //Guardamos el color seleccionado en una variable
     }
     
+    /**
+     * @return Funcion que devuelve el color elegido;
+     */
     public Color getColor(){
         return color;
     }
