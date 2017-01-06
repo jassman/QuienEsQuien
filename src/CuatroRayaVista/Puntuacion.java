@@ -11,23 +11,29 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Lucas
+ * @author Lucas y Javier
  */
 public class Puntuacion extends JPanel{
     private JLabel puntos;
     
     public Puntuacion(){
-        puntos = new JLabel("Puntos: ");
+        puntos = new JLabel("Puntos: "); //Creacion de un JLabel
         
-        add(puntos);
+        add(puntos); //Añadimos el JLabel
     }
     
+    /**
+     * @param i Puntos que tiene el jugador, los guardamos y los mostramos
+     */
     public void setPuntos(int i){
         String s = String.valueOf(i);
         
         puntos.setText("Puntos: " + s);
     }
     
+    /**
+     * @param c Color que queremos que sea el fondo 
+     */
     public void setColor(Color c){
         this.setBackground(c);
         

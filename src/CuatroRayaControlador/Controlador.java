@@ -74,23 +74,26 @@ public class Controlador {
      * en Jugador)
      */
     public void validaPartida() {
-        if (puntos <= 0) {
-            vista.setVisible(false);
-            v_perder.setVisible(true);
+        if (puntos <= 0) { //Si los puntos son iguales o menos a cero pasa lo siguiente
+            vista.setVisible(false); //Ponemos la vista de juego a falso
+            v_perder.setVisible(true); //Ponemos la vista de perdedor a verdadero
         }
     }
-
+    
+    /**
+     * Clase para parar la ejecucion del programa al cerrar las ventanas
+     */
     class WindowListener extends WindowAdapter {
 
         @Override
         public void windowClosing(WindowEvent e) {
             System.out.println(" PhotoEditorController : Cerrar ventana.");
-            System.exit(0);
+            System.exit(0); //Para la ejecucion del programa cuando le damos a cerrar ventana
         }
     }
 
     /*
-    * Listeners para la vista Perder
+     * Listeners para la vista Perder
      */
     class ListenerVistaPerder implements ActionListener {
 
@@ -99,24 +102,27 @@ public class Controlador {
             String opcion = a.getActionCommand();
             switch (opcion) {
                 case "Volver a jugar":
-                    j.setNum_partidas(j.getNum_partidas() + 1);
-                    v_perder.setVisible(false);
-                    v_ranking.setVisible(false);
-                    QuienEsQuien q = new QuienEsQuien(j);
+                    j.setNum_partidas(j.getNum_partidas() + 1); //Aumentamos en uno el numero de partidas
+                    v_perder.setVisible(false); //Ponemos la vista de perdedor a falso
+                    v_ranking.setVisible(false); //Ponemos la vista de ganador a falso
+                    QuienEsQuien q = new QuienEsQuien(j); //Creamos una nueva partida llamando a la clase principal
                     break;
                 case "Ver Ranking":
-                    v_perder.setVisible(false);
-                    v_ranking.setJugador(j);
-                    v_ranking.setVisible(true);
+                    v_perder.setVisible(false); //Ponemos la vista de perdedor a falso
+                    v_ranking.setJugador(j); //Le pasamos al ranking al jugador j
+                    v_ranking.setVisible(true); //Ponemos la vista del ranking a verdadero
                     break;
                 case "Salir":
-                    System.exit(0);
+                    System.exit(0); //Paramos la ejecucion del programa
                     break;
             }
 
         }
     }
 
+    /**
+     * Clase que comprueba si la solucion es la correcta
+     */
     class Comprobacion implements ActionListener {
 
         @Override
@@ -125,22 +131,25 @@ public class Controlador {
             ok = JOptionPane.showConfirmDialog(null,
                     "Estas seguro que esta es tu respuesta final?",
                     "Seleccione la opcion deseada",
-                    JOptionPane.YES_NO_OPTION);
+                    JOptionPane.YES_NO_OPTION); //Mensaje que aparece al pincharle a un sospechoso
 
-            if (ok == 0) {
-                vista.setVisible(false);
-                if (modelo.Comprobar(opcion)) {
-                    j.setNum_victorias(j.getNum_victorias() + 1);
-                    j.setPuntos(j.getPuntos() + puntos);
-                    v_ganar.setVisible(true);
-                } else {
-                    v_perder.setVisible(true);
+            if (ok == 0) { //Si el usuario le da a que si ocurre lo siguiente
+                vista.setVisible(false); //Ponemos la vista de juego a false
+                if (modelo.Comprobar(opcion)) { //Comprobamos la opcion si has acertado ocurre lo siguiente
+                    j.setNum_victorias(j.getNum_victorias() + 1); //Aumentamos en uno el numero de victorias
+                    j.setPuntos(j.getPuntos() + puntos); //Se suman los puntos de esta partida a los acumulados de las partidas ganadas anteriormente
+                    v_ganar.setVisible(true); //Ponemos la vista de ganador a verdadero
+                } else { //Sino
+                    v_perder.setVisible(true); //Ponemos la vista de perdedor a verdadero
                 }
 
             }
         }
     }
-
+    
+    /**
+     * Listeners de las opciones de las preguntas 
+     */
     class Opciones implements ActionListener {
 
         @Override
@@ -148,34 +157,58 @@ public class Controlador {
             String opcion = a.getActionCommand();
 
             switch (opcion) {
+                /**
+                * Al pinchar en una opcion muestra sus subopciones
+                */
                 case "Sexo":
                     vista.opSexo();
                     break;
-
+                    
+                /**
+                * Al pinchar en una opcion muestra sus subopciones
+                */
                 case "Pelo":
                     vista.opPelo();
                     break;
 
+                /**
+                * Al pinchar en una opcion muestra sus subopciones
+                */
                 case "Ojos":
                     vista.opOjos();
                     break;
 
+                /**
+                * Al pinchar en una opcion muestra sus subopciones
+                */
                 case "Nariz":
                     vista.opNariz();
                     break;
 
+                /**
+                * Al pinchar en una opcion muestra sus subopciones
+                */
                 case "Boca":
                     vista.opBoca();
                     break;
 
+                /**
+                * Al pinchar en una opcion muestra sus subopciones
+                */
                 case "Gafas":
                     vista.opGafas();
                     break;
 
+                /**
+                * Al pinchar en una opcion muestra sus subopciones
+                */
                 case "Sombrero":
                     vista.opSombrero();
                     break;
 
+                /**
+                * Al pinchar en una opcion muestra sus subopciones
+                */
                 case "Bigote":
                     vista.opBigote();
                     break;
@@ -183,6 +216,9 @@ public class Controlador {
         }
     }
 
+    /**
+     * Clase para elegir la dificultad del juego
+     */
     class Dificultad implements ActionListener {
 
         @Override
@@ -190,7 +226,14 @@ public class Controlador {
             String opcion = a.getActionCommand();
 
             switch (opcion) {
-
+                /**
+                * Ponemos el nivel de partida
+                * Guardamos los puntos en una variable
+                * Le pasamos a la vista los puntos para que los muestre
+                * Ponemos todas las otras dificultades que no hemos elegido a falso
+                * Ponemos a falso la vista de la dificultad
+                * Ponemos a verdadero la vista de juego
+                */
                 case "Facil":
                     modelo.partidaFacil();
                     puntos = modelo.getPuntos();
@@ -203,7 +246,15 @@ public class Controlador {
                     vista.setVisible(true);
 
                     break;
-
+                
+                /**
+                * Ponemos el nivel de partida
+                * Guardamos los puntos en una variable
+                * Le pasamos a la vista los puntos para que los muestre
+                * Ponemos todas las otras dificultades que no hemos elegido a falso
+                * Ponemos a falso la vista de la dificultad
+                * Ponemos a verdadero la vista de juego
+                */
                 case "Media":
                     modelo.partidaMedia();
                     puntos = modelo.getPuntos();
@@ -216,7 +267,15 @@ public class Controlador {
                     vista.setVisible(true);
 
                     break;
-
+                
+                /**
+                * Ponemos el nivel de partida
+                * Guardamos los puntos en una variable
+                * Le pasamos a la vista los puntos para que los muestre
+                * Ponemos todas las otras dificultades que no hemos elegido a falso
+                * Ponemos a falso la vista de la dificultad
+                * Ponemos a verdadero la vista de juego
+                */
                 case "Dificil":
                     modelo.partidaDificil();
                     puntos = modelo.getPuntos();
@@ -228,7 +287,15 @@ public class Controlador {
                     d.setVisible(false);
                     vista.setVisible(true);
                     break;
-
+                
+                /**
+                * Ponemos el nivel de partida
+                * Guardamos los puntos en una variable
+                * Le pasamos a la vista los puntos para que los muestre
+                * Ponemos todas las otras dificultades que no hemos elegido a falso
+                * Ponemos a falso la vista de la dificultad
+                * Ponemos a verdadero la vista de juego
+                */
                 case "Personalizada":
 
                     personalizado.setVisible(true);
@@ -399,7 +466,10 @@ public class Controlador {
             }
         }
     }
-
+    
+    /**
+     * Listener para empezar a jugar 
+     */
     class Principal implements ActionListener {
 
         @Override
@@ -408,14 +478,17 @@ public class Controlador {
             switch (opcion) {
 
                 case "JUGAR":
-                    vista.setVisible(false);
-                    d.setVisible(true);
-                    inicio.setVisible(false);
+                    vista.setVisible(false); //Ponemos la vista de juego a falso
+                    d.setVisible(true); //Ponemos la vista de el nivel de dificultad a true
+                    inicio.setVisible(false); //Ponemos la vista de inicio a falso
                     break;
             }
         }
     }
-
+    
+    /**
+     * Listeners de los menus 
+     */
     class Menu implements ActionListener {
 
         @Override
@@ -424,6 +497,9 @@ public class Controlador {
 
             switch (opcion) {
                 case "Ayuda":
+                    /**
+                    * Mostramos mensaje de ayuda
+                    */
                     JOptionPane.showMessageDialog(null, "-El usuario debe jugar el rol de detective, haciendo preguntas al sistema sobre "
                             + "los rasgos físicos del asesino. \n" + "-Cada pregunta que haga el usuario será respondida por un SI o un NO por "
                             + "el sistema. \n" + "-Conforme el sistema va "
@@ -434,32 +510,35 @@ public class Controlador {
                     break;
 
                 case "Volver a empezar":
-                    vista.setVisible(false);
-                    j.setNum_partidas(j.getNum_partidas()+1);
-                    v_perder.setVisible(false);
-                    QuienEsQuien q = new QuienEsQuien(j);
+                    vista.setVisible(false); //Ponemos la vista del juego en falso
+                    j.setNum_partidas(j.getNum_partidas()+1); //Aumentamos el numero de partidas en 1
+                    v_perder.setVisible(false); //Ponemos la vista de perdedor en falso
+                    QuienEsQuien q = new QuienEsQuien(j); //Creamos nueva partida
                     break;
 
                 case "Cambiar color de fondo":
-                    color = new ElegirColor();
-                    c = color.getColor();
-                    vista.setColorFondo(c);
+                    color = new ElegirColor(); //Elegimos el color que queremos en una paleta
+                    c = color.getColor(); //Guardamos el color en una variable
+                    vista.setColorFondo(c); //Le pasamos el color a la vista para que se cambie de color el fondo
                     break;
 
                 case "Cambiar color de foco":
-                    color = new ElegirColor();
-                    g = color.getColor();
-                    vista.setColorFoco(g);
+                    color = new ElegirColor(); //Elegimos el color que queremos en una paleta
+                    g = color.getColor(); //Guardamos el color en una variable
+                    vista.setColorFoco(g); //Le pasamos el color a la vista para que se cambie de color del foco
                     break;
 
                 case "Salir":
-                    System.exit(0);
+                    System.exit(0); //Para la ejecucion del programa
                     break;
 
             }
         }
     }
-
+    
+    /**
+     * Clase para juego personalizado 
+     */
     class Personalizado implements ActionListener {
 
         @Override
@@ -468,6 +547,9 @@ public class Controlador {
 
             switch (opcion) {
                 case "Aceptar":
+                    /**
+                    * Guardamos las puntuaciones de cada pregunta en variables
+                    */
                     int iniciales = personalizado.getPIniciales();
                     int sexo = personalizado.getPSexo();
                     int pelo = personalizado.getPPelo();
@@ -477,11 +559,14 @@ public class Controlador {
                     int bigote = personalizado.getPBigote();
                     int sombrero = personalizado.getPSombrero();
                     int ojos = personalizado.getPOjos();
+                    /**
+                    * Pasamos esas variables al modelo
+                    */
                     modelo.puntuaciones(iniciales, sexo, pelo, nariz, boca, gafas, bigote, sombrero, ojos);
-                    puntos = modelo.getPuntos();
-                    vista.setText(puntos);
-                    personalizado.setVisible(false);
-                    vista.setVisible(true);
+                    puntos = modelo.getPuntos(); //Guardamos en una variable los puntos de inicio
+                    vista.setText(puntos); //Le pasamos a la vista el numeno de puntos de inicio
+                    personalizado.setVisible(false); //Ponemos la ventana de dificultad personalizada a falso
+                    vista.setVisible(true); //Ponemos la ventana de juego a true
                     break;
             }
         }
