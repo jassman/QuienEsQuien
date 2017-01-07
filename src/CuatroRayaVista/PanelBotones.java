@@ -30,14 +30,24 @@ public class PanelBotones extends JPanel{
         add(botones3);
     }
     
+    /**
+     * @param ActionListener 
+     */
     public void setActionListenerPanel1(ActionListener a){
         botones1.setActionListener(a);
     }
     
+    /**
+     * @param ActionListener 
+     */
     public void setActionListenerPanel2(ActionListener a){
         botones2.setActionListener(a);
     }
     
+    /**
+     * @param estado estado del personaje
+     * Funcion que le pasa a otra funcion el estado del personaje
+     */
     public void respuesta(boolean estado){
         botones3.respuesta(estado);
     }
@@ -74,11 +84,18 @@ public class PanelBotones extends JPanel{
     public void opBigote(){
         botones2.opBigote();
     }
-    
+    /**
+     * @param s Nombre del boton que hay que bloquear
+     * Funcion que bloquea los botones de las opciones segun se vayan pulsando
+     */
     public void bloquearBoton(String s){
         botones2.bloquearBoton(s);
     }
     
+    /**
+     * @param c Color que queremos que sea el fondo
+     * Funcion que le pasa a otras funciones el color
+     */
     public void setColor(Color c){
         botones1.setColor(c);
         botones2.setColor(c);

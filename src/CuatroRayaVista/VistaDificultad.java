@@ -18,17 +18,20 @@ import javax.swing.JFrame;
 public class VistaDificultad extends JFrame{
     private BotonesDificultad botones;
         public VistaDificultad(){
-            botones = new BotonesDificultad();
-            Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
-            int height = pantalla.height;
-            int width = pantalla.width;
-            setSize(width/2, height/2);
+            botones = new BotonesDificultad(); //Inicializamos la clase BotonesDificultad
+            Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize(); //Guardamos en una variable la dimension de la pantalla
+            int height = pantalla.height; //Guardamos la altura
+            int width = pantalla.width; //Guardamos la anchura
+            setSize(width/2, height/2); //Ponemos esas medidas entre dos
             setLocationRelativeTo(null);
-            add(botones);
-            ImageIcon face = new ImageIcon("signo-logo.png");
-            setIconImage(face.getImage());
+            add(botones); //Añadimos a la vista la clase BotonesDificultad
+            ImageIcon face = new ImageIcon("signo-logo.png"); //Guardamos la imagen del logo
+            setIconImage(face.getImage()); //Ponemos la imagen del logo en la vista
         }
         
+        /**
+        * @param ActionListener 
+        */
         public void setActionListener(ActionListener a){
             botones.setActionListener(a);
         }

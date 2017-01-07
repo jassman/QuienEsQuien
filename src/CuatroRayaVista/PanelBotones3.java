@@ -22,21 +22,29 @@ public class PanelBotones3 extends JPanel{
 
     
     public PanelBotones3(){
-        setPreferredSize( new Dimension(900, 50) );
-        respuesta = new JLabel();
-        respuesta.setVisible(false);
-        add(respuesta);
+        setPreferredSize( new Dimension(900, 50) ); //Le damos un tamaño al panel
+        respuesta = new JLabel(); //Creamos un JLabel
+        respuesta.setVisible(false); //Ponemos la visibilidad del JLabel en falso
+        add(respuesta); //Añadimos el JLabel
     }
     
+    /**
+     * @param estado Estado del personaje
+     * Funcion que le pasamos el estado del personaje y nos dice si una pregunta es verdadera o falso
+     */
     public void respuesta(boolean estado){
         if(estado){
             respuesta.setText("¡Es cierto!");
         }else{
             respuesta.setText("¡No es cierto!");
         }
-        respuesta.setVisible(true);
+        respuesta.setVisible(true); //Ponemos la visibilidad del JLabel en verdadero
     }
     
+    /**
+     * @param c Color que queremos que sea el fondo
+     * Funcion que pone el color de fondo de pantalla del color que le pasamos
+     */
     public void setColor(Color c){
         this.setBackground(c);
     }

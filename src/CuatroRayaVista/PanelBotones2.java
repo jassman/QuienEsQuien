@@ -152,6 +152,10 @@ public class PanelBotones2 extends JPanel{
         }
     }
     
+    /**
+     * @param c Color que queremos que sea el fondo
+     * Funcion que pone el color de fondo de pantalla del color que le pasamos
+     */
     public void setColor(Color c){
         this.setBackground(c);
     }

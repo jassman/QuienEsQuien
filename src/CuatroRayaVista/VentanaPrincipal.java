@@ -45,27 +45,47 @@ public class VentanaPrincipal extends JFrame {
         ImageIcon face = new ImageIcon("signo-logo.png");
         setIconImage(face.getImage());
     }
-
+    
+    /**
+     * @param ActionListener 
+     */
     public void setActionListenerAsesino(ActionListener a) {
         fotos.setActionListener(a);
     }
-
+    
+    /**
+     * @param ActionListener 
+     */
     public void setActionListenerBotones1(ActionListener a) {
         botones.setActionListenerPanel1(a);
     }
-
+    
+    /**
+     * @param ActionListener 
+     */
     public void setActionListenerBotones2(ActionListener a) {
         botones.setActionListenerPanel2(a);
     }
 
+    /**
+     * @param ActionListener 
+     */
     public void setActionListenerMenu(ActionListener a) {
         menu.setActionListener(a);
     }
 
+     /**
+     * @param s posicion en el vector de los personajes
+     * Funcion que elimina los sospechosos segun las preguntas del usuario
+     */
     public void eliminaSospechosos(int[] s) {
         fotos.eliminaSospechosos(s);
     }
 
+    /**
+     * @param estado estado de cada personaje
+     * Funcion que le pasa a otra funcion el estado del personaje
+     */
     public void respuesta(boolean estado) {
         botones.respuesta(estado);
     }
@@ -102,20 +122,36 @@ public class VentanaPrincipal extends JFrame {
         botones.opBigote();
     }
 
+    /**
+     * @param s 
+     * Funcion que le pasa a otra funcion un string
+     */
     public void setText(int s) {
         puntos.setPuntos(s);
     }
 
+    /**
+     * @param s 
+     * Funcion que le pasa a otra funcion un string
+     */
     public void bloquearBoton(String s) {
         botones.bloquearBoton(s);
     }
 
+    /**
+     * @param c Color que queremos que sea el fondo
+     * Funcion que le pasa a otras funciones el color
+     */
     public void setColorFondo(Color c) {
         botones.setColor(c);
         fotos.setColorFondo(c);
         puntos.setColor(c);
     }
 
+    /**
+     * @param c Color que queremos que sea el fondo
+     * Funcion que le pasa a otra funcion el color
+     */
     public void setColorFoco(Color c) {
         fotos.setColorFoco(c);
     }

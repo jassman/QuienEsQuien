@@ -46,6 +46,9 @@ public class PanelFotos extends JPanel{
 
     }
     
+    /**
+     * @param ActionListener 
+     */
     public void setActionListener(ActionListener a){
         for(int i = 0; i < 24; i++){
             botones[i].addActionListener(a);   

@@ -34,6 +34,9 @@ public class VistaInicio extends JFrame{
         setIconImage(face.getImage());
     }
     
+    /**
+     * @param ActionListener 
+     */
     public void setActionListenerPrincipal(ActionListener a){
         botones.setActionListener(a);
     }
