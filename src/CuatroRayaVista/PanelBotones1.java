@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package CuatroRayaVista;
 
 import java.awt.Image;
@@ -14,13 +9,15 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Lucas
+ * @author Javier Alonso y Lucas Nicolini
  */
 public class PanelBotones1 extends JPanel{
     private JButton [] botones = new JButton [8];
     private String [] etiqueta = {"Sexo", "Pelo", "Ojos", "Nariz", "Boca", "Gafas", "Sombrero", "Bigote"};
     
     public PanelBotones1(){
+        
+        setBackground(new Color(204,204,255));
         for(int i = 0; i < 8; i++){
             botones[i] = new JButton(); //Creacion de un JButton
             ImageIcon rasgo = new ImageIcon("boton" + (i) + ".gif"); //Cargamos la imagen para poner en el boton
@@ -31,6 +28,8 @@ public class PanelBotones1 extends JPanel{
             botones[i].setActionCommand(etiqueta[i]); //Le damos un nombre al JButton del vector etiqueta
             botones[i].setBackground(Color.WHITE); //Le damos al fondo del boton el color blanco
             botones[i].setForeground(Color.BLACK);
+            botones[i].setFocusPainted(false);
+            botones[i].setBorderPainted(false);
             add(botones[i]); //Añadimos el JButton
         }
     }

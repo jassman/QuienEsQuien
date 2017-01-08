@@ -33,7 +33,7 @@ public class BotonesInicio extends JButton{
     }
     
     /**
-     * @param ActionListener 
+     * @param a ActionListener 
      */
     public void setActionListener(ActionListener a){
             this.addActionListener(a);

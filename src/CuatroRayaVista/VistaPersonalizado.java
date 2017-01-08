@@ -38,7 +38,7 @@ public class VistaPersonalizado extends JFrame {
     }
 
     /**
-     * @param ActionListener 
+     * @param a ActionListener 
      */
     public void setActionListener(ActionListener a) {
         boton.addActionListener(a);

@@ -1,20 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package CuatroRayaVista;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionListener;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**
- *
- * @author Lucas
+ * @author Javier Alonso y Lucas Nicolini
  */
 public class PanelBotones2 extends JPanel{
     private JButton [] botones = new JButton [23];
@@ -44,12 +39,44 @@ public class PanelBotones2 extends JPanel{
         "SiBigote", 
         "NoBigote"};
     
+    private String [] subopciones_nombre = {
+        "Chico", 
+        "Chica", 
+        "Rubio", 
+        "Moreno", 
+        "Castaño", 
+        "Pelirrojo", 
+        "Canoso", 
+        "Calvo", 
+        "Azules", 
+        "Verdes", 
+        "Marrones", 
+        "Grande", 
+        "Mediana", 
+        "Pequeña", 
+        "Grande", 
+        "Mediana", 
+        "Pequeña", 
+        "Con Gafas", 
+        "Sin Gafas", 
+        "Con Sombrero", 
+        "Sin Sombrero", 
+        "Con Bigote", 
+        "Sin Bigote"};
+    
     public PanelBotones2(){
         
         setPreferredSize( new Dimension(900, 50) );
+        setBackground(new Color(204,204,255));
         
         for(int i = 0; i < 23; i++){
-            botones[i] = new JButton(subopciones[i]);  
+            botones[i] = new JButton(subopciones_nombre[i]);
+            botones[i].setActionCommand(subopciones[i]);
+            botones[i].setBackground(Color.white);
+            botones[i].setForeground(Color.black);
+            botones[i].setFocusPainted(false);
+            botones[i].setBorderPainted(false);
+            botones[i].setFont(new Font("Colibri", Font.CENTER_BASELINE, 16));
         }
         for(int i = 0; i < 23; i++){
             botones[i].setVisible(false);
@@ -146,7 +173,7 @@ public class PanelBotones2 extends JPanel{
     
     public void bloquearBoton(String s){
         for(int i = 0; i < 23; i++){
-            if (botones[i].getActionCommand() == s){
+            if (botones[i].getActionCommand().equals(s)){
                 botones[i].setEnabled(false);
             }
         }

@@ -15,8 +15,8 @@ import javax.swing.JSpinner;
  */
 public class BotonPuntos extends JPanel{
     
-    private JLabel etiqueta;
-    private JSpinner inicio;
+    private final JLabel etiqueta;
+    private final JSpinner inicio;
     
     public BotonPuntos(){
         etiqueta = new JLabel("Puntos iniciales: "); //Creacion de un JLabel

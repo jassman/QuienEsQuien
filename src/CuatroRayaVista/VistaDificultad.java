@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package CuatroRayaVista;
 
 import java.awt.Dimension;
@@ -13,7 +8,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author Lucas
+ * @author Javier Alonso y Lucas Nicolini
  */
 public class VistaDificultad extends JFrame{
     private BotonesDificultad botones;
@@ -30,7 +25,7 @@ public class VistaDificultad extends JFrame{
         }
         
         /**
-        * @param ActionListener 
+        * @param a 
         */
         public void setActionListener(ActionListener a){
             botones.setActionListener(a);

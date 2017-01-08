@@ -87,7 +87,7 @@ public class Controlador {
 
         @Override
         public void windowClosing(WindowEvent e) {
-            System.out.println(" PhotoEditorController : Cerrar ventana.");
+            System.out.println(" QEQ : Cerrar ventana.");
             System.exit(0); //Para la ejecucion del programa cuando le damos a cerrar ventana
         }
     }
@@ -105,11 +105,12 @@ public class Controlador {
                     j.setNum_partidas(j.getNum_partidas() + 1); //Aumentamos en uno el numero de partidas
                     v_perder.setVisible(false); //Ponemos la vista de perdedor a falso
                     v_ranking.setVisible(false); //Ponemos la vista de ganador a falso
+                    v_ganar.setVisible(false);
                     QuienEsQuien q = new QuienEsQuien(j); //Creamos una nueva partida llamando a la clase principal
                     break;
                 case "Ver Ranking":
                     v_perder.setVisible(false); //Ponemos la vista de perdedor a falso
-                    v_ranking.setJugador(j); //Le pasamos al ranking al jugador j
+                    v_ranking.setJugador(j); //Le pasamos al ranking del jugador j
                     v_ranking.setVisible(true); //Ponemos la vista del ranking a verdadero
                     break;
                 case "Salir":

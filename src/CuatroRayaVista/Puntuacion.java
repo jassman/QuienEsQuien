@@ -6,6 +6,7 @@
 package CuatroRayaVista;
 
 import java.awt.Color;
+import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -18,7 +19,8 @@ public class Puntuacion extends JPanel{
     
     public Puntuacion(){
         puntos = new JLabel("Puntos: "); //Creacion de un JLabel
-        
+        setBackground(new Color(204,204,255));
+        puntos.setFont(new Font("Colibri", Font.BOLD, 16));
         add(puntos); //Añadimos el JLabel
     }
     

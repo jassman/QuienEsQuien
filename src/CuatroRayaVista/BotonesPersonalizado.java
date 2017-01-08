@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package CuatroRayaVista;
 
 import java.awt.Color;
@@ -19,10 +14,10 @@ import javax.swing.JPanel;
  * @author Lucas y Javier
  */
 public class BotonesPersonalizado extends JPanel{
-    private JSpinner [] tipo = new JSpinner[8];
-    private JButton [] botones = new JButton[8];
-    private String [] etiqueta = {"Sexo: ", "Pelo: ", "Ojos: ", "Nariz: ", "Boca: ", "Gafas: ", "Sombrero: ", "Bigote: "};
-    private JLabel [] tipos = new JLabel[8];
+    private final JSpinner [] tipo = new JSpinner[8];
+    private final JButton [] botones = new JButton[8];
+    //private final String [] etiqueta = {"Sexo: ", "Pelo: ", "Ojos: ", "Nariz: ", "Boca: ", "Gafas: ", "Sombrero: ", "Bigote: "};
+    
     public BotonesPersonalizado(){
         setLayout(new GridLayout(8,2,100,5));
         

@@ -40,7 +40,7 @@ public class MenuConfiguracion extends JMenuBar{
     }
     
     /**
-     * @param ActionListener 
+     * @param actionListener ActionListener 
      */
     public void setActionListener(ActionListener actionListener) {
         item.addActionListener(actionListener);

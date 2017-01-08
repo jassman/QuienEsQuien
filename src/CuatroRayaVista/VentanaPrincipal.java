@@ -47,14 +47,14 @@ public class VentanaPrincipal extends JFrame {
     }
     
     /**
-     * @param ActionListener 
+     * @param a 
      */
     public void setActionListenerAsesino(ActionListener a) {
         fotos.setActionListener(a);
     }
     
     /**
-     * @param ActionListener 
+     * @param a 
      */
     public void setActionListenerBotones1(ActionListener a) {
         botones.setActionListenerPanel1(a);

@@ -9,13 +9,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -32,14 +26,17 @@ public class PanelFotos extends JPanel{
         
         setLayout(new GridLayout(3,8));
         setBorder(BorderFactory.createEmptyBorder(20, 50, 20, 50));
-        sinPulsar = Color.DARK_GRAY;
-        pulsado = Color.BLACK;
+        setBackground(new Color(204,204,255));
+        sinPulsar = new Color(155,155,255);
+        pulsado = new Color(155,155,255);
+        
         for(int i = 0; i < 24; i++){
             botones[i] = new BotonPersonalizado(); 
             ImageIcon face = new ImageIcon("cara" + (i+1) + ".gif");
             botones[i].setIcon(face);
             botones[i].setBorder(BorderFactory.createEmptyBorder(30, 10, 30, 10));
             botones[i].setActionCommand(nombres[i]);
+            botones[i].setBackground(new Color(204,204,255));
            
             add(botones[i]);
         }
@@ -47,7 +44,7 @@ public class PanelFotos extends JPanel{
     }
     
     /**
-     * @param ActionListener 
+     * @param a ActionListener 
      */
     public void setActionListener(ActionListener a){
         for(int i = 0; i < 24; i++){
@@ -91,6 +88,9 @@ public class PanelFotos extends JPanel{
     }
     
     public void setColorFondo(Color c){
+        for (JButton b : botones){
+            b.setBackground(c);
+        }
         this.setBackground(c);
     }
      

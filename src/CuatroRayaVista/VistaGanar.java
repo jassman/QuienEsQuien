@@ -34,6 +34,7 @@ public class VistaGanar extends JFrame {
         pack();
         setSize(1000,700);
         setResizable(false);
+        
         image = new ImagenGameOver();
         add(image);
         

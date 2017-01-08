@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package CuatroRayaVista;
 
 import java.awt.Color;
@@ -15,14 +10,15 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Lucas
+ * @author Javier Alonso y Lucas Nicolini
  */
 public class PanelBotones3 extends JPanel{
-    private JLabel respuesta;
+    private final JLabel respuesta;
 
     
     public PanelBotones3(){
         setPreferredSize( new Dimension(900, 50) ); //Le damos un tamaño al panel
+        setBackground(new Color(204,204,255));
         respuesta = new JLabel(); //Creamos un JLabel
         respuesta.setVisible(false); //Ponemos la visibilidad del JLabel en falso
         add(respuesta); //Añadimos el JLabel

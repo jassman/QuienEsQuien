@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package CuatroRayaVista;
 
 /**
- *
- * @author Javier
+ * @author Javier Alonso y Lucas Nicolini
  */
 import CuatroRayaModelo.Jugador;
 import java.awt.BorderLayout;
@@ -58,9 +52,9 @@ public class VistaRanking extends JFrame {
         contenedor.setBackground(Color.black);
 
         titulo = new JLabel("RANKING PARTIDAS");
-        titulo.setForeground(Color.white);
+        titulo.setForeground(Color.black);
         titulo.setFont(new Font("Colibri", Font.BOLD, 20));
-        titulo.setBorder(BorderFactory.createEmptyBorder(30, 30, 60, 0));
+        titulo.setBorder(BorderFactory.createEmptyBorder(10, 30, 10, 0));
         titulo.setBackground(Color.black);
 
         contenedor_c.setBackground(Color.BLACK);
